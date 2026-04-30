@@ -1,0 +1,443 @@
+{
+  "id": "missing-card",
+  "title": "The Mystery of the Missing Card",
+  "subtitle": "A Hollowsdale Story",
+  "bookNumber": 1,
+  "coverEmoji": "🔍",
+  "description": "Otis lost his card. Hazel will find it.",
+  "startPassage": "intro",
+  "endingPassageIds": ["end-mae", "end-felix", "end-wilbur", "end-window"],
+  "passages": {
+    "intro": {
+      "type": "read",
+      "label": "Before The Story Begins",
+      "pages": [
+        "Hazel is a calico kitten in the first grade at Hollowsdale Primary School.\n\nShe has three white paws, one orange paw, and a small notch in her left ear from when she bumped into a doorframe as a baby. Her grandmother says the notch makes her look like a kitten who has been somewhere, and Hazel likes that.",
+        "She lives in a cedar cottage at the edge of town with her grandmother. Her best friend is a bunny named Pip, who is brave and loyal and almost always thinking about snacks.\n\nHer favorite teacher is Mr. Brindle the otter, and her favorite place in the whole school is the reading corner, where Mrs. Featherwhistle the owl librarian sometimes reads aloud on rainy afternoons.",
+        "In the deep pocket of her apron, Hazel carries a small notebook and a silver magnifying glass.\n\nThe magnifying glass is special. It can show her things that have been somewhere a little while ago, fading like soft golden lines in the air. Her grandmother gave it to her on the morning this story begins.",
+        "The thing about Hazel is that she notices things. She notices when a friend looks sad before they say so. She notices the small, important details that everyone else walks past.\n\nThis is the story of her very first mystery."
+      ],
+      "next": "prologue-1"
+    },
+    "prologue-1": {
+      "type": "read",
+      "label": "Prologue",
+      "pages": [
+        "The first thing Hazel did every morning was open her bedroom window.\n\nHer room was small and round and smelled like cedar, because her father had built the cottage from cedar logs before she was born. The window faced east, and every morning the light came in golden and slow, the way honey pours out of a jar.",
+        "Hazel was a very small calico kitten. She had three white paws and one orange one, and a notch in her left ear from where she had bumped into a doorframe when she was a baby. Her grandmother said the notch made her look like a kitten who had been somewhere.\n\nShe liked that.",
+        "While she ate her breakfast, which was oatmeal with maple syrup and one slice of apple, her grandmother sat across the table reading the newspaper. Her grandmother was very old, and very wise, and she had a way of knowing things that other people did not know.\n\n\"What are you noticing today, my Hazel?\" she asked.\n\nThis was the question her grandmother always asked.",
+        "Hazel thought for a moment. \"The crow on the fence has only one eye open. He is watching the squirrel in the maple tree but pretending not to.\"\n\nHer grandmother smiled. \"You see what other people walk past.\"\n\nShe reached into the pocket of her sweater and pulled out something small and round. A silver magnifying glass with a wooden handle, polished smooth from years of use. She slid it across the table.",
+        "\"You have seen me use this for a long time,\" she said. \"I think it is time it lived in your apron pocket.\"\n\nHazel picked it up carefully. The lens was cool against her paw.\n\n\"Look through it at something small,\" her grandmother said.",
+        "Hazel held the glass up to her oatmeal bowl. Through the lens, the world looked the same. Almost. There was a faint golden trace on the edge of the bowl, where her grandmother had set it down a few minutes ago. The trace was already fading.\n\nHazel looked up, eyes wide.\n\n\"It shows me where things have been,\" she whispered.",
+        "\"It shows you where things were a little while ago,\" her grandmother said. \"The traces fade fast. So when you use it, you have to be quick. And you have to remember that the glass shows you what was there. It does not tell you what it means. That part is up to you.\"\n\nHazel held the glass against her chest.\n\n\"It was your grandmother's before mine,\" her grandmother said. \"Now it is yours. Use it for kind things.\""
+      ],
+      "next": "intro-choice"
+    },
+    "intro-choice": {
+      "type": "choice",
+      "prompt": "What does Hazel write in her notebook before school?",
+      "options": [
+        {
+          "id": "intro-a",
+          "label": "About the morning",
+          "text": "Today the morning light came in like honey, golden and slow. The crows are arguing with the squirrel in the maple tree again. My grandmother gave me her magnifying glass and it lives in my apron pocket now. I will use it for kind things. I will look for one new thing today that no one else has noticed.",
+          "next": "prologue-2"
+        },
+        {
+          "id": "intro-b",
+          "label": "About the magnifying glass",
+          "text": "My grandmother gave me her magnifying glass today. It is silver with a wooden handle, smooth from a hundred years of being held. It shows me where things have been. The traces fade fast and I have to be quick. The glass does not tell me what things mean. That part is up to me.",
+          "next": "prologue-2"
+        }
+      ]
+    },
+    "prologue-2": {
+      "type": "read",
+      "label": "Walking To School",
+      "pages": [
+        "Hazel slipped her notebook and the magnifying glass into the deep pockets of her apron and walked out the front door.\n\nHollowsdale in the autumn was the best Hollowsdale of all. The lanterns along the cobblestone street were just starting to dim, since the morning sun was bright enough now. Mr. Cobble the badger was opening up his bakery. The smell of warm bread drifted out into the street.",
+        "Hazel waved to Mr. Cobble. He waved back with one floury paw.\n\nShe walked past the post office, past the doctor's clinic, and past the little stone bridge over the creek. At the bridge she met Pip the bunny, who was waiting for her like he did every morning. Pip was her best friend in the whole world. He was loyal and brave and very easily distracted by snacks.",
+        "\"Hazel!\" he called. \"I have an acorn. Do you want to share it?\"\n\n\"Maybe at recess,\" she said.\n\nThey walked the rest of the way to Hollowsdale Primary together, talking about nothing in particular, which was the best kind of talking.",
+        "Room 4 was already filling up when they got there. Mr. Brindle the otter was writing the date on the blackboard in his careful handwriting. Wilbur the mouse was moving from desk to desk with a feather duster, getting everything ready for the day. Wilbur did this every morning, and again at every recess. He liked the classroom to feel like the classroom should feel.\n\nThe window above the reading corner was open a crack to let the autumn air in, and the maple leaves outside were rustling in the soft breeze.",
+        "Mrs. Featherwhistle the owl librarian glided in through the doorway with a small stack of picture books tucked under one wing. She smiled at the children and set the books gently on the reading corner shelf, taking a moment to line up the spines just so. She nodded at Mr. Brindle with the friendly seriousness of someone who had known him for a long time. Then she glided back out, leaving the reading corner just a little brighter than before.",
+        "A second later, Felix the fox padded in from across the hall. Felix was a second-grader with a dusty red coat and a slightly crooked tail. He was holding a pencil that needed sharpening, and Mr. Brindle pointed him to the sharpener by the supply shelf.\n\nFelix sharpened his pencil. Then, instead of leaving, he stood there for a moment and looked around the classroom. His eyes landed on Otis the hedgehog's desk, and he stayed looking at it for what felt like a long second. Then he padded back out into the hallway.\n\nHazel had noticed.",
+        "A moment later, Mae the squirrel came rushing in just as the bell rang, almost knocking Otis's chair over as she sat down at her desk behind him.\n\nHazel slid into her own seat. She took out her notebook and her pencil. She put her paws flat on the desk.\n\nIt was going to be a good day. She could feel it.\n\nShe did not yet know that by recess, she would have her very first mystery to solve."
+      ],
+      "next": "opening"
+    },
+    "opening": {
+      "type": "read",
+      "label": "Something Is Wrong With Otis",
+      "pages": [
+        "The maple tree outside Room 4 had turned the color of fresh apple cider, and Hazel was thinking about that exact color when she noticed Otis.\n\nOtis the hedgehog was sitting at his desk with his small spines pulled in tight. He was looking at his hands. He was not looking at the math worksheet in front of him. He was not looking at the window. He was not looking at anyone.",
+        "Hazel had known Otis since the first day of school. She knew that when he pulled his spines in like that, something was wrong.\n\nShe slid out of her seat and padded quietly over to him.\n\n\"Otis?\" she whispered. \"Are you okay?\"\n\nOtis shook his head. He did not look up.\n\n\"Did something happen?\"\n\nA small tear slid down his nose. \"My card,\" he said. \"It's gone.\"",
+        "Hazel waited. Otis did not always have many words ready, and she had learned not to rush him.\n\n\"It was a card for Mrs. Featherwhistle,\" he said finally. He took a small breath, like he was steadying himself. \"For helping me read. I worked on it for three whole weeks. I painted the front with stars and a moon and the maple tree from outside the library window, because that's where she always reads to me. And I wrote her a message inside that took me four tries to get right because I kept smudging the words.\"",
+        "He paused. Hazel waited.\n\n\"It said, 'Dear Mrs. Featherwhistle. Before you sat with me on the rug, the words on the page were just bumpy lines. Now they are stories. You are the best librarian in Hollowsdale. Love, Otis.'\"\n\nHis voice got even smaller. \"Today was the day I was finally going to give it to her. I put it on my desk before recess. When I came back, it was gone.\"",
+        "Hazel felt something tighten in her chest.\n\n\"Did you tell Mr. Brindle?\"\n\nOtis shook his head fast. \"I can't. He'll make a big fuss about it and everyone will turn around and stare at me. I just want to give her the card. Quietly. The way I planned.\"",
+        "Hazel nodded. She understood.\n\nShe reached into her apron pocket and felt the cool shape of her grandmother's magnifying glass. The traces faded fast, her grandmother had said. Whatever she was going to do, she would have to do it soon.\n\n\"Otis,\" she said quietly, putting one of her white paws gently over his small one, \"I'm going to find your card. I promise.\"\n\nThen she padded back to her own desk and tried to think."
+      ],
+      "next": "recess"
+    },
+    "recess": {
+      "type": "read",
+      "label": "Recess",
+      "pages": [
+        "The recess bell rang a moment later.\n\nAround the classroom, the other students closed their notebooks and pulled on their jackets and headed out into the autumn sunshine. Hazel did not move. She was still thinking.\n\n\"Hazel?\"",
+        "Pip was standing beside her desk with his snack bag in one paw. He looked at her ears.\n\n\"Your ears are flat. That means your brain is working hard.\"\n\nHazel looked up at him. \"I have a thing to figure out.\"\n\n\"Is it a Hazel thing?\"\n\nBy \"Hazel thing\" he meant the kind of thing only Hazel noticed and only Hazel could solve.\n\nShe nodded.",
+        "\"Okay,\" Pip said. \"I'll be at the bench under the maple tree if you need me. Whatever it is, you'll figure it out. You always do.\"\n\nHe held up the acorn from the bridge. \"I'll save this for when you're done. We can split it later.\"\n\n\"Thanks, Pip.\"\n\nHe patted her shoulder gently and bounded off after the others.\n\nHazel watched him go. Then she turned back to her notebook and got ready to begin."
+      ],
+      "next": "choice-1"
+    },
+    "choice-1": {
+      "type": "choice",
+      "prompt": "How does Hazel begin?",
+      "options": [
+        {
+          "id": "choice-1a",
+          "label": "Quiet thinking first",
+          "text": "I need to think carefully before I do anything. I will go to the reading nook and write down everything I noticed this morning. Who was where. Who was acting different. Anything that felt strange. The magnifying glass can wait. Sometimes the best clues are the ones you already saw without knowing it.",
+          "next": "path-a"
+        },
+        {
+          "id": "choice-1b",
+          "label": "Use the glass right away",
+          "text": "I will pull out my magnifying glass right now. The traces fade fast and I cannot lose them. I will look at Otis's desk first. Whatever I see there will tell me where to go next. The notebook can wait. I have to act before the clues are gone.",
+          "next": "path-b"
+        }
+      ]
+    },
+    "path-a": {
+      "type": "read",
+      "label": "The Notebook",
+      "pages": [
+        "Hazel slipped into the reading nook behind the bookshelf. It was her favorite spot. The cushions were soft and old, and no one ever bothered her there.\n\nShe opened her notebook. She wrote the date at the top. Then she made a list of everything she could remember from that morning.",
+        "Mae the squirrel was rushing this morning. She was almost late. She nearly knocked Otis's chair over when she sat down.\n\nWilbur the mouse tidied the desks during recess. He always did. He liked everything in its proper place.\n\nFelix the fox came in from the second grade hallway to borrow a pencil sharpener. He stood near Otis's desk for a long time after his pencil was done. That was strange. The older kids did not usually come into Room 4.",
+        "Hazel sat back in the cushions and read over her list. Two clues she could chase down before the recess bell rang. She did not have time for both. She would have to choose."
+      ],
+      "next": "choice-2a"
+    },
+    "path-b": {
+      "type": "read",
+      "label": "The Magnifying Glass",
+      "pages": [
+        "Hazel slipped over to Otis's desk and pulled out her grandmother's magnifying glass. Through the lens, the world looked the same. Almost. The traces glowed everywhere, faint and golden, fading slowly like winter breath in the cold.",
+        "She crouched down. The first thing she saw were paw prints. Tiny careful prints, walking slowly across the floor in the way someone walks when they are carrying something with two paws. The prints led to the lost and found bin under the sink. They had to be Wilbur's. He tidied the room every morning and again every recess.",
+        "But there was something else, going in a different direction altogether. Not paw prints. A thin scattering of golden specks, bright and fine like pollen, that drifted up the wall in a soft curving line and disappeared toward the open window above the reading corner. Whatever had made those specks had not walked. It had been carried.",
+        "Hazel sat back on her heels. Two trails she could still follow. The rest had faded too far. The recess bell would ring in twenty minutes and she could not chase both. She had to choose."
+      ],
+      "next": "choice-2b"
+    },
+    "choice-2a": {
+      "type": "choice",
+      "prompt": "Who does Hazel talk to first?",
+      "options": [
+        {
+          "id": "choice-2a-mae",
+          "label": "Talk to Mae",
+          "text": "I will start with Mae. She was rushing this morning and almost knocked into Otis's chair. Maybe she swept the card off his desk by accident when she was getting her things. She would not have meant to do it. Mae is messy but she is kind. I will go find her right now. I will be gentle so I do not scare her.",
+          "next": "inv-mae"
+        },
+        {
+          "id": "choice-2a-felix",
+          "label": "Talk to Felix",
+          "text": "I will go find Felix. He stood by Otis's desk for a long time when he came to borrow the pencil sharpener. That is strange. Felix is a second grader and the older kids do not usually come into our room. I will walk to the second grade hallway right now. I want to know what he was really doing there.",
+          "next": "inv-felix"
+        }
+      ]
+    },
+    "choice-2b": {
+      "type": "choice",
+      "prompt": "Which trail does Hazel follow?",
+      "options": [
+        {
+          "id": "choice-2b-wilbur",
+          "label": "Follow the trail to the lost and found",
+          "text": "I will follow the careful little prints to the lost and found bin. Wilbur is the classroom helper and he loves to put things in their proper place. Maybe he found the card on the floor and tucked it into the bin to keep it safe. I will go look right now before the traces fade away completely.",
+          "next": "inv-wilbur"
+        },
+        {
+          "id": "choice-2b-window",
+          "label": "Follow the trail to the window",
+          "text": "I will follow the golden specks up the wall to the window. The window was open all morning and the leaves were blowing outside. Maybe a strong gust of wind picked up the card and carried it somewhere. The window is high up so I will need to climb up on a chair. I will be very careful not to fall.",
+          "next": "inv-window"
+        }
+      ]
+    },
+    "inv-mae": {
+      "type": "read",
+      "label": "Mae's Cubby",
+      "pages": [
+        "Hazel found Mae in the hallway, kneeling beside her cubby. Mae's tail was twitching the way it did when she was upset about something. She was pulling things out of her cubby in a hurry. A scarf. A water bottle. Two crumpled drawings. A juice box that had been there for a long time.\n\n\"Mae,\" Hazel said softly.",
+        "Mae jumped. \"Oh! Hazel! Hi! I, um, I am just looking for something.\"\n\n\"What are you looking for?\"\n\nMae's tail twitched faster. \"Just my, um, just my reading book. I cannot find it. I think I left it at home but I am checking.\"\n\nHazel watched her for a moment. She did not pull out the magnifying glass. Sometimes you did not need it.",
+        "She glanced into Mae's cubby. There, half buried under a coat, was something pale. A corner of paper with bright paint on it. The card.\n\nMae had no idea Hazel had seen it."
+      ],
+      "next": "choice-3-mae"
+    },
+    "choice-3-mae": {
+      "type": "choice",
+      "prompt": "How does Hazel handle this?",
+      "options": [
+        {
+          "id": "choice-3-mae-x",
+          "label": "Show her gently",
+          "text": "I will tell Mae what I see. I will not be angry or pretend I did not notice. I will just say her name softly and point to the corner of the card. I will let her see it for herself. I think Mae already knows something is wrong. The kindest thing is to let her find her own words.",
+          "next": "res-mae"
+        },
+        {
+          "id": "choice-3-mae-y",
+          "label": "Ask her a question first",
+          "text": "I will not say anything about the card yet. I will ask Mae if she remembers bumping into anything this morning. I want her to think back on her own. If she figures it out without me pointing, she will feel braver about it. I want to give her the chance to be the one who finds the card.",
+          "next": "res-mae"
+        }
+      ]
+    },
+    "res-mae": {
+      "type": "read",
+      "label": "Mae Realizes",
+      "pages": [
+        "Mae's eyes followed Hazel's gaze to the corner of paper. Mae went very still. Then her face crumpled.\n\n\"Oh no,\" she whispered. \"Oh no, oh no. I did not. I would never. I was rushing and I bumped his chair and oh no.\"\n\nHazel waited.",
+        "Mae pulled out the card with shaking paws. The corner was a little bent, but the paint was perfect. The front said FOR MRS. FEATHERWHISTLE in careful purple letters with little stars around them.\n\n\"I must have knocked it off when I sat down,\" Mae said. Her voice was very small. \"I must have stepped on it. I must have picked it up without looking and shoved it in with my stuff. Oh, Hazel, I did not mean to. I would never have wanted to.\"",
+        "\"I know,\" Hazel said. \"I know you would never.\"\n\nMae looked up. Her eyes were wet. \"Will Otis hate me?\"\n\n\"No,\" Hazel said. \"I do not think he will. But I think he will feel a lot better if you are the one who gives the card back.\"\n\nMae nodded slowly. Then she took a deep breath. \"Okay,\" she said. \"Okay. Let me think about how to say it.\""
+      ],
+      "next": "choice-4-mae"
+    },
+    "choice-4-mae": {
+      "type": "choice",
+      "prompt": "What does Hazel do next?",
+      "options": [
+        {
+          "id": "choice-4-mae-x",
+          "label": "Help Mae plan what to say",
+          "text": "I will help Mae figure out what to say. I will tell her that Otis is sad but he is not the kind of person who stays angry. I will remind her that everyone makes mistakes. I will tell her the most important thing is that she is the one going to him. Not me. She found it. She gives it back.",
+          "next": "end-mae"
+        },
+        {
+          "id": "choice-4-mae-y",
+          "label": "Trust Mae to do it on her own",
+          "text": "I will tell Mae I trust her to do this on her own. She does not need me to walk her through it. She knows Otis. She knows what to say. I will go back to my desk and let her have the courage to do this herself. I will only step in if she asks me to.",
+          "next": "end-mae"
+        }
+      ]
+    },
+    "end-mae": {
+      "type": "read",
+      "label": "Ending: A Quiet Resolution",
+      "pages": [
+        "Mae walked over to Otis with the card held very carefully in both paws. Hazel watched from her desk.\n\nMae sat down beside Otis and said something Hazel could not quite hear. Otis listened. His spines were still pulled in tight. Then Mae held out the card.\n\nFor a moment, nothing happened.\n\nThen Otis took the card. He looked at the front. He looked at the back. He looked at Mae.\n\nAnd then, very slowly, his spines began to soften.",
+        "He said something to her, and Mae nodded. The two of them stood up together, and Otis walked over to Mrs. Featherwhistle's reading corner with Mae beside him, and gave her the card.\n\nMrs. Featherwhistle took it carefully. She unfolded it and read every word, and as she read, her feathers ruffled with the kind of soft happiness that only owls can show. She made a quiet hoot. Then she hugged Otis. Then she hugged Mae too.\n\nMr. Brindle never knew the card had been lost. No one but Hazel and Mae knew the whole story.",
+        "Pip slid into the seat next to Hazel at the end of the day, holding the acorn he had been saving since the bridge that morning.\n\n\"Did you figure it out?\" he whispered.\n\n\"I figured it out.\"\n\nPip nodded like he had never doubted. \"You always notice when something's wrong with someone, even when they're trying not to show it,\" he said. \"That's the kind of friend you are.\"\n\nHe split the acorn carefully between them, and Hazel took her half with a smile.",
+        "She closed her notebook and put her grandmother's magnifying glass back in her apron pocket.\n\nSometimes the best mysteries were the ones that ended quietly."
+      ],
+      "isEnding": true,
+      "endingTitle": "Hazel and Mae",
+      "next": null
+    },
+    "inv-felix": {
+      "type": "read",
+      "label": "Finding Felix",
+      "pages": [
+        "Hazel walked down the second grade hallway, looking for Felix. She found him near the water fountain, doing something strange. He was holding a small folded piece of paper and turning it over in his paws like he was trying to figure out a puzzle.\n\nWhen he saw Hazel, he stuffed it in his pocket fast.\n\n\"Hi, Hazel,\" he said, too brightly. \"What are you doing up here?\"",
+        "\"I am looking for you,\" Hazel said. \"Otis lost something. A card. He made it for Mrs. Featherwhistle.\"\n\nFelix's ears went down. He did not look angry. He looked relieved.\n\n\"I was wondering whose it was,\" he said. He pulled the folded paper out of his pocket. It was the card. The corner was a little crumpled where he had been holding it. \"I saw it on the floor by the door when I was leaving with the pencil sharpener. I picked it up. I did not know whose desk to put it on. The name on the inside is to Mrs. Featherwhistle but the front does not say who made it.\"",
+        "Hazel had been wrong. She had thought Felix was lingering for a strange reason. He had been trying to help.\n\n\"So you took it?\"\n\nFelix looked uncomfortable. \"I was going to bring it to Mrs. Featherwhistle myself. But then I thought, what if the person who made it wanted to give it to her? What if I ruined a surprise? So I have been carrying it around all morning trying to figure out what to do.\""
+      ],
+      "next": "choice-3-felix"
+    },
+    "choice-3-felix": {
+      "type": "choice",
+      "prompt": "How does Hazel respond?",
+      "options": [
+        {
+          "id": "choice-3-felix-x",
+          "label": "Apologize for assuming",
+          "text": "I will tell Felix the truth. I came up here thinking he might have taken the card on purpose. I was wrong about that. I should say so. It is not easy to say I was wrong but it is the right thing. Felix was trying to do something kind. He deserves to know I see it.",
+          "next": "res-felix"
+        },
+        {
+          "id": "choice-3-felix-y",
+          "label": "Just thank him warmly",
+          "text": "I will not tell Felix what I was thinking. He does not need to know I came up here suspicious of him. The important thing is that he was trying to help. I will thank him for keeping the card safe. I will tell him Otis will be so relieved. There is no need to say more.",
+          "next": "res-felix"
+        }
+      ]
+    },
+    "res-felix": {
+      "type": "read",
+      "label": "Felix Sees It Anyway",
+      "pages": [
+        "Felix listened. When Hazel finished speaking, he was quiet for a moment, watching her face. Then his ears came up a little, and a small grin tugged at the corner of his mouth.\n\n\"You came up here thinking I took it, didn't you?\"\n\nHazel's whiskers went hot. She started to answer, and then she stopped, because Felix was already laughing softly to himself.",
+        "\"It's okay. Really. I would have thought the same thing. Older kid hanging around a Grade 1 desk for no reason. That's exactly the kind of thing a good detective is supposed to notice.\" He shrugged. \"I'm just glad you came and asked instead of telling Mr. Brindle. That would have been a whole big thing.\"\n\nHe held out the card. \"Here. You should take it back to Otis. He'll want to give it to her himself. That was the whole point, right? Three whole weeks of work? He should get the moment.\"",
+        "Hazel took the card carefully. The paint felt cool under her paws.\n\n\"Thank you, Felix,\" she said. \"Really. Thank you.\"\n\nFelix shrugged in that easy way the older kids had. \"It was no big deal. I'm just glad you found me. I had no idea what to do with it.\"\n\nHe started to walk away. Then he turned back.\n\n\"Hey, Hazel? When you give it to him, don't tell him I had it. He might feel weird about it. Just tell him you found it. Okay?\"\n\nHazel blinked. She had not expected that.\n\n\"Okay,\" she said."
+      ],
+      "next": "choice-4-felix"
+    },
+    "choice-4-felix": {
+      "type": "choice",
+      "prompt": "How does Hazel give the card back?",
+      "options": [
+        {
+          "id": "choice-4-felix-x",
+          "label": "Bring the card directly to Otis",
+          "text": "I will go straight back to Otis and put the card in his hands. I will tell him I found it. I will not tell him about Felix. That is what Felix asked for and it is the kind thing to do. Otis can have his moment with Mrs. Featherwhistle without any worry about how the card got back.",
+          "next": "end-felix"
+        },
+        {
+          "id": "choice-4-felix-y",
+          "label": "Let Otis feel the surprise slowly",
+          "text": "I will go back to Otis and tell him I have something for him. I will not say what it is. I will let him see the card himself. I will not say where I found it. I will just say it is safe now and ready for Mrs. Featherwhistle. I want him to feel the relief slowly.",
+          "next": "end-felix"
+        }
+      ]
+    },
+    "end-felix": {
+      "type": "read",
+      "label": "Ending: A Quiet Kindness",
+      "pages": [
+        "Hazel found Otis at his desk, still pulled in tight. She sat down beside him.\n\n\"Otis,\" she whispered. \"I have something for you.\"\n\nHe looked up. She set the card on the desk in front of him, painted side up, the careful purple letters glowing in the afternoon light.\n\nFor a long moment, Otis did not move.\n\nThen he picked it up and held it against his chest. He did not say anything. He did not need to.\n\nHazel walked away to give him a moment.",
+        "Later, at the end of the day, Otis carried the card up to Mrs. Featherwhistle's reading corner and gave it to her himself. Mrs. Featherwhistle took it gently in her wings. She unfolded it and read every word, and her eyes filled up with the kind of tears that were not sad at all. She made a quiet, happy hoot, and she hugged Otis tight. Otis's spines were soft and standing tall.\n\nHazel watched from her desk. She thought about Felix in the second grade hallway, who had been trying to help all morning, and who she had almost thought badly of.",
+        "Pip slid into the seat next to her, holding the acorn he had been saving since the bridge that morning.\n\n\"Figured it out?\"\n\n\"Figured it out.\"\n\nPip nodded like he had never doubted. \"You always look twice at things before you decide what they mean,\" he said. \"That's why people trust you.\"\n\nHe split the acorn carefully between them, and Hazel took her half with a smile.",
+        "She took out her notebook and wrote one line.\n\nLook twice before you look down on someone.\n\nThen she closed it and put her grandmother's magnifying glass back in her apron pocket."
+      ],
+      "isEnding": true,
+      "endingTitle": "Hazel and Felix",
+      "next": null
+    },
+    "inv-wilbur": {
+      "type": "read",
+      "label": "The Lost And Found",
+      "pages": [
+        "Hazel followed the careful little prints across the classroom floor. They led right to the lost and found bin under the sink. The bin was a big wicker basket full of forgotten things. A mitten. Half a recorder. A tiny silver ring that someone's mother had probably been very upset about.\n\nShe knelt down and started to look through it. Mostly mittens. So many mittens.",
+        "But there, near the top, was a folded piece of paper with bright purple letters on the front. FOR MRS. FEATHERWHISTLE. The card.\n\nHazel sat back on her heels. The card had been right there the whole time. She had walked past this bin every single day. Otis had walked past it. Mr. Brindle had walked past it. Mrs. Featherwhistle, when she came in to read to the class, had walked past it.\n\nHazel pulled it out very carefully. It was perfect. Not a corner bent. Not a smudge on the paint.",
+        "Then she heard a small voice behind her.\n\n\"Oh, hi, Hazel,\" said Wilbur. He was standing in the doorway with his cleaning rag still in one paw. \"What are you looking for?\"\n\nHazel held up the card so he could see it.",
+        "Wilbur's nose twitched. \"Oh! That. I found that on the floor by Otis's desk this morning before school. I did not know whose it was, so I tucked it into the bin to keep it safe. I was going to ask Mr. Brindle later.\" He paused, and his ears began to droop. \"Wait. Whose is it?\"\n\n\"It's Otis's,\" Hazel said gently. \"He made it for Mrs. Featherwhistle. He has been crying about it all morning.\"",
+        "Wilbur's whiskers trembled. The cleaning rag slipped from his paw and landed softly on the floor.\n\n\"Oh no,\" he whispered. \"Oh, Hazel, I am so sorry. I should have asked. I should have looked for the owner before I put it in the bin. I was just trying to keep it safe. I never thought it could be something so important.\""
+      ],
+      "next": "choice-3-wilbur"
+    },
+    "choice-3-wilbur": {
+      "type": "choice",
+      "prompt": "How does Hazel respond to Wilbur?",
+      "options": [
+        {
+          "id": "choice-3-wilbur-x",
+          "label": "Reassure him first",
+          "text": "I will tell Wilbur it is okay. He did not do anything wrong. He was trying to keep the card safe and that was the right thing to do. He just forgot to ask whose it was. Everyone forgets things sometimes. The important part is that the card is safe and we found it.",
+          "next": "res-wilbur"
+        },
+        {
+          "id": "choice-3-wilbur-y",
+          "label": "Help him make it right",
+          "text": "I will tell Wilbur that the best way to feel better is to help fix it. We will go back to Otis together. Wilbur can tell Otis what happened himself. That way Otis will know the card was safe the whole time. Wilbur will feel better too. Doing something always helps more than just feeling sorry.",
+          "next": "res-wilbur"
+        }
+      ]
+    },
+    "res-wilbur": {
+      "type": "read",
+      "label": "Wilbur Steps Up",
+      "pages": [
+        "Wilbur's whiskers were trembling. He was such a careful mouse, and being not careful was the worst thing he could imagine.\n\nHazel held the card out to him.\n\n\"I think you should be the one to bring this back to Otis,\" she said. \"You kept it safe all morning. That is a thing worth saying.\"",
+        "Wilbur took the card very gently in both paws. He looked at it like it was the most important thing in the world.\n\n\"What if Otis is mad at me?\"\n\n\"He might be a little sad,\" Hazel said. \"But not for long. Otis is not the kind of person who stays mad. Especially not at a friend who was trying to help.\"\n\nWilbur nodded. He took a deep breath.\n\n\"Okay,\" he said. \"Okay.\"\n\nHazel walked beside him back into Room 4."
+      ],
+      "next": "choice-4-wilbur"
+    },
+    "choice-4-wilbur": {
+      "type": "choice",
+      "prompt": "How does Hazel support Wilbur?",
+      "options": [
+        {
+          "id": "choice-4-wilbur-x",
+          "label": "Stand beside Wilbur quietly",
+          "text": "I will walk over with Wilbur but I will not say anything. He needs to be the one who tells Otis. I will just stand close so he knows he is not alone. That is what good friends do. They stand beside you when something is hard but they let you do the hard thing yourself.",
+          "next": "end-wilbur"
+        },
+        {
+          "id": "choice-4-wilbur-y",
+          "label": "Let Wilbur go alone",
+          "text": "I will tell Wilbur I trust him to do this by himself. I will go back to my desk. He does not need me hovering over him. He is brave enough for this. Sometimes the most helpful thing you can do is step back and let someone else have the moment that belongs to them.",
+          "next": "end-wilbur"
+        }
+      ]
+    },
+    "end-wilbur": {
+      "type": "read",
+      "label": "Ending: A Friend Who Was Trying To Help",
+      "pages": [
+        "Wilbur walked up to Otis with the card held carefully in both paws. Hazel watched from her desk.\n\nWilbur said something. Otis listened. Otis's spines stayed pulled in for a moment. Then they began to soften, just a little. Then a little more.\n\nOtis took the card. He looked at the front. He looked at the back. He looked at Wilbur.\n\nThen he smiled a small careful smile.",
+        "The two of them walked together to Mrs. Featherwhistle's reading corner. Otis gave her the card. She unfolded it carefully and read every word, and her feathers fluffed up in a way that made her look twice as round. She made a sound like a happy hoot and hugged Otis so tight that one of his small spines popped up and tickled her feathers, which made them both laugh.",
+        "Pip slid into the seat next to Hazel with the acorn he had been saving since the bridge that morning.\n\n\"Figured it out?\"\n\n\"Figured it out.\"\n\nPip nodded like he had never doubted. \"You pay attention even when no one asks you to,\" he said. \"That's the kind of friend you are.\"\n\nHe split the acorn carefully between them, and Hazel took her half with a smile.",
+        "She closed her notebook.\n\nShe thought about the lost and found bin, sitting under the sink the whole time, with the answer right inside it.\n\nSometimes the things you are looking for are right in front of you. You just have to remember to look."
+      ],
+      "isEnding": true,
+      "endingTitle": "Hazel and Wilbur",
+      "next": null
+    },
+    "inv-window": {
+      "type": "read",
+      "label": "Behind the Spider Plant",
+      "pages": [
+        "Hazel pulled a chair over to the open window and climbed up carefully. The wind was cool on her face. The maple leaves outside were tossing back and forth in the breeze.\n\nShe leaned out a little. Below the window, the schoolyard stretched out empty. The other classes were inside now. A few yellow leaves spun in slow circles on the grass.\n\nThere was no card.",
+        "Hazel sat back on the chair and looked around. The window had a small ledge on the inside, with a row of potted plants lined up along it. A spider plant. A little cactus. A geranium with a couple of pink flowers.\n\nShe moved the spider plant gently to one side.\n\nThere, behind the row of plants, tucked against the windowsill where the breeze had carried it and pinned it, was a folded piece of paper. The corner was a little curled where the wind had pushed it against the wall.\n\nThe card.",
+        "It had not gone outside at all. The wind had blown it off the desk, across the room, and stopped it right here at the windowsill, hidden by the leaves of the spider plant.\n\nHazel pulled it out gently. The paint was perfect. Not a scratch on it."
+      ],
+      "next": "choice-3-window"
+    },
+    "choice-3-window": {
+      "type": "choice",
+      "prompt": "What does Hazel do now?",
+      "options": [
+        {
+          "id": "choice-3-window-x",
+          "label": "Tell Otis quickly",
+          "text": "I will go straight back to Otis and tell him I found it. He has been sad all morning and I do not want him to be sad for one more minute. I will not stop to write anything in my notebook. I will just bring him the card so he can finally have his moment with Mrs. Featherwhistle.",
+          "next": "res-window"
+        },
+        {
+          "id": "choice-3-window-y",
+          "label": "Take a moment to think first",
+          "text": "I will sit by the window for one minute before I go. I want to look at the card and think about how strange it is that it was right here all along. Sometimes you find a thing not by chasing it but by staying still and looking carefully. I want to remember this feeling for next time.",
+          "next": "res-window"
+        }
+      ]
+    },
+    "res-window": {
+      "type": "read",
+      "label": "The Answer Was Here",
+      "pages": [
+        "Hazel held the card carefully as she climbed down from the chair. The bell would ring in a few minutes. She had time.\n\nShe walked over to Otis's desk. Otis was still hunched, still small.\n\n\"Otis,\" she said quietly. \"Look up.\"\n\nHe did.\n\nShe placed the card in his paws.",
+        "For a long moment, Otis did not move. Then his eyes filled up with the kind of tears that were not sad at all.\n\n\"Where was it?\" he whispered.\n\n\"Behind the spider plant. The window blew it across the room. It got stuck right against the windowsill.\"\n\nOtis looked at the card. Then he looked at the spider plant on the far side of the room. Then he looked at his desk. He shook his head slowly.\n\n\"I would have walked past that plant a thousand times,\" he said. \"I never would have thought to look.\"",
+        "\"Sometimes you do not have to chase the answer,\" Hazel said. \"Sometimes you just have to stop and look.\"\n\nOtis pressed the card against his chest. His spines were soft and standing tall now."
+      ],
+      "next": "choice-4-window"
+    },
+    "choice-4-window": {
+      "type": "choice",
+      "prompt": "How does Hazel handle the moment?",
+      "options": [
+        {
+          "id": "choice-4-window-x",
+          "label": "Step back so Otis has his moment",
+          "text": "I will step back so Otis can have the moment with Mrs. Featherwhistle by himself. He has been waiting three weeks for this. He should not have me standing next to him when he gives her the card. I will go back to my desk and watch from there. This part of the story is just his.",
+          "next": "end-window"
+        },
+        {
+          "id": "choice-4-window-y",
+          "label": "Walk with him for support",
+          "text": "I will walk with Otis up to Mrs. Featherwhistle but I will stay a few steps behind. If he wants me there, I am there. If he wants to do it on his own when he gets to her, I will hang back. I will let him decide in the moment what he wants.",
+          "next": "end-window"
+        }
+      ]
+    },
+    "end-window": {
+      "type": "read",
+      "label": "Ending: Stillness Is Its Own Skill",
+      "pages": [
+        "Otis carried the card up to Mrs. Featherwhistle's reading corner. He stood very still in front of her for a moment, like he was working up the courage. Then he held out the card with both paws.\n\nMrs. Featherwhistle took it. She unfolded it. She read every word.\n\nThen she looked up at Otis with shining eyes and made a sound like a happy hoot, and she hugged him so gently that his spines did not even move.",
+        "Hazel watched from her desk.\n\nPip slid into the seat next to her with the acorn he had been saving since the bridge that morning.\n\n\"Figured it out?\"\n\n\"Figured it out.\"\n\nPip nodded like he had never doubted. \"You're patient. You see what other people walk past,\" he said. \"That's the kind of friend you are.\"\n\nHe split the acorn carefully between them, and Hazel took her half with a smile.",
+        "She took out her notebook and wrote, very carefully:\n\nThe answer was here the whole time. I just had to stop and look.\n\nThen she closed her notebook and put her grandmother's magnifying glass back in her apron pocket.\n\nSometimes the best mysteries were the ones that ended quietly."
+      ],
+      "isEnding": true,
+      "endingTitle": "Hazel and the Window",
+      "next": null
+    }
+  }
+}

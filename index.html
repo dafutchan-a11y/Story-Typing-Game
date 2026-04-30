@@ -1,0 +1,2058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hollowsdale Stories</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FFF7ED;
+    --paper-soft: #FEF3E2;
+    --paper-shadow: rgba(190, 24, 93, 0.08);
+    --pink-50: #FDF2F8;
+    --pink-100: #FCE7F3;
+    --pink-200: #FBCFE8;
+    --pink-300: #F9A8D4;
+    --pink-400: #F472B6;
+    --pink-500: #EC4899;
+    --pink-600: #DB2777;
+    --pink-700: #BE185D;
+    --purple-50: #FAF5FF;
+    --purple-100: #F3E8FF;
+    --purple-200: #E9D5FF;
+    --purple-300: #D8B4FE;
+    --purple-400: #C084FC;
+    --purple-500: #A855F7;
+    --purple-700: #7E22CE;
+    --purple-900: #4C1D95;
+    --gold: #F59E0B;
+    --gold-soft: #FEF3C7;
+    --sage: #86EFAC;
+    --sage-soft: #DCFCE7;
+    --ink: #5B21B6;
+    --ink-soft: #7E22CE;
+    --error: #DC2626;
+    --success: #059669;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    font-family: 'Lora', Georgia, serif;
+    color: var(--ink);
+    background: linear-gradient(135deg, #FDF2F8 0%, #F3E8FF 50%, #FCE7F3 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  /* Animated background sparkles */
+  .bg-sparkles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .sparkle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--pink-300);
+    border-radius: 50%;
+    opacity: 0;
+    animation: float 12s infinite ease-in-out;
+  }
+
+  .sparkle:nth-child(2) { background: var(--purple-300); width: 4px; height: 4px; }
+  .sparkle:nth-child(3) { background: var(--gold); width: 5px; height: 5px; }
+  .sparkle:nth-child(4) { background: var(--pink-400); width: 3px; height: 3px; }
+
+  @keyframes float {
+    0%, 100% { opacity: 0; transform: translateY(0) scale(0.8); }
+    25% { opacity: 0.7; transform: translateY(-20px) scale(1.1); }
+    50% { opacity: 0.4; transform: translateY(-40px) scale(0.9); }
+    75% { opacity: 0.6; transform: translateY(-60px) scale(1); }
+  }
+
+  #app {
+    position: relative;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  /* === TITLE SCREEN === */
+  .title-screen {
+    text-align: center;
+    max-width: 720px;
+    width: 100%;
+    animation: fadeUp 0.8s ease-out;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .title-script {
+    font-family: 'Caveat', cursive;
+    font-size: clamp(56px, 8vw, 88px);
+    font-weight: 700;
+    color: var(--pink-700);
+    letter-spacing: -1px;
+    line-height: 0.95;
+    margin-bottom: 8px;
+    text-shadow: 2px 2px 0 var(--pink-100);
+  }
+
+  .title-sub {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: clamp(16px, 2vw, 20px);
+    color: var(--purple-700);
+    margin-bottom: 56px;
+    opacity: 0.85;
+  }
+
+  .bookshelf {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 24px;
+    padding: 32px 16px 0;
+    min-height: 280px;
+  }
+
+  .bookshelf::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 560px;
+    height: 18px;
+    background: linear-gradient(180deg, #B45309 0%, #78350F 100%);
+    border-radius: 2px;
+    box-shadow: 0 4px 8px rgba(120, 53, 15, 0.3);
+  }
+
+  .book {
+    position: relative;
+    width: 160px;
+    height: 220px;
+    border-radius: 4px 12px 12px 4px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: linear-gradient(135deg, var(--pink-200) 0%, var(--purple-200) 100%);
+    box-shadow:
+      -3px 0 0 rgba(190, 24, 93, 0.15) inset,
+      4px 8px 16px rgba(190, 24, 93, 0.2),
+      0 4px 12px rgba(126, 34, 206, 0.15);
+    padding: 24px 18px 18px 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    margin-bottom: 18px;
+  }
+
+  .book::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    background: linear-gradient(90deg, rgba(0,0,0,0.15), transparent);
+  }
+
+  .book:hover {
+    transform: translateY(-8px) rotate(-1deg);
+    box-shadow:
+      -3px 0 0 rgba(190, 24, 93, 0.15) inset,
+      6px 14px 24px rgba(190, 24, 93, 0.3),
+      0 8px 20px rgba(126, 34, 206, 0.2);
+  }
+
+  .book.locked {
+    opacity: 0.5;
+    cursor: default;
+    filter: grayscale(0.4);
+  }
+
+  .book.locked:hover {
+    transform: none;
+  }
+
+  .book-number {
+    font-family: 'Caveat', cursive;
+    font-size: 16px;
+    color: var(--purple-700);
+    opacity: 0.7;
+  }
+
+  .book-title {
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--pink-700);
+    line-height: 1.05;
+    margin-top: 8px;
+  }
+
+  .book-subtitle {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: var(--purple-700);
+    margin-top: 4px;
+    opacity: 0.8;
+  }
+
+  .book-emoji {
+    font-size: 36px;
+    align-self: center;
+    margin: 12px 0;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+  }
+
+  .book-cta {
+    font-family: 'Caveat', cursive;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--purple-900);
+    text-align: center;
+    background: rgba(255, 247, 237, 0.7);
+    border-radius: 8px;
+    padding: 4px 8px;
+  }
+
+  .book.completed::after {
+    content: '✓';
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+    background: var(--sage);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  /* Library shelf - storybooks */
+  .library-shelf {
+    margin-top: 40px;
+  }
+
+  .shelf-label {
+    font-family: 'Caveat', cursive;
+    font-size: 28px;
+    color: var(--purple-700);
+    margin-bottom: 12px;
+  }
+
+  .storybook-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .storybook {
+    position: relative;
+    width: 100px;
+    height: 140px;
+    border-radius: 3px 8px 8px 3px;
+    cursor: pointer;
+    transition: transform 0.25s ease;
+    padding: 14px 10px 10px 14px;
+    display: flex;
+    flex-direction: column;
+    box-shadow:
+      -2px 0 0 rgba(0,0,0,0.1) inset,
+      3px 6px 12px rgba(0,0,0,0.15);
+  }
+
+  .storybook:hover {
+    transform: translateY(-6px) rotate(-1deg);
+  }
+
+  .storybook-mae { background: linear-gradient(135deg, var(--pink-200), var(--pink-300)); }
+  .storybook-felix { background: linear-gradient(135deg, var(--gold-soft), #FCD34D); }
+  .storybook-wilbur { background: linear-gradient(135deg, var(--sage-soft), var(--sage)); }
+  .storybook-window { background: linear-gradient(135deg, var(--purple-200), var(--purple-300)); }
+
+  .storybook::before {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(90deg, rgba(0,0,0,0.15), transparent);
+  }
+
+  .storybook-num {
+    font-family: 'Caveat', cursive;
+    font-size: 11px;
+    color: var(--purple-900);
+    opacity: 0.6;
+  }
+
+  .storybook-title {
+    font-family: 'Caveat', cursive;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--purple-900);
+    line-height: 1;
+    margin-top: 6px;
+  }
+
+  .storybook-emoji {
+    font-size: 22px;
+    align-self: center;
+    margin-top: auto;
+    margin-bottom: 4px;
+  }
+
+  /* === READING SCREEN === */
+  .read-screen {
+    width: 100%;
+    max-width: 720px;
+    height: 100%;
+    max-height: 680px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .book-page-container {
+    perspective: 2000px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .book-page {
+    width: 100%;
+    max-width: 640px;
+    background: var(--paper);
+    border-radius: 8px;
+    padding: 56px 64px 64px;
+    box-shadow:
+      0 1px 0 var(--paper-soft) inset,
+      0 -1px 0 rgba(190, 24, 93, 0.1) inset,
+      0 8px 32px rgba(190, 24, 93, 0.18),
+      0 2px 8px rgba(126, 34, 206, 0.12);
+    position: relative;
+    transform-origin: left center;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease-in-out, opacity 0.4s ease;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .book-page::before, .book-page::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--pink-300);
+    opacity: 0.4;
+  }
+
+  .book-page::before {
+    top: 16px;
+    left: 16px;
+    border-right: none;
+    border-bottom: none;
+    border-radius: 4px 0 0 0;
+  }
+
+  .book-page::after {
+    bottom: 16px;
+    right: 16px;
+    border-left: none;
+    border-top: none;
+    border-radius: 0 0 4px 0;
+  }
+
+  .book-page.flipping-out {
+    transform: rotateY(-90deg);
+    opacity: 0;
+  }
+
+  .book-page.flipping-in {
+    animation: flipIn 0.5s ease-in-out;
+  }
+
+  @keyframes flipIn {
+    from { transform: rotateY(90deg); opacity: 0; }
+    to { transform: rotateY(0); opacity: 1; }
+  }
+
+  .page-label {
+    font-family: 'Caveat', cursive;
+    font-size: 18px;
+    color: var(--purple-700);
+    text-align: center;
+    margin-bottom: 16px;
+    opacity: 0.7;
+    font-style: italic;
+  }
+
+  .page-content {
+    font-family: 'Lora', serif;
+    font-size: 19px;
+    line-height: 1.7;
+    color: var(--ink);
+    flex: 1;
+  }
+
+  .page-content p {
+    margin-bottom: 16px;
+  }
+
+  .page-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  .page-footer {
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px dashed var(--pink-200);
+  }
+
+  .page-indicator {
+    display: flex;
+    gap: 6px;
+  }
+
+  .page-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--pink-200);
+    transition: background 0.3s;
+  }
+
+  .page-dot.active {
+    background: var(--pink-500);
+    transform: scale(1.2);
+  }
+
+  .page-counter {
+    font-family: 'Caveat', cursive;
+    font-size: 16px;
+    color: var(--purple-700);
+    opacity: 0.8;
+  }
+
+  /* Navigation arrows */
+  .nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 2px solid var(--pink-300);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: var(--pink-600);
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(190, 24, 93, 0.15);
+    z-index: 10;
+    font-family: 'Lora', serif;
+  }
+
+  .nav-arrow:hover:not(:disabled) {
+    background: var(--pink-500);
+    color: var(--paper);
+    border-color: var(--pink-500);
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  .nav-arrow:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  .nav-arrow.prev { left: -28px; }
+  .nav-arrow.next { right: -28px; }
+
+  /* === CHOICE SCREEN === */
+  .choice-screen {
+    width: 100%;
+    max-width: 880px;
+    text-align: center;
+    animation: fadeUp 0.6s ease-out;
+  }
+
+  .choice-prompt {
+    font-family: 'Caveat', cursive;
+    font-size: 36px;
+    color: var(--pink-700);
+    margin-bottom: 8px;
+  }
+
+  .choice-instruction {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--purple-700);
+    margin-bottom: 40px;
+    opacity: 0.85;
+  }
+
+  .choice-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  @media (max-width: 720px) {
+    .choice-cards { grid-template-columns: 1fr; }
+  }
+
+  .choice-card {
+    background: var(--paper);
+    border-radius: 12px;
+    padding: 32px 28px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.25s ease;
+    box-shadow:
+      0 4px 16px rgba(190, 24, 93, 0.15),
+      0 2px 6px rgba(126, 34, 206, 0.1);
+    border: 2px solid var(--pink-100);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 220px;
+  }
+
+  .choice-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--pink-400);
+    box-shadow:
+      0 8px 24px rgba(190, 24, 93, 0.25),
+      0 4px 12px rgba(126, 34, 206, 0.15);
+  }
+
+  .choice-label {
+    font-family: 'Caveat', cursive;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--pink-700);
+    margin-bottom: 12px;
+  }
+
+  .choice-text {
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
+    flex: 1;
+    font-style: italic;
+  }
+
+  .choice-cta {
+    margin-top: 16px;
+    font-family: 'Caveat', cursive;
+    font-size: 18px;
+    color: var(--purple-700);
+    text-align: right;
+    opacity: 0.8;
+  }
+
+  /* === TYPING SCREEN === */
+  .type-screen {
+    width: 100%;
+    max-width: 720px;
+    height: 100%;
+    max-height: 680px;
+    display: flex;
+    flex-direction: column;
+    animation: fadeUp 0.5s ease-out;
+  }
+
+  .notebook {
+    background: linear-gradient(180deg, #FFFEF7 0%, #FFFCEC 100%);
+    border-radius: 4px 12px 12px 4px;
+    padding: 48px 56px 48px 80px;
+    flex: 1;
+    position: relative;
+    box-shadow:
+      0 8px 32px rgba(190, 24, 93, 0.15),
+      0 2px 8px rgba(126, 34, 206, 0.1);
+    background-image:
+      linear-gradient(to right, transparent 0, transparent 60px, rgba(244, 114, 182, 0.4) 60px, rgba(244, 114, 182, 0.4) 62px, transparent 62px),
+      repeating-linear-gradient(to bottom, transparent 0, transparent 35px, rgba(126, 34, 206, 0.18) 35px, rgba(126, 34, 206, 0.18) 36px);
+    background-size: 100% 100%, 100% 36px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .notebook::before {
+    content: '';
+    position: absolute;
+    left: 32px;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    border-left: 2px dashed rgba(244, 114, 182, 0.4);
+  }
+
+  .notebook-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--pink-100);
+  }
+
+  .notebook-title {
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
+    color: var(--pink-700);
+  }
+
+  .notebook-stats {
+    display: flex;
+    gap: 18px;
+    font-family: 'Caveat', cursive;
+    font-size: 18px;
+    color: var(--purple-700);
+  }
+
+  .stat-value {
+    font-weight: 700;
+    color: var(--pink-600);
+  }
+
+  .typing-area {
+    flex: 1;
+    font-family: 'Kalam', cursive;
+    font-size: 22px;
+    line-height: 36px;
+    color: var(--purple-900);
+    word-spacing: 2px;
+    letter-spacing: 0.3px;
+  }
+
+  .typing-area .char {
+    transition: color 0.1s, background 0.1s;
+    border-radius: 2px;
+    padding: 0 1px;
+  }
+
+  .typing-area .char.typed {
+    color: var(--success);
+  }
+
+  .typing-area .char.error {
+    color: var(--error);
+    background: rgba(220, 38, 38, 0.15);
+    text-decoration: underline wavy;
+  }
+
+  .typing-area .char.current {
+    background: rgba(245, 158, 11, 0.3);
+    border-radius: 2px;
+    animation: blink 1s ease-in-out infinite;
+  }
+
+  .typing-area .char.pending {
+    color: var(--purple-300);
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  .typing-footer {
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+  }
+
+  .typing-instructions {
+    font-family: 'Caveat', cursive;
+    font-size: 16px;
+    color: var(--purple-700);
+    opacity: 0.7;
+  }
+
+  /* === BUTTONS === */
+  .btn {
+    font-family: 'Caveat', cursive;
+    font-weight: 600;
+    font-size: 22px;
+    background: var(--pink-500);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 28px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(236, 72, 153, 0.3);
+  }
+
+  .btn:hover {
+    background: var(--pink-600);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(236, 72, 153, 0.4);
+  }
+
+  .btn:active {
+    transform: translateY(0);
+  }
+
+  .btn.secondary {
+    background: var(--purple-100);
+    color: var(--purple-900);
+    box-shadow: 0 2px 6px rgba(126, 34, 206, 0.15);
+  }
+
+  .btn.secondary:hover {
+    background: var(--purple-200);
+  }
+
+  .btn.ghost {
+    background: transparent;
+    color: var(--purple-700);
+    box-shadow: none;
+    font-size: 18px;
+    padding: 6px 14px;
+  }
+
+  .btn.ghost:hover {
+    background: rgba(126, 34, 206, 0.08);
+    transform: none;
+  }
+
+  /* === TOP BAR === */
+  .top-bar {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    right: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    pointer-events: none;
+  }
+
+  .top-bar > * {
+    pointer-events: auto;
+  }
+
+  .icon-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 247, 237, 0.9);
+    border: 2px solid var(--pink-200);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: var(--pink-600);
+    transition: all 0.2s ease;
+    backdrop-filter: blur(8px);
+  }
+
+  .icon-btn:hover {
+    background: var(--pink-100);
+    border-color: var(--pink-400);
+    transform: scale(1.05);
+  }
+
+  .icon-btn.active {
+    background: var(--pink-500);
+    color: white;
+    border-color: var(--pink-500);
+  }
+
+  /* === ENDING CELEBRATION === */
+  .ending-celebration {
+    text-align: center;
+    animation: zoomIn 0.6s ease-out;
+  }
+
+  @keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .celebration-title {
+    font-family: 'Caveat', cursive;
+    font-size: 56px;
+    color: var(--pink-700);
+    margin-bottom: 8px;
+  }
+
+  .celebration-subtitle {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--purple-700);
+    margin-bottom: 32px;
+  }
+
+  .celebration-storybook {
+    width: 140px;
+    height: 200px;
+    margin: 0 auto 32px;
+    border-radius: 4px 12px 12px 4px;
+    box-shadow: 0 8px 24px rgba(190, 24, 93, 0.3);
+    padding: 20px 14px 14px 18px;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, var(--pink-200), var(--purple-200));
+    animation: bookFloat 3s ease-in-out infinite;
+  }
+
+  @keyframes bookFloat {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-12px) rotate(2deg); }
+  }
+
+  .celebration-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .celebration-emoji {
+    font-size: 48px;
+    margin-top: auto;
+    align-self: center;
+  }
+
+  /* Confetti */
+  .confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    pointer-events: none;
+    z-index: 1000;
+    animation: confettiFall 3s ease-out forwards;
+  }
+
+  @keyframes confettiFall {
+    from {
+      opacity: 1;
+      transform: translateY(-20vh) rotate(0deg);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(100vh) rotate(720deg);
+    }
+  }
+
+  /* Continue Banner */
+  .continue-banner {
+    margin-top: 32px;
+    padding: 16px 24px;
+    background: rgba(255, 247, 237, 0.85);
+    border-radius: 12px;
+    border: 2px dashed var(--pink-300);
+    display: inline-block;
+    backdrop-filter: blur(8px);
+  }
+
+  .continue-banner-text {
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
+    color: var(--purple-900);
+    margin-bottom: 8px;
+  }
+
+  .continue-banner-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  /* Library back button */
+  .back-link {
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
+    color: var(--purple-700);
+    background: rgba(255, 247, 237, 0.9);
+    border: 2px solid var(--pink-200);
+    padding: 8px 18px;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(8px);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .back-link:hover {
+    background: var(--pink-100);
+    border-color: var(--pink-400);
+  }
+
+  /* Parent console */
+  .parent-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(91, 33, 182, 0.7);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+    animation: fadeUp 0.3s ease-out;
+  }
+
+  .parent-modal {
+    background: var(--paper);
+    border-radius: 16px;
+    padding: 32px;
+    max-width: 480px;
+    width: 90%;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+  }
+
+  .parent-modal h2 {
+    font-family: 'Caveat', cursive;
+    font-size: 32px;
+    color: var(--pink-700);
+    margin-bottom: 16px;
+  }
+
+  .parent-section {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed var(--pink-200);
+  }
+
+  .parent-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .parent-section h3 {
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    color: var(--purple-900);
+    margin-bottom: 8px;
+  }
+
+  .parent-section p {
+    font-size: 14px;
+    color: var(--ink);
+    margin-bottom: 12px;
+    opacity: 0.85;
+  }
+
+  /* Loading */
+  .loading {
+    font-family: 'Caveat', cursive;
+    font-size: 32px;
+    color: var(--pink-600);
+    text-align: center;
+  }
+
+  .loading::after {
+    content: '...';
+    animation: dots 1.5s infinite;
+  }
+
+  @keyframes dots {
+    0%, 20% { content: ''; }
+    40% { content: '.'; }
+    60% { content: '..'; }
+    80%, 100% { content: '...'; }
+  }
+
+  /* Resume hint */
+  .resume-hint {
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Caveat', cursive;
+    font-size: 16px;
+    color: var(--purple-700);
+    background: rgba(255, 247, 237, 0.85);
+    padding: 4px 12px;
+    border-radius: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+
+  .resume-hint.visible {
+    opacity: 0.85;
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-sparkles" aria-hidden="true">
+  <div class="sparkle" style="left: 10%; animation-delay: 0s;"></div>
+  <div class="sparkle" style="left: 22%; animation-delay: 2s;"></div>
+  <div class="sparkle" style="left: 35%; animation-delay: 4s;"></div>
+  <div class="sparkle" style="left: 48%; animation-delay: 1s;"></div>
+  <div class="sparkle" style="left: 61%; animation-delay: 3s;"></div>
+  <div class="sparkle" style="left: 74%; animation-delay: 5s;"></div>
+  <div class="sparkle" style="left: 87%; animation-delay: 0.5s;"></div>
+  <div class="sparkle" style="left: 95%; animation-delay: 2.5s;"></div>
+  <div class="sparkle" style="left: 5%; animation-delay: 4.5s; top: 30%;"></div>
+  <div class="sparkle" style="left: 30%; animation-delay: 1.5s; top: 60%;"></div>
+  <div class="sparkle" style="left: 70%; animation-delay: 3.5s; top: 70%;"></div>
+  <div class="sparkle" style="left: 90%; animation-delay: 5.5s; top: 40%;"></div>
+</div>
+
+<div class="top-bar">
+  <div id="left-controls"></div>
+  <div id="right-controls">
+    <button class="icon-btn" id="music-toggle" title="Toggle music">🎵</button>
+  </div>
+</div>
+
+<div id="app">
+  <div class="loading">Loading Hollowsdale</div>
+</div>
+
+<audio id="bg-music" loop preload="auto">
+  <source src="audio/background-music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="resume-hint" id="resume-hint">Saved automatically</div>
+
+<script>
+// =================== STATE ===================
+const state = {
+  screen: 'loading',
+  story: null,
+  currentPassageId: null,
+  currentPageIndex: 0,
+  pathTaken: [],
+  selectedOption: null,
+  typingState: null,
+  musicEnabled: true,
+  isTransitioning: false,
+  titleClicks: [],
+};
+
+// =================== STORAGE ===================
+const SAVE_KEY = 'hollowsdale_save_v1';
+const LIBRARY_KEY = 'hollowsdale_library_v1';
+const SETTINGS_KEY = 'hollowsdale_settings_v1';
+
+const Storage = {
+  getSave(storyId) {
+    try {
+      const all = JSON.parse(localStorage.getItem(SAVE_KEY) || '{}');
+      return all[storyId] || null;
+    } catch { return null; }
+  },
+  saveGame(storyId, passageId, pageIndex, pathTaken) {
+    try {
+      const all = JSON.parse(localStorage.getItem(SAVE_KEY) || '{}');
+      all[storyId] = { passageId, pageIndex, pathTaken, savedAt: Date.now() };
+      localStorage.setItem(SAVE_KEY, JSON.stringify(all));
+      flashResumeHint();
+    } catch {}
+  },
+  clearSave(storyId) {
+    try {
+      const all = JSON.parse(localStorage.getItem(SAVE_KEY) || '{}');
+      delete all[storyId];
+      localStorage.setItem(SAVE_KEY, JSON.stringify(all));
+    } catch {}
+  },
+  getLibrary() {
+    try {
+      return JSON.parse(localStorage.getItem(LIBRARY_KEY) || '[]');
+    } catch { return []; }
+  },
+  addToLibrary(entry) {
+    try {
+      const lib = Storage.getLibrary();
+      lib.push(entry);
+      localStorage.setItem(LIBRARY_KEY, JSON.stringify(lib));
+      return lib.length;
+    } catch { return 0; }
+  },
+  clearLibrary() {
+    try { localStorage.setItem(LIBRARY_KEY, '[]'); } catch {}
+  },
+  clearAll() {
+    try {
+      localStorage.removeItem(SAVE_KEY);
+      localStorage.removeItem(LIBRARY_KEY);
+      localStorage.removeItem(SETTINGS_KEY);
+    } catch {}
+  },
+  getSettings() {
+    try {
+      return JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{"musicEnabled": true}');
+    } catch { return { musicEnabled: true }; }
+  },
+  saveSettings(settings) {
+    try {
+      localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+    } catch {}
+  }
+};
+
+// =================== AUDIO ===================
+const Audio = {
+  music: null,
+  audioCtx: null,
+
+  init() {
+    Audio.music = document.getElementById('bg-music');
+    Audio.music.volume = 0.45;
+    const settings = Storage.getSettings();
+    state.musicEnabled = settings.musicEnabled;
+    Audio.updateMusicButton();
+
+    document.addEventListener('click', Audio.tryStartMusic, { once: true });
+    document.addEventListener('keydown', Audio.tryStartMusic, { once: true });
+  },
+
+  tryStartMusic() {
+    if (state.musicEnabled && Audio.music && Audio.music.paused) {
+      Audio.music.play().catch(() => {});
+    }
+  },
+
+  toggle() {
+    state.musicEnabled = !state.musicEnabled;
+    Storage.saveSettings({ ...Storage.getSettings(), musicEnabled: state.musicEnabled });
+    if (state.musicEnabled) {
+      Audio.music.play().catch(() => {});
+    } else {
+      Audio.music.pause();
+    }
+    Audio.updateMusicButton();
+  },
+
+  updateMusicButton() {
+    const btn = document.getElementById('music-toggle');
+    if (!btn) return;
+    if (state.musicEnabled) {
+      btn.textContent = '🎵';
+      btn.classList.remove('active');
+      btn.title = 'Mute music';
+    } else {
+      btn.textContent = '🔇';
+      btn.classList.add('active');
+      btn.title = 'Play music';
+    }
+  },
+
+  ensureCtx() {
+    if (!Audio.audioCtx) {
+      try {
+        Audio.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      } catch { return null; }
+    }
+    return Audio.audioCtx;
+  },
+
+  pageFlip() {
+    const ctx = Audio.ensureCtx();
+    if (!ctx) return;
+    const now = ctx.currentTime;
+    const buffer = ctx.createBuffer(1, ctx.sampleRate * 0.18, ctx.sampleRate);
+    const data = buffer.getChannelData(0);
+    for (let i = 0; i < data.length; i++) {
+      const t = i / data.length;
+      data[i] = (Math.random() * 2 - 1) * Math.exp(-t * 6) * 0.4;
+    }
+    const source = ctx.createBufferSource();
+    source.buffer = buffer;
+    const filter = ctx.createBiquadFilter();
+    filter.type = 'bandpass';
+    filter.frequency.value = 1200;
+    filter.Q.value = 1.2;
+    const gain = ctx.createGain();
+    gain.gain.value = 0.25;
+    source.connect(filter);
+    filter.connect(gain);
+    gain.connect(ctx.destination);
+    source.start(now);
+  },
+
+  completionChime() {
+    const ctx = Audio.ensureCtx();
+    if (!ctx) return;
+    const now = ctx.currentTime;
+    const notes = [523.25, 659.25, 783.99]; // C5, E5, G5
+    notes.forEach((freq, i) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.value = freq;
+      gain.gain.setValueAtTime(0, now + i * 0.08);
+      gain.gain.linearRampToValueAtTime(0.18, now + i * 0.08 + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.08 + 0.6);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now + i * 0.08);
+      osc.stop(now + i * 0.08 + 0.6);
+    });
+  },
+
+  successDing() {
+    const ctx = Audio.ensureCtx();
+    if (!ctx) return;
+    const now = ctx.currentTime;
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = 'sine';
+    osc.frequency.value = 988;
+    gain.gain.setValueAtTime(0, now);
+    gain.gain.linearRampToValueAtTime(0.12, now + 0.01);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start(now);
+    osc.stop(now + 0.2);
+  }
+};
+
+// =================== STORY ===================
+const Story = {
+  async load(url) {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('Story not found');
+    return await res.json();
+  },
+  getPassage(id) {
+    return state.story.passages[id];
+  },
+  isEnding(id) {
+    return state.story.endingPassageIds.includes(id);
+  }
+};
+
+// =================== UTILITY ===================
+function escapeHtml(s) {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function paragraphsToHtml(text) {
+  return text.split('\n\n').map(p => `<p>${escapeHtml(p).replace(/\n/g, '<br>')}</p>`).join('');
+}
+
+function flashResumeHint() {
+  const hint = document.getElementById('resume-hint');
+  if (!hint) return;
+  hint.classList.add('visible');
+  setTimeout(() => hint.classList.remove('visible'), 1500);
+}
+
+function spawnConfetti() {
+  const colors = ['#EC4899', '#A855F7', '#F59E0B', '#86EFAC', '#F472B6', '#C084FC'];
+  for (let i = 0; i < 60; i++) {
+    const c = document.createElement('div');
+    c.className = 'confetti';
+    c.style.left = Math.random() * 100 + 'vw';
+    c.style.background = colors[Math.floor(Math.random() * colors.length)];
+    c.style.animationDelay = Math.random() * 0.5 + 's';
+    c.style.animationDuration = (2.5 + Math.random() * 1.5) + 's';
+    if (Math.random() > 0.5) {
+      c.style.borderRadius = '50%';
+    }
+    document.body.appendChild(c);
+    setTimeout(() => c.remove(), 4500);
+  }
+}
+
+// =================== NAVIGATION ===================
+const Nav = {
+  showTitle() {
+    state.screen = 'title';
+    state.currentPassageId = null;
+    state.currentPageIndex = 0;
+    state.pathTaken = [];
+    state.selectedOption = null;
+    state.typingState = null;
+    Render.title();
+    document.getElementById('left-controls').innerHTML = '';
+  },
+
+  startStory(fromBeginning = false) {
+    const save = fromBeginning ? null : Storage.getSave(state.story.id);
+    if (save && save.passageId && !Story.isEnding(save.passageId)) {
+      state.currentPassageId = save.passageId;
+      state.currentPageIndex = save.pageIndex || 0;
+      state.pathTaken = save.pathTaken || [];
+    } else {
+      state.currentPassageId = state.story.startPassage;
+      state.currentPageIndex = 0;
+      state.pathTaken = [state.story.startPassage];
+    }
+    Nav.showCurrentPassage();
+    Nav.showInStoryControls();
+  },
+
+  showInStoryControls() {
+    document.getElementById('left-controls').innerHTML = `
+      <button class="back-link" onclick="Nav.confirmExit()">📚 Bookshelf</button>
+    `;
+  },
+
+  confirmExit() {
+    if (confirm('Save your spot and go back to the bookshelf? You can come back later.')) {
+      Storage.saveGame(
+        state.story.id,
+        state.currentPassageId,
+        state.currentPageIndex,
+        state.pathTaken
+      );
+      Nav.showTitle();
+    }
+  },
+
+  showCurrentPassage() {
+    const passage = Story.getPassage(state.currentPassageId);
+    if (!passage) {
+      Nav.showTitle();
+      return;
+    }
+    if (passage.type === 'read') {
+      state.screen = 'read';
+      Render.read(passage);
+    } else if (passage.type === 'choice') {
+      state.screen = 'choice';
+      Render.choice(passage);
+    }
+    Nav.autoSave();
+  },
+
+  autoSave() {
+    if (!state.currentPassageId) return;
+    if (Story.isEnding(state.currentPassageId)) return;
+    Storage.saveGame(
+      state.story.id,
+      state.currentPassageId,
+      state.currentPageIndex,
+      state.pathTaken
+    );
+  },
+
+  nextPage() {
+    if (state.isTransitioning) return;
+    const passage = Story.getPassage(state.currentPassageId);
+    if (!passage || passage.type !== 'read') return;
+    if (state.currentPageIndex < passage.pages.length - 1) {
+      state.currentPageIndex++;
+      Audio.pageFlip();
+      Render.flipToPage(passage, 'forward');
+      Nav.autoSave();
+    } else {
+      // End of passage
+      Nav.advanceToNext(passage);
+    }
+  },
+
+  prevPage() {
+    if (state.isTransitioning) return;
+    const passage = Story.getPassage(state.currentPassageId);
+    if (!passage || passage.type !== 'read') return;
+    if (state.currentPageIndex > 0) {
+      state.currentPageIndex--;
+      Audio.pageFlip();
+      Render.flipToPage(passage, 'backward');
+      Nav.autoSave();
+    }
+  },
+
+  advanceToNext(passage) {
+    if (Story.isEnding(state.currentPassageId)) {
+      Nav.completeStory(passage);
+      return;
+    }
+    const nextId = passage.next;
+    if (!nextId) {
+      Nav.showTitle();
+      return;
+    }
+    Audio.pageFlip();
+    state.currentPassageId = nextId;
+    state.currentPageIndex = 0;
+    state.pathTaken.push(nextId);
+    Nav.showCurrentPassage();
+  },
+
+  selectOption(option) {
+    state.selectedOption = option;
+    state.screen = 'type';
+    Render.type(option);
+  },
+
+  cancelTyping() {
+    state.selectedOption = null;
+    state.typingState = null;
+    Nav.showCurrentPassage();
+  },
+
+  finishTyping() {
+    const option = state.selectedOption;
+    state.pathTaken.push(option.id);
+    state.currentPassageId = option.next;
+    state.currentPageIndex = 0;
+    state.pathTaken.push(option.next);
+    state.selectedOption = null;
+    state.typingState = null;
+    Audio.successDing();
+    Nav.showCurrentPassage();
+  },
+
+  completeStory(endingPassage) {
+    state.screen = 'ending';
+    const number = Storage.addToLibrary({
+      storyId: state.story.id,
+      storybookNumber: 0,
+      endingId: state.currentPassageId,
+      endingTitle: endingPassage.endingTitle || 'A Mystery Solved',
+      pathTaken: [...state.pathTaken],
+      completedAt: Date.now(),
+    });
+    Storage.clearSave(state.story.id);
+    setTimeout(() => Audio.completionChime(), 300);
+    spawnConfetti();
+    Render.endingCelebration(endingPassage, number);
+  }
+};
+
+// =================== TYPING ENGINE ===================
+const Typing = {
+  start(targetText) {
+    state.typingState = {
+      target: targetText,
+      position: 0,
+      errorIndex: -1,
+      startTime: null,
+      errors: 0,
+      keystrokes: 0,
+    };
+    Typing.render();
+    document.addEventListener('keydown', Typing.handleKey);
+  },
+
+  stop() {
+    document.removeEventListener('keydown', Typing.handleKey);
+  },
+
+  handleKey(e) {
+    if (state.screen !== 'type') return;
+    const ts = state.typingState;
+    if (!ts) return;
+
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      Typing.stop();
+      Nav.cancelTyping();
+      return;
+    }
+
+    if (e.key === 'Backspace') {
+      e.preventDefault();
+      if (ts.errorIndex >= 0) {
+        ts.errorIndex = -1;
+        Typing.render();
+      } else if (ts.position > 0) {
+        ts.position--;
+        Typing.render();
+      }
+      return;
+    }
+
+    // Ignore modifier-only keys, function keys, etc.
+    if (e.key.length !== 1) return;
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+
+    e.preventDefault();
+
+    if (ts.errorIndex >= 0) return; // Must clear error first
+
+    if (!ts.startTime) ts.startTime = Date.now();
+    ts.keystrokes++;
+
+    const expected = Typing.normalize(ts.target[ts.position]);
+    const typed = Typing.normalize(e.key);
+    if (typed === expected) {
+      ts.position++;
+      Typing.render();
+      if (ts.position >= ts.target.length) {
+        Typing.complete();
+      }
+    } else {
+      ts.errors++;
+      ts.errorIndex = ts.position;
+      Typing.render();
+    }
+  },
+
+  normalize(c) {
+    if (!c) return c;
+    // Treat curly quotes as equivalent to straight quotes
+    if (c === '\u2018' || c === '\u2019') return "'";
+    if (c === '\u201C' || c === '\u201D') return '"';
+    if (c === '\u2013' || c === '\u2014') return '-';
+    if (c === '\u00A0') return ' ';
+    return c;
+  },
+
+  complete() {
+    Typing.stop();
+    setTimeout(() => Nav.finishTyping(), 350);
+  },
+
+  render() {
+    const ts = state.typingState;
+    if (!ts) return;
+    const target = ts.target;
+    let html = '';
+    for (let i = 0; i < target.length; i++) {
+      const ch = target[i] === ' ' ? '·' : escapeHtml(target[i]);
+      const display = target[i] === ' ' ? '<span style="opacity:0">·</span> ' : escapeHtml(target[i]);
+      let cls = 'char pending';
+      if (i < ts.position) cls = 'char typed';
+      else if (i === ts.position && ts.errorIndex < 0) cls = 'char current';
+      else if (i === ts.errorIndex) cls = 'char error';
+      html += `<span class="${cls}">${escapeHtml(target[i])}</span>`;
+    }
+    const area = document.getElementById('typing-area');
+    if (area) area.innerHTML = html;
+
+    // Update stats
+    Typing.updateStats();
+  },
+
+  updateStats() {
+    const ts = state.typingState;
+    if (!ts) return;
+    let wpm = 0;
+    let acc = 100;
+    if (ts.startTime && ts.position > 0) {
+      const minutes = (Date.now() - ts.startTime) / 60000;
+      const words = ts.position / 5;
+      wpm = Math.round(words / Math.max(minutes, 0.001));
+      const correctChars = ts.position;
+      acc = Math.round((correctChars / Math.max(ts.keystrokes, 1)) * 100);
+    }
+    const wpmEl = document.getElementById('stat-wpm');
+    const accEl = document.getElementById('stat-acc');
+    if (wpmEl) wpmEl.textContent = wpm;
+    if (accEl) accEl.textContent = acc + '%';
+  }
+};
+
+// =================== RENDERING ===================
+const Render = {
+  app: null,
+
+  init() {
+    Render.app = document.getElementById('app');
+  },
+
+  title() {
+    const save = Storage.getSave(state.story.id);
+    const library = Storage.getLibrary();
+    const completedEndings = new Set(library.filter(b => b.storyId === state.story.id).map(b => b.endingId));
+    const totalEndings = state.story.endingPassageIds.length;
+    const allEndingsFound = completedEndings.size === totalEndings;
+
+    const continueAvailable = save && save.passageId && !Story.isEnding(save.passageId);
+
+    let libraryHtml = '';
+    if (library.length > 0) {
+      const storybooks = library.map((b, i) => {
+        const endingClass = b.endingId.replace('end-', 'storybook-');
+        const emoji = ({
+          'end-mae': '🐿️',
+          'end-felix': '🦊',
+          'end-wilbur': '🐭',
+          'end-window': '🌿'
+        })[b.endingId] || '📖';
+        return `
+          <div class="storybook ${endingClass}" onclick="Library.openStorybook(${i})" title="${escapeHtml(b.endingTitle)}">
+            <div class="storybook-num">No. ${i + 1}</div>
+            <div class="storybook-title">${escapeHtml(b.endingTitle)}</div>
+            <div class="storybook-emoji">${emoji}</div>
+          </div>
+        `;
+      }).join('');
+      libraryHtml = `
+        <div class="library-shelf">
+          <div class="shelf-label">Hazel's Storybook Collection</div>
+          <div class="storybook-row">${storybooks}</div>
+        </div>
+      `;
+    }
+
+    const continueHtml = continueAvailable ? `
+      <div class="continue-banner">
+        <div class="continue-banner-text">A story is in progress.</div>
+        <div class="continue-banner-actions">
+          <button class="btn" onclick="Nav.startStory(false)">Continue</button>
+          <button class="btn secondary" onclick="if(confirm('Start over from the very beginning?')) { Storage.clearSave(state.story.id); Nav.startStory(true); }">Start over</button>
+        </div>
+      </div>
+    ` : '';
+
+    const allFoundHtml = allEndingsFound ? `
+      <div class="continue-banner" style="border-color: var(--gold); background: var(--gold-soft);">
+        <div class="continue-banner-text">⭐ You found all four endings! ⭐</div>
+      </div>
+    ` : '';
+
+    Render.app.innerHTML = `
+      <div class="title-screen">
+        <h1 class="title-script" id="title-text">Hollowsdale Stories</h1>
+        <p class="title-sub">A Series of Tiny Mysteries</p>
+        <div class="bookshelf">
+          <div class="book ${completedEndings.size > 0 ? 'completed' : ''}" onclick="Nav.startStory(false)">
+            <div class="book-number">Book No. ${state.story.bookNumber || 1}</div>
+            <div class="book-title">${escapeHtml(state.story.title)}</div>
+            <div class="book-emoji">${state.story.coverEmoji || '📖'}</div>
+            <div class="book-cta">${continueAvailable ? 'Continue' : 'Open'}</div>
+          </div>
+        </div>
+        ${continueHtml}
+        ${allFoundHtml}
+        ${libraryHtml}
+      </div>
+    `;
+
+    // Wire title clicks for parent console
+    const title = document.getElementById('title-text');
+    if (title) {
+      title.addEventListener('click', ParentConsole.handleTitleClick);
+    }
+  },
+
+  read(passage) {
+    Render.app.innerHTML = `
+      <div class="read-screen">
+        <div class="book-page-container">
+          <button class="nav-arrow prev" id="prev-arrow" onclick="Nav.prevPage()">‹</button>
+          <div class="book-page" id="book-page">
+            ${Render.pageContent(passage, state.currentPageIndex)}
+          </div>
+          <button class="nav-arrow next" id="next-arrow" onclick="Nav.nextPage()">›</button>
+        </div>
+      </div>
+    `;
+    Render.updateArrowState(passage);
+  },
+
+  pageContent(passage, pageIndex) {
+    const pageText = passage.pages[pageIndex];
+    const totalPages = passage.pages.length;
+    const isLastPage = pageIndex === totalPages - 1;
+    const isEnding = Story.isEnding(state.currentPassageId);
+    const nextLabel = isEnding && isLastPage ? 'Finish the story →' : 'Continue →';
+
+    return `
+      ${pageIndex === 0 && passage.label ? `<div class="page-label">${escapeHtml(passage.label)}</div>` : ''}
+      <div class="page-content">${paragraphsToHtml(pageText)}</div>
+      <div class="page-footer">
+        <div class="page-indicator">
+          ${passage.pages.map((_, i) => `<span class="page-dot ${i === pageIndex ? 'active' : ''}"></span>`).join('')}
+        </div>
+        <div class="page-counter">${pageIndex + 1} of ${totalPages}${isLastPage ? ` &nbsp;·&nbsp; ${nextLabel}` : ''}</div>
+      </div>
+    `;
+  },
+
+  flipToPage(passage, direction) {
+    const page = document.getElementById('book-page');
+    if (!page) return;
+    state.isTransitioning = true;
+    page.classList.add('flipping-out');
+    setTimeout(() => {
+      page.innerHTML = Render.pageContent(passage, state.currentPageIndex);
+      page.classList.remove('flipping-out');
+      page.classList.add('flipping-in');
+      Render.updateArrowState(passage);
+      setTimeout(() => {
+        page.classList.remove('flipping-in');
+        state.isTransitioning = false;
+      }, 500);
+    }, 280);
+  },
+
+  updateArrowState(passage) {
+    const prev = document.getElementById('prev-arrow');
+    const next = document.getElementById('next-arrow');
+    if (prev) prev.disabled = state.currentPageIndex === 0;
+    if (next) {
+      const isLast = state.currentPageIndex === passage.pages.length - 1;
+      next.innerHTML = isLast ? '✓' : '›';
+      next.title = isLast ? 'Continue the story' : 'Next page';
+    }
+  },
+
+  choice(passage) {
+    Render.app.innerHTML = `
+      <div class="choice-screen">
+        <h2 class="choice-prompt">${escapeHtml(passage.prompt)}</h2>
+        <p class="choice-instruction">Read both. Pick the one that feels right. You'll type it out.</p>
+        <div class="choice-cards">
+          ${passage.options.map((opt, i) => `
+            <div class="choice-card" onclick='Nav.selectOption(${JSON.stringify(opt).replace(/'/g, "&#39;")})'>
+              <div class="choice-label">${escapeHtml(opt.label)}</div>
+              <div class="choice-text">"${escapeHtml(opt.text)}"</div>
+              <div class="choice-cta">Type this →</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  },
+
+  type(option) {
+    Render.app.innerHTML = `
+      <div class="type-screen">
+        <div class="notebook">
+          <div class="notebook-header">
+            <div class="notebook-title">${escapeHtml(option.label)}</div>
+            <div class="notebook-stats">
+              <span>WPM: <span class="stat-value" id="stat-wpm">0</span></span>
+              <span>Accuracy: <span class="stat-value" id="stat-acc">100%</span></span>
+            </div>
+          </div>
+          <div class="typing-area" id="typing-area"></div>
+          <div class="typing-footer">
+            <div class="typing-instructions">Type Hazel's words. Press Esc to go back.</div>
+            <button class="btn ghost" onclick="Typing.stop(); Nav.cancelTyping();">← Back to choices</button>
+          </div>
+        </div>
+      </div>
+    `;
+    Typing.start(option.text);
+  },
+
+  endingCelebration(passage, storybookNumber) {
+    const lib = Storage.getLibrary();
+    const lastBook = lib[lib.length - 1];
+    const endingClass = state.currentPassageId.replace('end-', 'storybook-');
+    const emoji = ({
+      'end-mae': '🐿️',
+      'end-felix': '🦊',
+      'end-wilbur': '🐭',
+      'end-window': '🌿'
+    })[state.currentPassageId] || '📖';
+
+    document.getElementById('left-controls').innerHTML = '';
+
+    Render.app.innerHTML = `
+      <div class="ending-celebration">
+        <h1 class="celebration-title">${escapeHtml(passage.endingTitle || 'The End')}</h1>
+        <p class="celebration-subtitle">A new storybook for the shelf!</p>
+        <div class="celebration-storybook ${endingClass}">
+          <div class="storybook-num">Storybook No. ${storybookNumber}</div>
+          <div class="storybook-title">${escapeHtml(passage.endingTitle || 'A Mystery Solved')}</div>
+          <div class="celebration-emoji">${emoji}</div>
+        </div>
+        <div class="celebration-buttons">
+          <button class="btn" onclick="Nav.showTitle()">Back to bookshelf</button>
+          <button class="btn secondary" onclick="Storage.clearSave(state.story.id); Nav.startStory(true)">Try a different path</button>
+        </div>
+      </div>
+    `;
+  }
+};
+
+// =================== LIBRARY (re-read) ===================
+const Library = {
+  openStorybook(index) {
+    const lib = Storage.getLibrary();
+    const book = lib[index];
+    if (!book) return;
+    Library.currentBook = book;
+    Library.currentPath = book.pathTaken.filter(id =>
+      state.story.passages[id] && state.story.passages[id].type === 'read'
+    );
+    Library.currentPassageIndex = 0;
+    Library.currentPageIndex = 0;
+    Library.bookNumber = index + 1;
+    state.screen = 'storybook-read';
+    Library.render();
+    document.getElementById('left-controls').innerHTML = `
+      <button class="back-link" onclick="Nav.showTitle()">📚 Bookshelf</button>
+    `;
+  },
+
+  render() {
+    const passageId = Library.currentPath[Library.currentPassageIndex];
+    const passage = state.story.passages[passageId];
+    if (!passage) {
+      Nav.showTitle();
+      return;
+    }
+    const totalPagesAcrossAll = Library.currentPath.reduce((acc, id) => acc + state.story.passages[id].pages.length, 0);
+    const pagesBefore = Library.currentPath.slice(0, Library.currentPassageIndex).reduce((acc, id) => acc + state.story.passages[id].pages.length, 0);
+    const overallPage = pagesBefore + Library.currentPageIndex + 1;
+
+    Render.app.innerHTML = `
+      <div class="read-screen">
+        <div class="book-page-container">
+          <button class="nav-arrow prev" id="prev-arrow" onclick="Library.prev()">‹</button>
+          <div class="book-page" id="book-page">
+            ${Library.pageContent(passage, Library.currentPageIndex, overallPage, totalPagesAcrossAll)}
+          </div>
+          <button class="nav-arrow next" id="next-arrow" onclick="Library.next()">›</button>
+        </div>
+      </div>
+    `;
+    Library.updateArrows();
+  },
+
+  pageContent(passage, pageIndex, overall, total) {
+    const pageText = passage.pages[pageIndex];
+    return `
+      ${pageIndex === 0 && passage.label ? `<div class="page-label">${escapeHtml(passage.label)}</div>` : ''}
+      <div class="page-content">${paragraphsToHtml(pageText)}</div>
+      <div class="page-footer">
+        <div class="page-indicator">
+          ${passage.pages.map((_, i) => `<span class="page-dot ${i === pageIndex ? 'active' : ''}"></span>`).join('')}
+        </div>
+        <div class="page-counter">Page ${overall} of ${total} &nbsp;·&nbsp; Storybook No. ${Library.bookNumber}</div>
+      </div>
+    `;
+  },
+
+  next() {
+    const passage = state.story.passages[Library.currentPath[Library.currentPassageIndex]];
+    if (Library.currentPageIndex < passage.pages.length - 1) {
+      Library.currentPageIndex++;
+      Audio.pageFlip();
+      Library.flip('forward');
+    } else if (Library.currentPassageIndex < Library.currentPath.length - 1) {
+      Library.currentPassageIndex++;
+      Library.currentPageIndex = 0;
+      Audio.pageFlip();
+      Library.flip('forward');
+    } else {
+      // End of storybook
+      Audio.completionChime();
+      Render.app.innerHTML = `
+        <div class="ending-celebration">
+          <h1 class="celebration-title">The End</h1>
+          <p class="celebration-subtitle">Storybook No. ${Library.bookNumber}</p>
+          <div class="celebration-buttons">
+            <button class="btn" onclick="Nav.showTitle()">Back to bookshelf</button>
+            <button class="btn secondary" onclick="Library.openStorybook(${Library.bookNumber - 1})">Read again</button>
+          </div>
+        </div>
+      `;
+    }
+  },
+
+  prev() {
+    if (Library.currentPageIndex > 0) {
+      Library.currentPageIndex--;
+      Audio.pageFlip();
+      Library.flip('backward');
+    } else if (Library.currentPassageIndex > 0) {
+      Library.currentPassageIndex--;
+      const passage = state.story.passages[Library.currentPath[Library.currentPassageIndex]];
+      Library.currentPageIndex = passage.pages.length - 1;
+      Audio.pageFlip();
+      Library.flip('backward');
+    }
+  },
+
+  flip(direction) {
+    const page = document.getElementById('book-page');
+    if (!page) return;
+    page.classList.add('flipping-out');
+    setTimeout(() => {
+      const passageId = Library.currentPath[Library.currentPassageIndex];
+      const passage = state.story.passages[passageId];
+      const totalPagesAcrossAll = Library.currentPath.reduce((acc, id) => acc + state.story.passages[id].pages.length, 0);
+      const pagesBefore = Library.currentPath.slice(0, Library.currentPassageIndex).reduce((acc, id) => acc + state.story.passages[id].pages.length, 0);
+      const overallPage = pagesBefore + Library.currentPageIndex + 1;
+      page.innerHTML = Library.pageContent(passage, Library.currentPageIndex, overallPage, totalPagesAcrossAll);
+      page.classList.remove('flipping-out');
+      page.classList.add('flipping-in');
+      Library.updateArrows();
+      setTimeout(() => page.classList.remove('flipping-in'), 500);
+    }, 280);
+  },
+
+  updateArrows() {
+    const prev = document.getElementById('prev-arrow');
+    const next = document.getElementById('next-arrow');
+    const isFirst = Library.currentPassageIndex === 0 && Library.currentPageIndex === 0;
+    if (prev) prev.disabled = isFirst;
+  }
+};
+
+// =================== PARENT CONSOLE ===================
+const ParentConsole = {
+  handleTitleClick() {
+    const now = Date.now();
+    state.titleClicks = state.titleClicks.filter(t => now - t < 2000);
+    state.titleClicks.push(now);
+    if (state.titleClicks.length >= 5) {
+      state.titleClicks = [];
+      ParentConsole.show();
+    }
+  },
+
+  show() {
+    const lib = Storage.getLibrary();
+    const overlay = document.createElement('div');
+    overlay.className = 'parent-overlay';
+    overlay.id = 'parent-overlay';
+    overlay.innerHTML = `
+      <div class="parent-modal" onclick="event.stopPropagation()">
+        <h2>Parent Console</h2>
+        <div class="parent-section">
+          <h3>Storybooks Completed</h3>
+          <p>${lib.length} total. Endings found: ${new Set(lib.map(b => b.endingId)).size} of ${state.story.endingPassageIds.length}.</p>
+          <button class="btn secondary" onclick="if(confirm('Clear all completed storybooks? This cannot be undone.')) { Storage.clearLibrary(); ParentConsole.hide(); Nav.showTitle(); }">Clear storybook collection</button>
+        </div>
+        <div class="parent-section">
+          <h3>Saved Progress</h3>
+          <p>${Storage.getSave(state.story.id) ? 'In-progress story is saved.' : 'No story in progress.'}</p>
+          <button class="btn secondary" onclick="Storage.clearSave(state.story.id); ParentConsole.hide(); Nav.showTitle();">Clear saved progress</button>
+        </div>
+        <div class="parent-section">
+          <h3>Reset Everything</h3>
+          <p>Clears all storybooks, saved progress, and settings.</p>
+          <button class="btn secondary" onclick="if(confirm('Reset everything? All progress will be lost.')) { Storage.clearAll(); ParentConsole.hide(); location.reload(); }">Reset everything</button>
+        </div>
+        <div style="text-align: center; margin-top: 24px;">
+          <button class="btn" onclick="ParentConsole.hide()">Close</button>
+        </div>
+      </div>
+    `;
+    overlay.addEventListener('click', ParentConsole.hide);
+    document.body.appendChild(overlay);
+  },
+
+  hide() {
+    const overlay = document.getElementById('parent-overlay');
+    if (overlay) overlay.remove();
+  }
+};
+
+// =================== INIT ===================
+async function init() {
+  Render.init();
+  try {
+    state.story = await Story.load('story-1-missing-card.json');
+  } catch (e) {
+    Render.app.innerHTML = `
+      <div style="text-align: center; max-width: 480px;">
+        <h1 class="title-script" style="font-size: 48px;">Oh dear.</h1>
+        <p style="font-family: 'Lora', serif; font-size: 18px; color: var(--ink); margin-top: 16px;">
+          Hazel can't find her story. The file <code>story-1-missing-card.json</code> couldn't be loaded.
+        </p>
+        <p style="font-family: 'Lora', serif; font-size: 14px; color: var(--purple-700); margin-top: 12px; font-style: italic;">
+          Make sure index.html and the JSON file are in the same folder, and that you're opening this through a web server (not file://).
+        </p>
+        <p style="font-family: 'Caveat', cursive; font-size: 18px; color: var(--purple-700); margin-top: 24px;">
+          Error: ${escapeHtml(e.message || 'Unknown')}
+        </p>
+      </div>
+    `;
+    return;
+  }
+  Audio.init();
+  document.getElementById('music-toggle').addEventListener('click', Audio.toggle);
+
+  // Keyboard navigation in read mode
+  document.addEventListener('keydown', (e) => {
+    if (state.screen === 'read') {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        e.preventDefault();
+        Nav.nextPage();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        Nav.prevPage();
+      }
+    } else if (state.screen === 'storybook-read') {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        e.preventDefault();
+        Library.next();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        Library.prev();
+      } else if (e.key === 'Escape') {
+        Nav.showTitle();
+      }
+    }
+  });
+
+  Nav.showTitle();
+}
+
+window.Nav = Nav;
+window.Library = Library;
+window.Storage = Storage;
+window.ParentConsole = ParentConsole;
+window.Typing = Typing;
+window.state = state;
+window.Render = Render;
+
+init();
+</script>
+</body>
+</html>
