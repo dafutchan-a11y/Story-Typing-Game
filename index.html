@@ -6,7 +6,7 @@
 <title>Hollowsdale Stories</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --paper: #FFF7ED;
@@ -50,7 +50,7 @@
   }
 
   body {
-    font-family: 'Lora', Georgia, serif;
+    font-family: 'Quicksand', 'Helvetica Neue', sans-serif;
     color: var(--ink);
     background: linear-gradient(135deg, #FDF2F8 0%, #F3E8FF 50%, #FCE7F3 100%);
     min-height: 100vh;
@@ -59,7 +59,33 @@
     -webkit-user-select: none;
   }
 
-  /* Animated background sparkles */
+  /* Falling autumn leaves background */
+  .falling-leaves {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .leaf {
+    position: absolute;
+    top: -10vh;
+    animation: leaf-fall linear infinite;
+    opacity: 0;
+    user-select: none;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.08));
+  }
+
+  @keyframes leaf-fall {
+    0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+    8% { opacity: 0.75; }
+    50% { transform: translateY(60vh) translateX(40px) rotate(220deg); opacity: 0.65; }
+    92% { opacity: 0.55; }
+    100% { transform: translateY(125vh) translateX(-20px) rotate(540deg); opacity: 0; }
+  }
+
+  /* Animated background sparkles - subtle layer */
   .bg-sparkles {
     position: fixed;
     inset: 0;
@@ -88,6 +114,63 @@
     50% { opacity: 0.4; transform: translateY(-40px) scale(0.9); }
     75% { opacity: 0.6; transform: translateY(-60px) scale(1); }
   }
+
+  /* Sparkle burst on typing completion */
+  .completion-sparkle {
+    position: fixed;
+    pointer-events: none;
+    font-size: 28px;
+    z-index: 1500;
+    animation: sparkle-out 1s ease-out forwards;
+    user-select: none;
+  }
+
+  @keyframes sparkle-out {
+    0% { transform: translate(-50%, -50%) scale(0) rotate(0deg); opacity: 1; }
+    40% { transform: translate(-50%, -50%) scale(1.3) rotate(180deg); opacity: 1; }
+    100% {
+      transform: translate(calc(-50% + var(--dx, 0)), calc(-50% + var(--dy, 0))) scale(0.4) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  /* Floating magnifying glass on title */
+  .title-decor {
+    display: inline-block;
+    margin-right: 12px;
+    font-size: 0.7em;
+    animation: gentle-bob 3.5s ease-in-out infinite;
+    transform-origin: center;
+  }
+
+  @keyframes gentle-bob {
+    0%, 100% { transform: translateY(0) rotate(-8deg); }
+    50% { transform: translateY(-6px) rotate(8deg); }
+  }
+
+  /* Test mode banner */
+  .test-mode-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(90deg, var(--gold) 0%, #FB923C 50%, var(--gold) 100%);
+    color: white;
+    text-align: center;
+    padding: 8px 16px;
+    font-family: 'Caveat', cursive;
+    font-size: 20px;
+    font-weight: 700;
+    z-index: 999;
+    letter-spacing: 0.4px;
+    display: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  }
+
+  body.test-mode .test-mode-banner { display: block; }
+  body.test-mode .top-bar { top: 56px; }
+  body.test-mode #app { padding-top: 64px; }
 
   #app {
     position: relative;
@@ -125,12 +208,11 @@
   }
 
   .title-sub {
-    font-family: 'Lora', serif;
-    font-style: italic;
-    font-size: clamp(16px, 2vw, 20px);
+    font-family: 'Caveat', cursive;
+    font-size: clamp(20px, 2.5vw, 26px);
     color: var(--purple-700);
     margin-bottom: 56px;
-    opacity: 0.85;
+    opacity: 0.9;
   }
 
   .bookshelf {
@@ -222,12 +304,12 @@
   }
 
   .book-subtitle {
-    font-family: 'Lora', serif;
-    font-style: italic;
-    font-size: 11px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
     color: var(--purple-700);
     margin-top: 4px;
-    opacity: 0.8;
+    opacity: 0.85;
   }
 
   .book-emoji {
@@ -386,26 +468,24 @@
   .book-page::before, .book-page::after {
     content: '';
     position: absolute;
-    width: 24px;
-    height: 24px;
-    border: 2px solid var(--pink-300);
-    opacity: 0.4;
+    width: 64px;
+    height: 64px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.55;
+    pointer-events: none;
   }
 
   .book-page::before {
-    top: 16px;
-    left: 16px;
-    border-right: none;
-    border-bottom: none;
-    border-radius: 4px 0 0 0;
+    top: 14px;
+    left: 14px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><g fill='none' stroke='%23F472B6' stroke-width='1.5' stroke-linecap='round'><path d='M 6 6 Q 6 24 24 24 Q 24 38 38 38' opacity='0.7'/><path d='M 6 6 Q 18 6 24 18' opacity='0.5'/></g><g fill='%23A855F7' opacity='0.55'><circle cx='24' cy='24' r='2.5'/><circle cx='12' cy='12' r='1.5'/></g><g fill='%23F59E0B' opacity='0.5'><path d='M 30 16 Q 34 12 38 16 Q 36 20 30 16 Z'/></g></svg>");
   }
 
   .book-page::after {
-    bottom: 16px;
-    right: 16px;
-    border-left: none;
-    border-top: none;
-    border-radius: 0 0 4px 0;
+    bottom: 14px;
+    right: 14px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><g fill='none' stroke='%23F472B6' stroke-width='1.5' stroke-linecap='round'><path d='M 58 58 Q 58 40 40 40 Q 40 26 26 26' opacity='0.7'/><path d='M 58 58 Q 46 58 40 46' opacity='0.5'/></g><g fill='%23A855F7' opacity='0.55'><circle cx='40' cy='40' r='2.5'/><circle cx='52' cy='52' r='1.5'/></g><g fill='%23F59E0B' opacity='0.5'><path d='M 34 48 Q 30 52 26 48 Q 28 44 34 48 Z'/></g></svg>");
   }
 
   .book-page.flipping-out {
@@ -424,20 +504,21 @@
 
   .page-label {
     font-family: 'Caveat', cursive;
-    font-size: 18px;
+    font-size: 22px;
     color: var(--purple-700);
     text-align: center;
     margin-bottom: 16px;
-    opacity: 0.7;
-    font-style: italic;
+    opacity: 0.85;
   }
 
   .page-content {
-    font-family: 'Lora', serif;
-    font-size: 19px;
-    line-height: 1.7;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.65;
     color: var(--ink);
     flex: 1;
+    letter-spacing: 0.1px;
   }
 
   .page-content p {
@@ -501,7 +582,7 @@
     transition: all 0.2s ease;
     box-shadow: 0 4px 12px rgba(190, 24, 93, 0.15);
     z-index: 10;
-    font-family: 'Lora', serif;
+    font-family: 'Quicksand', sans-serif;
   }
 
   .nav-arrow:hover:not(:disabled) {
@@ -529,18 +610,19 @@
 
   .choice-prompt {
     font-family: 'Caveat', cursive;
-    font-size: 36px;
+    font-size: 44px;
     color: var(--pink-700);
     margin-bottom: 8px;
+    line-height: 1.1;
   }
 
   .choice-instruction {
-    font-family: 'Lora', serif;
-    font-style: italic;
-    font-size: 16px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
     color: var(--purple-700);
     margin-bottom: 40px;
-    opacity: 0.85;
+    opacity: 0.9;
   }
 
   .choice-cards {
@@ -587,12 +669,12 @@
   }
 
   .choice-text {
-    font-family: 'Lora', serif;
-    font-size: 16px;
-    line-height: 1.6;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.55;
     color: var(--ink);
     flex: 1;
-    font-style: italic;
   }
 
   .choice-cta {
@@ -626,8 +708,8 @@
       0 2px 8px rgba(126, 34, 206, 0.1);
     background-image:
       linear-gradient(to right, transparent 0, transparent 60px, rgba(244, 114, 182, 0.4) 60px, rgba(244, 114, 182, 0.4) 62px, transparent 62px),
-      repeating-linear-gradient(to bottom, transparent 0, transparent 35px, rgba(126, 34, 206, 0.18) 35px, rgba(126, 34, 206, 0.18) 36px);
-    background-size: 100% 100%, 100% 36px;
+      repeating-linear-gradient(to bottom, transparent 0, transparent 41px, rgba(126, 34, 206, 0.18) 41px, rgba(126, 34, 206, 0.18) 42px);
+    background-size: 100% 100%, 100% 42px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -654,15 +736,15 @@
 
   .notebook-title {
     font-family: 'Caveat', cursive;
-    font-size: 22px;
+    font-size: 26px;
     color: var(--pink-700);
   }
 
   .notebook-stats {
     display: flex;
-    gap: 18px;
+    gap: 20px;
     font-family: 'Caveat', cursive;
-    font-size: 18px;
+    font-size: 20px;
     color: var(--purple-700);
   }
 
@@ -674,8 +756,8 @@
   .typing-area {
     flex: 1;
     font-family: 'Kalam', cursive;
-    font-size: 22px;
-    line-height: 36px;
+    font-size: 26px;
+    line-height: 42px;
     color: var(--purple-900);
     word-spacing: 2px;
     letter-spacing: 0.3px;
@@ -839,9 +921,8 @@
   }
 
   .celebration-subtitle {
-    font-family: 'Lora', serif;
-    font-style: italic;
-    font-size: 20px;
+    font-family: 'Caveat', cursive;
+    font-size: 26px;
     color: var(--purple-700);
     margin-bottom: 32px;
   }
@@ -986,7 +1067,7 @@
   }
 
   .parent-section h3 {
-    font-family: 'Lora', serif;
+    font-family: 'Quicksand', sans-serif;
     font-size: 16px;
     color: var(--purple-900);
     margin-bottom: 8px;
@@ -1043,6 +1124,21 @@
 </head>
 <body>
 
+<div class="test-mode-banner">👀 Parent Test Mode &mdash; nothing will be saved</div>
+
+<div class="falling-leaves" aria-hidden="true">
+  <span class="leaf" style="left: 4%; animation-duration: 16s; animation-delay: 0s; font-size: 26px;">🍁</span>
+  <span class="leaf" style="left: 14%; animation-duration: 20s; animation-delay: 4s; font-size: 22px;">🍂</span>
+  <span class="leaf" style="left: 24%; animation-duration: 18s; animation-delay: 8s; font-size: 28px;">🍁</span>
+  <span class="leaf" style="left: 36%; animation-duration: 22s; animation-delay: 2s; font-size: 24px;">🍂</span>
+  <span class="leaf" style="left: 46%; animation-duration: 17s; animation-delay: 11s; font-size: 30px;">🍁</span>
+  <span class="leaf" style="left: 58%; animation-duration: 19s; animation-delay: 6s; font-size: 22px;">🍂</span>
+  <span class="leaf" style="left: 68%; animation-duration: 21s; animation-delay: 13s; font-size: 26px;">🍁</span>
+  <span class="leaf" style="left: 78%; animation-duration: 16s; animation-delay: 9s; font-size: 24px;">🍂</span>
+  <span class="leaf" style="left: 88%; animation-duration: 20s; animation-delay: 3s; font-size: 28px;">🍁</span>
+  <span class="leaf" style="left: 96%; animation-duration: 18s; animation-delay: 15s; font-size: 22px;">🍂</span>
+</div>
+
 <div class="bg-sparkles" aria-hidden="true">
   <div class="sparkle" style="left: 10%; animation-delay: 0s;"></div>
   <div class="sparkle" style="left: 22%; animation-delay: 2s;"></div>
@@ -1096,13 +1192,39 @@ const LIBRARY_KEY = 'hollowsdale_library_v1';
 const SETTINGS_KEY = 'hollowsdale_settings_v1';
 
 const Storage = {
+  testMode: false,
+  testData: null,
+
+  initTestData() {
+    Storage.testData = { saves: {}, library: [] };
+  },
+
+  enterTestMode() {
+    Storage.testMode = true;
+    Storage.initTestData();
+    document.body.classList.add('test-mode');
+  },
+
+  exitTestMode() {
+    Storage.testMode = false;
+    Storage.testData = null;
+    document.body.classList.remove('test-mode');
+  },
+
   getSave(storyId) {
+    if (Storage.testMode) {
+      return Storage.testData.saves[storyId] || null;
+    }
     try {
       const all = JSON.parse(localStorage.getItem(SAVE_KEY) || '{}');
       return all[storyId] || null;
     } catch { return null; }
   },
   saveGame(storyId, passageId, pageIndex, pathTaken) {
+    if (Storage.testMode) {
+      Storage.testData.saves[storyId] = { passageId, pageIndex, pathTaken, savedAt: Date.now() };
+      return;
+    }
     try {
       const all = JSON.parse(localStorage.getItem(SAVE_KEY) || '{}');
       all[storyId] = { passageId, pageIndex, pathTaken, savedAt: Date.now() };
@@ -1111,6 +1233,10 @@ const Storage = {
     } catch {}
   },
   clearSave(storyId) {
+    if (Storage.testMode) {
+      delete Storage.testData.saves[storyId];
+      return;
+    }
     try {
       const all = JSON.parse(localStorage.getItem(SAVE_KEY) || '{}');
       delete all[storyId];
@@ -1118,11 +1244,18 @@ const Storage = {
     } catch {}
   },
   getLibrary() {
+    if (Storage.testMode) {
+      return Storage.testData.library.slice();
+    }
     try {
       return JSON.parse(localStorage.getItem(LIBRARY_KEY) || '[]');
     } catch { return []; }
   },
   addToLibrary(entry) {
+    if (Storage.testMode) {
+      Storage.testData.library.push(entry);
+      return Storage.testData.library.length;
+    }
     try {
       const lib = Storage.getLibrary();
       lib.push(entry);
@@ -1131,9 +1264,17 @@ const Storage = {
     } catch { return 0; }
   },
   clearLibrary() {
+    if (Storage.testMode) {
+      Storage.testData.library = [];
+      return;
+    }
     try { localStorage.setItem(LIBRARY_KEY, '[]'); } catch {}
   },
   clearAll() {
+    if (Storage.testMode) {
+      Storage.initTestData();
+      return;
+    }
     try {
       localStorage.removeItem(SAVE_KEY);
       localStorage.removeItem(LIBRARY_KEY);
@@ -1318,6 +1459,24 @@ function spawnConfetti() {
   }
 }
 
+function sparkleBurst(x, y) {
+  const symbols = ['✨', '⭐', '💫', '🌟', '✨'];
+  const count = 10;
+  for (let i = 0; i < count; i++) {
+    const s = document.createElement('div');
+    s.className = 'completion-sparkle';
+    s.textContent = symbols[i % symbols.length];
+    s.style.left = x + 'px';
+    s.style.top = y + 'px';
+    const angle = (i / count) * Math.PI * 2 + Math.random() * 0.4;
+    const dist = 90 + Math.random() * 60;
+    s.style.setProperty('--dx', Math.cos(angle) * dist + 'px');
+    s.style.setProperty('--dy', Math.sin(angle) * dist + 'px');
+    document.body.appendChild(s);
+    setTimeout(() => s.remove(), 1100);
+  }
+}
+
 // =================== NAVIGATION ===================
 const Nav = {
   showTitle() {
@@ -1455,7 +1614,6 @@ const Nav = {
     state.pathTaken.push(option.next);
     state.selectedOption = null;
     state.typingState = null;
-    Audio.successDing();
     Nav.showCurrentPassage();
   },
 
@@ -1557,7 +1715,14 @@ const Typing = {
 
   complete() {
     Typing.stop();
-    setTimeout(() => Nav.finishTyping(), 350);
+    Audio.successDing();
+    // Burst sparkles from the center of the typing area
+    const area = document.getElementById('typing-area');
+    if (area) {
+      const r = area.getBoundingClientRect();
+      sparkleBurst(r.left + r.width / 2, r.top + r.height / 2);
+    }
+    setTimeout(() => Nav.finishTyping(), 700);
   },
 
   render() {
@@ -1661,7 +1826,7 @@ const Render = {
 
     Render.app.innerHTML = `
       <div class="title-screen">
-        <h1 class="title-script" id="title-text">Hollowsdale Stories</h1>
+        <h1 class="title-script" id="title-text"><span class="title-decor">🔍</span>Hollowsdale Stories</h1>
         <p class="title-sub">A Series of Tiny Mysteries</p>
         <div class="bookshelf">
           <div class="book ${completedEndings.size > 0 ? 'completed' : ''}" onclick="Nav.startStory(false)">
@@ -1963,6 +2128,11 @@ const ParentConsole = {
     overlay.innerHTML = `
       <div class="parent-modal" onclick="event.stopPropagation()">
         <h2>Parent Console</h2>
+        <div class="parent-section" style="${Storage.testMode ? 'background: var(--gold-soft); border-radius: 8px; padding: 16px; margin-bottom: 20px;' : ''}">
+          <h3>Parent Test Mode ${Storage.testMode ? '— Currently Active' : ''}</h3>
+          <p>${Storage.testMode ? "You are in test mode. Saves and storybook collection are isolated from Lily's data and will be discarded when you exit." : "Run through the story without affecting Lily's saved progress or storybook collection. Anything you do in test mode is discarded when you exit."}</p>
+          <button class="btn" onclick="ParentConsole.toggleTestMode()">${Storage.testMode ? 'Exit Test Mode' : 'Enter Test Mode'}</button>
+        </div>
         <div class="parent-section">
           <h3>Storybooks Completed</h3>
           <p>${lib.length} total. Endings found: ${new Set(lib.map(b => b.endingId)).size} of ${state.story.endingPassageIds.length}.</p>
@@ -1990,6 +2160,18 @@ const ParentConsole = {
   hide() {
     const overlay = document.getElementById('parent-overlay');
     if (overlay) overlay.remove();
+  },
+
+  toggleTestMode() {
+    if (Storage.testMode) {
+      const confirmed = confirm('Exit test mode? Any test-mode storybooks or saves will be discarded.');
+      if (!confirmed) return;
+      Storage.exitTestMode();
+    } else {
+      Storage.enterTestMode();
+    }
+    ParentConsole.hide();
+    Nav.showTitle();
   }
 };
 
@@ -2002,10 +2184,10 @@ async function init() {
     Render.app.innerHTML = `
       <div style="text-align: center; max-width: 480px;">
         <h1 class="title-script" style="font-size: 48px;">Oh dear.</h1>
-        <p style="font-family: 'Lora', serif; font-size: 18px; color: var(--ink); margin-top: 16px;">
+        <p style="font-family: 'Quicksand', sans-serif; font-size: 18px; color: var(--ink); margin-top: 16px;">
           Hazel can't find her story. The file <code>story-1-missing-card.json</code> couldn't be loaded.
         </p>
-        <p style="font-family: 'Lora', serif; font-size: 14px; color: var(--purple-700); margin-top: 12px; font-style: italic;">
+        <p style="font-family: 'Quicksand', sans-serif; font-size: 14px; color: var(--purple-700); margin-top: 12px; font-style: italic;">
           Make sure index.html and the JSON file are in the same folder, and that you're opening this through a web server (not file://).
         </p>
         <p style="font-family: 'Caveat', cursive; font-size: 18px; color: var(--purple-700); margin-top: 24px;">
