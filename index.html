@@ -174,13 +174,37 @@
 
   #app {
     position: relative;
-    z-index: 1;
+    z-index: 10;
     width: 100vw;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 24px;
+  }
+
+  /* Hide falling leaves on focus-heavy screens (typing) - they compete with the text task */
+  body.screen-type .falling-leaves,
+  body.screen-type .bg-sparkles {
+    display: none;
+  }
+
+  /* Dim slightly on reading screens so the storybook page stays the focus */
+  body.screen-read .falling-leaves,
+  body.screen-storybook-read .falling-leaves {
+    opacity: 0.55;
+    transition: opacity 0.4s;
+  }
+
+  /* Notebook needs to sit firmly above any background animation */
+  .notebook {
+    position: relative;
+    z-index: 5;
+  }
+
+  .book-page {
+    position: relative;
+    z-index: 5;
   }
 
   /* === TITLE SCREEN === */
@@ -1174,7 +1198,7 @@
 <script>
 // =================== STATE ===================
 const state = {
-  screen: 'loading',
+  _screen: 'loading',
   story: null,
   currentPassageId: null,
   currentPageIndex: 0,
@@ -1186,17 +1210,47 @@ const state = {
   titleClicks: [],
 };
 
+// state.screen mirrors to body class for CSS layering control (e.g. hide leaves while typing)
+Object.defineProperty(state, 'screen', {
+  get() { return state._screen; },
+  set(value) {
+    state._screen = value;
+    if (typeof document !== 'undefined' && document.body) {
+      Array.from(document.body.classList)
+        .filter(c => c.startsWith('screen-'))
+        .forEach(c => document.body.classList.remove(c));
+      document.body.classList.add('screen-' + value);
+    }
+  }
+});
+
 // =================== STORAGE ===================
 const SAVE_KEY = 'hollowsdale_save_v1';
 const LIBRARY_KEY = 'hollowsdale_library_v1';
 const SETTINGS_KEY = 'hollowsdale_settings_v1';
+const STATS_KEY = 'hollowsdale_stats_v1';
 
 const Storage = {
   testMode: false,
   testData: null,
 
   initTestData() {
-    Storage.testData = { saves: {}, library: [] };
+    Storage.testData = { saves: {}, library: [], stats: Storage.emptyStats() };
+  },
+
+  emptyStats() {
+    return {
+      passagesCompleted: 0,
+      totalWordsTyped: 0,
+      totalCharsTyped: 0,
+      totalCorrectChars: 0,
+      totalKeystrokes: 0,
+      totalTimeMs: 0,
+      maxWpm: 0,
+      bestAccuracy: 0,
+      firstCompletedAt: null,
+      lastCompletedAt: null,
+    };
   },
 
   enterTestMode() {
@@ -1270,6 +1324,45 @@ const Storage = {
     }
     try { localStorage.setItem(LIBRARY_KEY, '[]'); } catch {}
   },
+  getStats() {
+    if (Storage.testMode) {
+      return { ...Storage.testData.stats };
+    }
+    try {
+      const stored = localStorage.getItem(STATS_KEY);
+      return stored ? JSON.parse(stored) : Storage.emptyStats();
+    } catch { return Storage.emptyStats(); }
+  },
+  recordPassageStats(passageStats) {
+    // passageStats: { wordsTyped, charsTyped, correctChars, keystrokes, timeMs, wpm, accuracy }
+    const current = Storage.testMode
+      ? Storage.testData.stats
+      : Storage.getStats();
+    const now = Date.now();
+    current.passagesCompleted += 1;
+    current.totalWordsTyped += passageStats.wordsTyped;
+    current.totalCharsTyped += passageStats.charsTyped;
+    current.totalCorrectChars += passageStats.correctChars;
+    current.totalKeystrokes += passageStats.keystrokes;
+    current.totalTimeMs += passageStats.timeMs;
+    if (passageStats.wpm > current.maxWpm) current.maxWpm = passageStats.wpm;
+    if (passageStats.accuracy > current.bestAccuracy) current.bestAccuracy = passageStats.accuracy;
+    if (!current.firstCompletedAt) current.firstCompletedAt = now;
+    current.lastCompletedAt = now;
+
+    if (Storage.testMode) {
+      Storage.testData.stats = current;
+    } else {
+      try { localStorage.setItem(STATS_KEY, JSON.stringify(current)); } catch {}
+    }
+  },
+  resetStats() {
+    if (Storage.testMode) {
+      Storage.testData.stats = Storage.emptyStats();
+      return;
+    }
+    try { localStorage.setItem(STATS_KEY, JSON.stringify(Storage.emptyStats())); } catch {}
+  },
   clearAll() {
     if (Storage.testMode) {
       Storage.initTestData();
@@ -1279,6 +1372,7 @@ const Storage = {
       localStorage.removeItem(SAVE_KEY);
       localStorage.removeItem(LIBRARY_KEY);
       localStorage.removeItem(SETTINGS_KEY);
+      localStorage.removeItem(STATS_KEY);
     } catch {}
   },
   getSettings() {
@@ -1714,8 +1808,30 @@ const Typing = {
   },
 
   complete() {
+    const ts = state.typingState;
     Typing.stop();
     Audio.successDing();
+
+    // Capture per-passage stats and record to Storage
+    if (ts && ts.startTime) {
+      const timeMs = Date.now() - ts.startTime;
+      const minutes = Math.max(timeMs / 60000, 0.001);
+      const wordsTyped = ts.target.split(/\s+/).filter(Boolean).length;
+      const charsTyped = ts.target.length;
+      const wpm = Math.round((charsTyped / 5) / minutes);
+      const accuracy = Math.round((charsTyped / Math.max(ts.keystrokes, 1)) * 100);
+
+      Storage.recordPassageStats({
+        wordsTyped: wordsTyped,
+        charsTyped: charsTyped,
+        correctChars: charsTyped, // by definition, completion means all chars correct
+        keystrokes: ts.keystrokes,
+        timeMs: timeMs,
+        wpm: wpm,
+        accuracy: accuracy,
+      });
+    }
+
     // Burst sparkles from the center of the typing area
     const area = document.getElementById('typing-area');
     if (area) {
@@ -2122,6 +2238,21 @@ const ParentConsole = {
 
   show() {
     const lib = Storage.getLibrary();
+    const stats = Storage.getStats();
+    const avgWpm = stats.passagesCompleted > 0 && stats.totalTimeMs > 0
+      ? Math.round((stats.totalCharsTyped / 5) / Math.max(stats.totalTimeMs / 60000, 0.001))
+      : 0;
+    const avgAccuracy = stats.totalKeystrokes > 0
+      ? Math.round((stats.totalCorrectChars / stats.totalKeystrokes) * 100)
+      : 0;
+    const totalMinutes = Math.round(stats.totalTimeMs / 60000);
+    const formattedTime = totalMinutes < 1
+      ? '< 1 min'
+      : totalMinutes === 1 ? '1 min' : `${totalMinutes} min`;
+    const lastSession = stats.lastCompletedAt
+      ? new Date(stats.lastCompletedAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })
+      : 'never';
+
     const overlay = document.createElement('div');
     overlay.className = 'parent-overlay';
     overlay.id = 'parent-overlay';
@@ -2132,6 +2263,24 @@ const ParentConsole = {
           <h3>Parent Test Mode ${Storage.testMode ? '— Currently Active' : ''}</h3>
           <p>${Storage.testMode ? "You are in test mode. Saves and storybook collection are isolated from Lily's data and will be discarded when you exit." : "Run through the story without affecting Lily's saved progress or storybook collection. Anything you do in test mode is discarded when you exit."}</p>
           <button class="btn" onclick="ParentConsole.toggleTestMode()">${Storage.testMode ? 'Exit Test Mode' : 'Enter Test Mode'}</button>
+        </div>
+        <div class="parent-section">
+          <h3>Typing Stats ${Storage.testMode ? '(test mode)' : '(lifetime)'}</h3>
+          ${stats.passagesCompleted === 0 ? `
+            <p>No completed passages yet.</p>
+          ` : `
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px 20px; margin: 12px 0;">
+              <div><strong style="color: var(--pink-700); font-size: 18px;">${stats.maxWpm}</strong> <span style="font-size: 13px; color: var(--purple-700);">max WPM</span></div>
+              <div><strong style="color: var(--pink-700); font-size: 18px;">${avgWpm}</strong> <span style="font-size: 13px; color: var(--purple-700);">avg WPM</span></div>
+              <div><strong style="color: var(--pink-700); font-size: 18px;">${avgAccuracy}%</strong> <span style="font-size: 13px; color: var(--purple-700);">avg accuracy</span></div>
+              <div><strong style="color: var(--pink-700); font-size: 18px;">${stats.bestAccuracy}%</strong> <span style="font-size: 13px; color: var(--purple-700);">best accuracy</span></div>
+              <div><strong style="color: var(--pink-700); font-size: 18px;">${stats.totalWordsTyped.toLocaleString()}</strong> <span style="font-size: 13px; color: var(--purple-700);">total words typed</span></div>
+              <div><strong style="color: var(--pink-700); font-size: 18px;">${stats.passagesCompleted}</strong> <span style="font-size: 13px; color: var(--purple-700);">passages typed</span></div>
+              <div><strong style="color: var(--pink-700); font-size: 18px;">${formattedTime}</strong> <span style="font-size: 13px; color: var(--purple-700);">total typing time</span></div>
+              <div><span style="font-size: 13px; color: var(--purple-700);">last session: <strong>${lastSession}</strong></span></div>
+            </div>
+            <button class="btn secondary" onclick="if(confirm('Reset all typing stats? Storybooks and saves will not be affected.')) { Storage.resetStats(); ParentConsole.hide(); ParentConsole.show(); }">Reset typing stats</button>
+          `}
         </div>
         <div class="parent-section">
           <h3>Storybooks Completed</h3>
@@ -2145,7 +2294,7 @@ const ParentConsole = {
         </div>
         <div class="parent-section">
           <h3>Reset Everything</h3>
-          <p>Clears all storybooks, saved progress, and settings.</p>
+          <p>Clears all storybooks, saved progress, stats, and settings.</p>
           <button class="btn secondary" onclick="if(confirm('Reset everything? All progress will be lost.')) { Storage.clearAll(); ParentConsole.hide(); location.reload(); }">Reset everything</button>
         </div>
         <div style="text-align: center; margin-top: 24px;">

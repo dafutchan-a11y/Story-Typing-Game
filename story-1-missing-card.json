@@ -12,10 +12,10 @@
       "type": "read",
       "label": "Before The Story Begins",
       "pages": [
-        "Hazel is a calico kitten in the first grade at Hollowsdale Primary School.\n\nShe has three white paws, one orange paw, and a small notch in her left ear from when she bumped into a doorframe as a baby. Her grandmother says the notch makes her look like a kitten who has been somewhere, and Hazel likes that.",
-        "She lives in a cedar cottage at the edge of town with her grandmother. Her best friend is a bunny named Pip, who is brave and loyal and almost always thinking about snacks.\n\nHer favorite teacher is Mr. Brindle the otter, and her favorite place in the whole school is the reading corner, where Mrs. Featherwhistle the owl librarian sometimes reads aloud on rainy afternoons.",
-        "In the deep pocket of her apron, Hazel carries a small notebook and a silver magnifying glass.\n\nThe magnifying glass is special. It can show her things that have been somewhere a little while ago, fading like soft golden lines in the air. Her grandmother gave it to her on the morning this story begins.",
-        "The thing about Hazel is that she notices things. She notices when a friend looks sad before they say so. She notices the small, important details that everyone else walks past.\n\nThis is the story of her very first mystery."
+        "Hazel is a calico kitten in the first grade at Hollowsdale Primary School.\n\nShe has three white paws, one orange paw, and a small notch in her left ear from when she bumped into a doorframe as a baby. The notch makes her look like a kitten who has been somewhere, and she likes that.",
+        "She lives in a cedar cottage at the edge of town with her mommy, her daddy, her grandma, and her baby brother Milo.\n\nMilo is two years old. His favorite words are \"bird,\" \"cheese,\" and \"Hazo,\" which is what he calls her. Hazel loves her family very much, even when Milo puts his oatmeal bowl on his head.",
+        "Her best friend in the whole world is a bunny named Pip, who is brave and loyal and almost always thinking about snacks.\n\nHer favorite teacher is Mr. Brindle the otter, and her favorite place in the whole school is the reading corner, where Mrs. Featherwhistle the owl librarian sometimes reads aloud on rainy afternoons.",
+        "In the deep pocket of her apron, Hazel carries a small notebook and a yellow pencil.\n\nThe thing about Hazel is that she notices things. She notices when a friend looks sad before they say so. She notices the small, important details that everyone else walks past.\n\nThis is the story of her very first mystery."
       ],
       "next": "prologue-1"
     },
@@ -23,13 +23,14 @@
       "type": "read",
       "label": "Prologue",
       "pages": [
-        "The first thing Hazel did every morning was open her bedroom window.\n\nHer room was small and round and smelled like cedar, because her father had built the cottage from cedar logs before she was born. The window faced east, and every morning the light came in golden and slow, the way honey pours out of a jar.",
-        "Hazel was a very small calico kitten. She had three white paws and one orange one, and a notch in her left ear from where she had bumped into a doorframe when she was a baby. Her grandmother said the notch made her look like a kitten who had been somewhere.\n\nShe liked that.",
-        "While she ate her breakfast, which was oatmeal with maple syrup and one slice of apple, her grandmother sat across the table reading the newspaper. Her grandmother was very old, and very wise, and she had a way of knowing things that other people did not know.\n\n\"What are you noticing today, my Hazel?\" she asked.\n\nThis was the question her grandmother always asked.",
-        "Hazel thought for a moment. \"The crow on the fence has only one eye open. He is watching the squirrel in the maple tree but pretending not to.\"\n\nHer grandmother smiled. \"You see what other people walk past.\"\n\nShe reached into the pocket of her sweater and pulled out something small and round. A silver magnifying glass with a wooden handle, polished smooth from years of use. She slid it across the table.",
-        "\"You have seen me use this for a long time,\" she said. \"I think it is time it lived in your apron pocket.\"\n\nHazel picked it up carefully. The lens was cool against her paw.\n\n\"Look through it at something small,\" her grandmother said.",
-        "Hazel held the glass up to her oatmeal bowl. Through the lens, the world looked the same. Almost. There was a faint golden trace on the edge of the bowl, where her grandmother had set it down a few minutes ago. The trace was already fading.\n\nHazel looked up, eyes wide.\n\n\"It shows me where things have been,\" she whispered.",
-        "\"It shows you where things were a little while ago,\" her grandmother said. \"The traces fade fast. So when you use it, you have to be quick. And you have to remember that the glass shows you what was there. It does not tell you what it means. That part is up to you.\"\n\nHazel held the glass against her chest.\n\n\"It was your grandmother's before mine,\" her grandmother said. \"Now it is yours. Use it for kind things.\""
+        "The first thing Hazel did every morning was open her bedroom window.\n\nHer room was small and round and smelled like cedar, because her daddy had built the cottage from cedar logs before she was born. The window faced east, and every morning the light came in golden and slow, the way honey pours out of a jar.",
+        "By the time Hazel padded downstairs, the kitchen was already full.\n\nHer daddy was standing by the door tying his work scarf, with a piece of toast in one paw. Her mommy was at the stove, stirring oatmeal. Milo was in his high chair, very seriously trying to feed his stuffed bunny a slice of apple. Her grandma sat at the head of the table with the newspaper, the way she did every morning.",
+        "\"Morning, my Hazel,\" her daddy said, kissing the top of her head as he headed out the door. \"Be a good noticer today.\"\n\nHazel slid into her seat. Milo looked up and beamed. \"Hazo! Bird!\" He pointed out the window with his apple slice. There was indeed a bird out there, a fat little chickadee on the fence post.\n\n\"I see it, Milo,\" Hazel said. \"Good noticing.\"\n\nMilo went back to feeding his bunny.",
+        "Her grandma lowered the newspaper.\n\n\"What are you noticing today, my Hazel?\"\n\nThis was the question her grandma always asked.\n\nHazel thought for a moment, watching the world out the window. \"The crow on the fence has only one eye open. He is watching the squirrel in the maple tree but pretending not to.\"\n\nHer grandma smiled. \"You see what other people walk past.\"",
+        "She reached into the pocket of her sweater and pulled out something small and round. A silver magnifying glass with a wooden handle, polished smooth from years of use. She slid it across the table.\n\n\"You have seen me use this for a long time,\" she said. \"I think it is time it lived in your apron pocket.\"\n\nHazel picked it up carefully. The lens was cool against her paw.\n\n\"Look through it at something small,\" her grandma said.",
+        "Hazel held the glass up to her oatmeal bowl. Through the lens, the world looked the same. Almost. There was a faint golden trace on the edge of the bowl, where her grandma had set it down a few minutes ago. The trace was already fading.\n\nHazel looked up, eyes wide.\n\n\"It shows me where things have been,\" she whispered.",
+        "\"It shows you where things were a little while ago,\" her grandma said. \"The traces fade fast. So when you use it, you have to be quick. And you have to remember that the glass shows you what was there. It does not tell you what it means. That part is up to you.\"\n\nHazel held the glass against her chest.\n\n\"It was my grandmother's before mine,\" her grandma said. \"Now it is yours. Use it for kind things.\"",
+        "Milo waved his apple slice as Hazel put on her apron. \"Bye Hazo!\"\n\n\"Bye, Milo.\"\n\nHer mommy kissed the top of her head. \"Have a good day, my noticer.\"\n\nHazel slipped her notebook and the magnifying glass into the deep pockets of her apron and walked out the front door."
       ],
       "next": "intro-choice"
     },
@@ -40,13 +41,13 @@
         {
           "id": "intro-a",
           "label": "About the morning",
-          "text": "Today the morning light came in like honey, golden and slow. The crows are arguing with the squirrel in the maple tree again. My grandmother gave me her magnifying glass and it lives in my apron pocket now. I will use it for kind things. I will look for one new thing today that no one else has noticed.",
+          "text": "Today the morning light came in like honey, golden and slow. The crows are arguing with the squirrel in the maple tree again. My grandma gave me her magnifying glass and it lives in my apron pocket now. I will use it for kind things. I will look for one new thing today that no one else has noticed.",
           "next": "prologue-2"
         },
         {
           "id": "intro-b",
           "label": "About the magnifying glass",
-          "text": "My grandmother gave me her magnifying glass today. It is silver with a wooden handle, smooth from a hundred years of being held. It shows me where things have been. The traces fade fast and I have to be quick. The glass does not tell me what things mean. That part is up to me.",
+          "text": "My grandma gave me her magnifying glass today. It is silver with a wooden handle, smooth from a hundred years of being held. It shows me where things have been. The traces fade fast and I have to be quick. The glass does not tell me what things mean. That part is up to me.",
           "next": "prologue-2"
         }
       ]
@@ -55,8 +56,8 @@
       "type": "read",
       "label": "Walking To School",
       "pages": [
-        "Hazel slipped her notebook and the magnifying glass into the deep pockets of her apron and walked out the front door.\n\nHollowsdale in the autumn was the best Hollowsdale of all. The lanterns along the cobblestone street were just starting to dim, since the morning sun was bright enough now. Mr. Cobble the badger was opening up his bakery. The smell of warm bread drifted out into the street.",
-        "Hazel waved to Mr. Cobble. He waved back with one floury paw.\n\nShe walked past the post office, past the doctor's clinic, and past the little stone bridge over the creek. At the bridge she met Pip the bunny, who was waiting for her like he did every morning. Pip was her best friend in the whole world. He was loyal and brave and very easily distracted by snacks.",
+        "Hollowsdale in the autumn was the best Hollowsdale of all. The lanterns along the cobblestone street were just starting to dim, since the morning sun was bright enough now. Mr. Cobble the badger was opening up his bakery. The smell of warm bread drifted out into the street.\n\nHazel waved to Mr. Cobble. He waved back with one floury paw.",
+        "She walked past the post office, past the doctor's clinic, and past the little stone bridge over the creek. At the bridge she met Pip the bunny, who was waiting for her like he did every morning. Pip was her best friend in the whole world. He was loyal and brave and very easily distracted by snacks.",
         "\"Hazel!\" he called. \"I have an acorn. Do you want to share it?\"\n\n\"Maybe at recess,\" she said.\n\nThey walked the rest of the way to Hollowsdale Primary together, talking about nothing in particular, which was the best kind of talking.",
         "Room 4 was already filling up when they got there. Mr. Brindle the otter was writing the date on the blackboard in his careful handwriting. Wilbur the mouse was moving from desk to desk with a feather duster, getting everything ready for the day. Wilbur did this every morning, and again at every recess. He liked the classroom to feel like the classroom should feel.\n\nThe window above the reading corner was open a crack to let the autumn air in, and the maple leaves outside were rustling in the soft breeze.",
         "Mrs. Featherwhistle the owl librarian glided in through the doorway with a small stack of picture books tucked under one wing. She smiled at the children and set the books gently on the reading corner shelf, taking a moment to line up the spines just so. She nodded at Mr. Brindle with the friendly seriousness of someone who had known him for a long time. Then she glided back out, leaving the reading corner just a little brighter than before.",
@@ -74,7 +75,7 @@
         "Hazel waited. Otis did not always have many words ready, and she had learned not to rush him.\n\n\"It was a card for Mrs. Featherwhistle,\" he said finally. He took a small breath, like he was steadying himself. \"For helping me read. I worked on it for three whole weeks. I painted the front with stars and a moon and the maple tree from outside the library window, because that's where she always reads to me. And I wrote her a message inside that took me four tries to get right because I kept smudging the words.\"",
         "He paused. Hazel waited.\n\n\"It said, 'Dear Mrs. Featherwhistle. Before you sat with me on the rug, the words on the page were just bumpy lines. Now they are stories. You are the best librarian in Hollowsdale. Love, Otis.'\"\n\nHis voice got even smaller. \"Today was the day I was finally going to give it to her. I put it on my desk before recess. When I came back, it was gone.\"",
         "Hazel felt something tighten in her chest.\n\n\"Did you tell Mr. Brindle?\"\n\nOtis shook his head fast. \"I can't. He'll make a big fuss about it and everyone will turn around and stare at me. I just want to give her the card. Quietly. The way I planned.\"",
-        "Hazel nodded. She understood.\n\nShe reached into her apron pocket and felt the cool shape of her grandmother's magnifying glass. The traces faded fast, her grandmother had said. Whatever she was going to do, she would have to do it soon.\n\n\"Otis,\" she said quietly, putting one of her white paws gently over his small one, \"I'm going to find your card. I promise.\"\n\nThen she padded back to her own desk and tried to think."
+        "Hazel nodded. She understood.\n\nShe reached into her apron pocket and felt the cool shape of her grandma's magnifying glass. The traces faded fast, her grandma had said. Whatever she was going to do, she would have to do it soon.\n\n\"Otis,\" she said quietly, putting one of her white paws gently over his small one, \"I'm going to find your card. I promise.\"\n\nThen she padded back to her own desk and tried to think."
       ],
       "next": "recess"
     },
@@ -120,7 +121,7 @@
       "type": "read",
       "label": "The Magnifying Glass",
       "pages": [
-        "Hazel slipped over to Otis's desk and pulled out her grandmother's magnifying glass. Through the lens, the world looked the same. Almost. The traces glowed everywhere, faint and golden, fading slowly like winter breath in the cold.",
+        "Hazel slipped over to Otis's desk and pulled out her grandma's magnifying glass. Through the lens, the world looked the same. Almost. The traces glowed everywhere, faint and golden, fading slowly like winter breath in the cold.",
         "She crouched down. The first thing she saw were paw prints. Tiny careful prints, walking slowly across the floor in the way someone walks when they are carrying something with two paws. The prints led to the lost and found bin under the sink. They had to be Wilbur's. He tidied the room every morning and again every recess.",
         "But there was something else, going in a different direction altogether. Not paw prints. A thin scattering of golden specks, bright and fine like pollen, that drifted up the wall in a soft curving line and disappeared toward the open window above the reading corner. Whatever had made those specks had not walked. It had been carried.",
         "Hazel sat back on her heels. Two trails she could still follow. The rest had faded too far. The recess bell would ring in twenty minutes and she could not chase both. She had to choose."
@@ -226,7 +227,7 @@
         "Mae walked over to Otis with the card held very carefully in both paws. Hazel watched from her desk.\n\nMae sat down beside Otis and said something Hazel could not quite hear. Otis listened. His spines were still pulled in tight. Then Mae held out the card.\n\nFor a moment, nothing happened.\n\nThen Otis took the card. He looked at the front. He looked at the back. He looked at Mae.\n\nAnd then, very slowly, his spines began to soften.",
         "He said something to her, and Mae nodded. The two of them stood up together, and Otis walked over to Mrs. Featherwhistle's reading corner with Mae beside him, and gave her the card.\n\nMrs. Featherwhistle took it carefully. She unfolded it and read every word, and as she read, her feathers ruffled with the kind of soft happiness that only owls can show. She made a quiet hoot. Then she hugged Otis. Then she hugged Mae too.\n\nMr. Brindle never knew the card had been lost. No one but Hazel and Mae knew the whole story.",
         "Pip slid into the seat next to Hazel at the end of the day, holding the acorn he had been saving since the bridge that morning.\n\n\"Did you figure it out?\" he whispered.\n\n\"I figured it out.\"\n\nPip nodded like he had never doubted. \"You always notice when something's wrong with someone, even when they're trying not to show it,\" he said. \"That's the kind of friend you are.\"\n\nHe split the acorn carefully between them, and Hazel took her half with a smile.",
-        "She closed her notebook and put her grandmother's magnifying glass back in her apron pocket.\n\nSometimes the best mysteries were the ones that ended quietly."
+        "She closed her notebook and put her grandma's magnifying glass back in her apron pocket.\n\nSometimes the best mysteries were the ones that ended quietly."
       ],
       "isEnding": true,
       "endingTitle": "Hazel and Mae",
@@ -295,7 +296,7 @@
         "Hazel found Otis at his desk, still pulled in tight. She sat down beside him.\n\n\"Otis,\" she whispered. \"I have something for you.\"\n\nHe looked up. She set the card on the desk in front of him, painted side up, the careful purple letters glowing in the afternoon light.\n\nFor a long moment, Otis did not move.\n\nThen he picked it up and held it against his chest. He did not say anything. He did not need to.\n\nHazel walked away to give him a moment.",
         "Later, at the end of the day, Otis carried the card up to Mrs. Featherwhistle's reading corner and gave it to her himself. Mrs. Featherwhistle took it gently in her wings. She unfolded it and read every word, and her eyes filled up with the kind of tears that were not sad at all. She made a quiet, happy hoot, and she hugged Otis tight. Otis's spines were soft and standing tall.\n\nHazel watched from her desk. She thought about Felix in the second grade hallway, who had been trying to help all morning, and who she had almost thought badly of.",
         "Pip slid into the seat next to her, holding the acorn he had been saving since the bridge that morning.\n\n\"Figured it out?\"\n\n\"Figured it out.\"\n\nPip nodded like he had never doubted. \"You always look twice at things before you decide what they mean,\" he said. \"That's why people trust you.\"\n\nHe split the acorn carefully between them, and Hazel took her half with a smile.",
-        "She took out her notebook and wrote one line.\n\nLook twice before you look down on someone.\n\nThen she closed it and put her grandmother's magnifying glass back in her apron pocket."
+        "She took out her notebook and wrote one line.\n\nLook twice before you look down on someone.\n\nThen she closed it and put her grandma's magnifying glass back in her apron pocket."
       ],
       "isEnding": true,
       "endingTitle": "Hazel and Felix",
@@ -433,7 +434,7 @@
       "pages": [
         "Otis carried the card up to Mrs. Featherwhistle's reading corner. He stood very still in front of her for a moment, like he was working up the courage. Then he held out the card with both paws.\n\nMrs. Featherwhistle took it. She unfolded it. She read every word.\n\nThen she looked up at Otis with shining eyes and made a sound like a happy hoot, and she hugged him so gently that his spines did not even move.",
         "Hazel watched from her desk.\n\nPip slid into the seat next to her with the acorn he had been saving since the bridge that morning.\n\n\"Figured it out?\"\n\n\"Figured it out.\"\n\nPip nodded like he had never doubted. \"You're patient. You see what other people walk past,\" he said. \"That's the kind of friend you are.\"\n\nHe split the acorn carefully between them, and Hazel took her half with a smile.",
-        "She took out her notebook and wrote, very carefully:\n\nThe answer was here the whole time. I just had to stop and look.\n\nThen she closed her notebook and put her grandmother's magnifying glass back in her apron pocket.\n\nSometimes the best mysteries were the ones that ended quietly."
+        "She took out her notebook and wrote, very carefully:\n\nThe answer was here the whole time. I just had to stop and look.\n\nThen she closed her notebook and put her grandma's magnifying glass back in her apron pocket.\n\nSometimes the best mysteries were the ones that ended quietly."
       ],
       "isEnding": true,
       "endingTitle": "Hazel and the Window",
