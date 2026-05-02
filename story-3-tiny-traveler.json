@@ -1,0 +1,378 @@
+{
+  "id": "tiny-traveler",
+  "title": "The Mystery of the Tiny Traveler",
+  "subtitle": "A Hollowsdale Story",
+  "bookNumber": 3,
+  "coverEmoji": "🌺",
+  "description": "A tiny bird arrives in Hollowsdale a thousand miles late.",
+  "startPassage": "intro",
+  "endingPassageIds": [
+    "end-cobble",
+    "end-wilbur",
+    "end-otis",
+    "end-grandma"
+  ],
+  "passages": {
+    "intro": {
+      "type": "read",
+      "label": "Before The Story Begins",
+      "pages": [
+        "Hazel is a calico kitten in the first grade at Hollowsdale Primary School.\n\nShe has three white paws, one orange paw, and a small notch in her left ear from when she was a baby. The notch is small enough that most people do not see it. Hazel knows it is there, and she likes that. It makes her feel like a kitten who has been somewhere.",
+        "She lives in a cedar cottage at the edge of town with her mommy, her daddy, her grandma, and her baby brother Milo.\n\nMilo is two years old. His three favorite words are \"bird,\" \"cheese,\" and \"Hazo,\" which is what he calls her. He says them in that order most days, with great seriousness, as though he is announcing the news of the world from his high chair.",
+        "Her best friend in the whole world is a bunny named Pip, who is brave and loyal and almost always thinking about snacks.\n\nHer favorite teacher is Mr. Brindle the otter, who writes very neat letters on the board with chalk that smells faintly of lavender. Her favorite place at school is the reading corner, where Mrs. Featherwhistle the owl librarian sometimes reads aloud on rainy afternoons.",
+        "In the deep pocket of her apron, Hazel carries a small notebook, a yellow pencil, and her grandma's silver magnifying glass.\n\nThe glass shows the faint golden traces of things that have been somewhere recently. The traces fade fast. The glass shows what was there. It does not tell what it means. That part is up to her.\n\nThis is the story of her third mystery."
+      ],
+      "next": "prologue-1"
+    },
+    "prologue-1": {
+      "type": "read",
+      "label": "Prologue",
+      "pages": [
+        "The first thing Hazel did every morning was open her bedroom window.\n\nThe morning was cool, and the leaves on the maple tree outside were the color of clean copper. The light came in slow and a little gold, the way it does at the end of October, when the world is starting to slip toward winter but is not in any hurry about it.\n\nShe put on her apron and went downstairs.",
+        "The kitchen smelled like oatmeal and warm cinnamon and a little bit of cedar smoke from the stove.\n\nHer daddy was by the door tying his work scarf. Her mommy was at the stove stirring oatmeal. Milo was in his high chair feeding a slice of apple to his stuffed bunny, very seriously, as though the bunny were almost ready for something important. Her grandma sat at the head of the table with the newspaper.",
+        "\"Morning, my Hazel,\" her daddy said, kissing the top of her head as he opened the door. \"Be a good noticer today.\"\n\nThe door closed softly behind him.\n\nMilo looked up from his bunny. \"Hazo. Bird.\" He pointed at the window. There was a fat little chickadee on the fence post, eating something tucked into the wood.\n\n\"Good seeing, Milo,\" Hazel said. \"That is a chickadee.\"\n\n\"Bird,\" Milo agreed. He went back to his bunny.\n\nHer grandma lowered the newspaper.",
+        "\"What are you noticing today, my Hazel?\"\n\nThis was the question her grandma always asked.\n\nHazel thought about it. \"The leaves on the maple are the color of new pennies. And the squirrel who lives in the maple has been carrying acorns all morning. He carries one, then he comes back for two more, then he forgets where he hid the first one.\"\n\nHer grandma laughed. \"That is squirrel work.\"",
+        "She slid a small apple across the table. It was red and a little uneven.\n\n\"This is from the old apple tree on the south side of town,\" her grandma said. \"The one by the river. Have you seen it?\"\n\nHazel had. It was a tall, slightly crooked tree with apples that came late.\n\n\"That tree was old when I was small,\" her grandma said. \"It was old when my mother was small. Someone planted it, and we do not know who.\"",
+        "Her grandma looked out the window for a moment.\n\n\"Most of what we have was given to us by hands we will never meet,\" she said quietly. \"Most of what we eat was planted by someone we never thanked. The older I get, the more I feel like a guest at a meal that someone else has cooked.\"\n\nHazel held the apple in both paws.\n\n\"Take it with you,\" her grandma said. \"It is a small piece of the meal.\""
+      ],
+      "next": "intro-choice"
+    },
+    "intro-choice": {
+      "type": "choice",
+      "prompt": "What does Hazel write in her notebook before she leaves?",
+      "options": [
+        {
+          "id": "intro-a",
+          "label": "About the apple",
+          "text": "My grandma gave me an apple this morning. It is from a tree by the river. The tree is so old that nobody knows who planted it. Grandma says most of what we eat was planted by hands we will never meet. I want to remember that today. I will keep the apple in my pocket until lunch.",
+          "next": "walking"
+        },
+        {
+          "id": "intro-b",
+          "label": "About the morning",
+          "text": "The leaves on the maple tree are the color of new pennies. The squirrel by my window is hiding acorns and forgetting where. Grandma said most of what we have was given to us by hands we will never meet. I am going to look for things like that today. I am going to look twice.",
+          "next": "walking"
+        }
+      ]
+    },
+    "walking": {
+      "type": "read",
+      "label": "Walking To School",
+      "pages": [
+        "The bakery on the corner already smelled of bread. Mr. Cobble the badger was inside, his floury paws moving carefully over a tray of small round loaves.\n\nHe saw Hazel through the window and lifted one paw in a slow, friendly wave. Hazel waved back.\n\nThe bridge was just past the bakery, and Pip was already there. He always was. He had two acorns this morning. He always did.",
+        "\"Hazel,\" Pip said, very brightly. \"I have two acorns. One is for now. One is for later, in case of a case.\"\n\nHe gave her one. They sat on the bridge railing and ate them. The water below was clear and slow. A small fish hovered in the shallows.\n\n\"What is the case today?\" Hazel asked.\n\n\"I do not know yet,\" Pip said. \"But I will be ready.\""
+      ],
+      "next": "opening"
+    },
+    "opening": {
+      "type": "read",
+      "label": "A Bird At The Window",
+      "pages": [
+        "Hazel hung up her apron in her cubby. She kept the notebook and the magnifying glass and the apple in her apron pocket.\n\nMr. Brindle was at the board, writing the day's words in his careful chalk handwriting. October. Migration. Harvest. Quiet. He did one word every morning, and the children traced it.\n\nMae was already in her seat. So were Otis and Wilbur and the others. The morning was settling into itself.",
+        "And then Mae sat up very suddenly.\n\n\"There is a bird at the window.\"\n\nEveryone looked.\n\nOutside, on the bare twig of the apple branch, sat the tiniest bird Hazel had ever seen. He was smaller than her paw, green like a wet leaf, with a throat like a small red coal. He hovered, landed, hovered again. His wings made no sound she could hear, but the air around him shimmered.",
+        "The whole class stared.\n\n\"Mr. Brindle,\" Otis whispered, \"what kind of bird is that?\"\n\nMr. Brindle came to the window. He watched for a moment, then scratched behind one ear.\n\n\"I do not know,\" he said, the way an honest otter teacher says things. \"I think we should ask someone who does. Hazel, would you walk to the library? Take Pip if you like.\"\n\nHazel slid out of her chair. Pip slid out right after her.",
+        "Mrs. Featherwhistle was at her desk with a pencil in her wing tip and a stack of cards in front of her. Hazel described the bird. Green. Throat like a coal. Wings she could not hear.\n\nMrs. Featherwhistle put the pencil down.\n\n\"Show me.\"\n\nShe came back to the classroom with them and stood at the window and watched the bird for a long time without speaking.\n\n\"That is a Ruby-throated Hummingbird,\" she said quietly.",
+        "\"He should be in Mexico by now,\" she went on. \"He is at least a thousand miles late.\"\n\nShe said it carefully, the way she said most things.\n\n\"He is so small that he weighs less than a coin. He has to eat almost his own weight in nectar every day. If the cold sets in before he leaves, he will not make the journey home.\"\n\nPip's whiskers twitched.",
+        "\"Why is he still here?\" Hazel asked.\n\n\"Because someone has been feeding him,\" Mrs. Featherwhistle said. \"Maybe more than one someone. If he has had enough today, and if he has a sheltered place to roost tonight, he can leave at dawn.\"\n\nShe looked at Hazel.\n\n\"Will you find out who has been feeding him? Look for the ordinary things first. Look for the kindnesses people do without meaning to be kind.\"\n\nHazel nodded. So did Pip."
+      ],
+      "next": "recess"
+    },
+    "recess": {
+      "type": "read",
+      "label": "Recess",
+      "pages": [
+        "The bell rang for recess. Pip slid off his chair.\n\n\"I will be at the bench,\" he said. \"I have your acorn. I will be ready when you are ready. This is a case, Hazel. This is definitely a case.\"\n\nHe hopped off, his ears bouncing.\n\nHazel went to her favorite spot under the maple tree on the far side of the yard. The leaves were the color of new pennies. She took out her notebook.",
+        "She wrote three things.\n\nThe bird is here.\nHe should not be here.\nHe is here because someone has been kind to him.\n\nShe tapped her pencil twice on the page.\n\nShe could go to the apple branch where the bird had been and look through the glass for golden traces. Or she could sit and think, the way she liked to think, with the notebook open on her knee.\n\nShe had to choose."
+      ],
+      "next": "choice-1"
+    },
+    "choice-1": {
+      "type": "choice",
+      "prompt": "How will Hazel begin?",
+      "options": [
+        {
+          "id": "choice-1a",
+          "label": "Use the magnifying glass",
+          "text": "I will go to the apple branch by the classroom window and use the glass. The bird was there only a few minutes ago, so the trace will still be bright. The glass will show me where the bird has been. Then I will follow the trace to wherever it leads first.",
+          "next": "path-a"
+        },
+        {
+          "id": "choice-1b",
+          "label": "Sit and think",
+          "text": "I will sit under the maple tree and think. I will list what the bird needs to live. He needs sugar water. He needs a tree that still has flowers. He needs a place to drink. If I think about who tends those things in town, I will know where to look.",
+          "next": "path-b"
+        }
+      ]
+    },
+    "path-a": {
+      "type": "read",
+      "label": "The Glass At The Apple Branch",
+      "pages": [
+        "Hazel walked back inside, around to the apple branch outside the classroom window. The branch was empty now. The bird had flown somewhere.\n\nShe held up her grandma's silver magnifying glass.\n\nThrough the lens, the world looked the same. Almost. There were small golden traces on the bare twig where the bird had perched. The traces were already starting to fade. She held the glass close to her eye and watched.",
+        "Two thin golden lines led away from the branch.\n\nOne of them went west, toward the river and the bakery. The crabapple tree behind Mr. Cobble's bakery was just visible from here, with its strange late blossoms still stubbornly hanging on.\n\nThe other line went south, across the schoolyard, toward the small stone fountain in the middle of the playground. The fountain was almost always running. She could see the water now, glinting in the autumn light."
+      ],
+      "next": "choice-2a"
+    },
+    "choice-2a": {
+      "type": "choice",
+      "prompt": "Which trace will Hazel follow first?",
+      "options": [
+        {
+          "id": "choice-2a-cobble",
+          "label": "Toward Mr. Cobble's tree",
+          "text": "I will follow the trace to the bakery. The late blossoms on the crabapple are something I have walked past my whole life without noticing in October. If the bird has been eating from those blossoms, then someone has let that tree keep blooming late, and I would like to know how.",
+          "next": "inv-cobble"
+        },
+        {
+          "id": "choice-2a-wilbur",
+          "label": "Toward the schoolyard fountain",
+          "text": "I will follow the trace to the schoolyard fountain. A bird this small needs water as much as he needs food. The fountain is almost always running, even when the mornings are very cold, and I have never thought about why. Someone must be keeping it from freezing. I want to know who has been keeping it open.",
+          "next": "inv-wilbur"
+        }
+      ]
+    },
+    "path-b": {
+      "type": "read",
+      "label": "The Notebook Under The Maple Tree",
+      "pages": [
+        "Hazel sat under the maple tree and opened her notebook.\n\nShe wrote a list.\n\nThings the bird needs to live.\nSugar water. Late flowers. A place to drink. Shelter from the cold tonight.\n\nShe studied it for a moment. Then she wrote a second list, slowly, because her grandma had once told her that the best way to find anything was to think about who might already be looking after it.\n\nThings people in Hollowsdale tend.",
+        "She thought about the people in school who tended things every day. Mae kept the windowsill tidy, Wilbur tidied the lost and found, Mr. Brindle watered the schoolroom plants on Wednesdays, and Mrs. Featherwhistle dusted the books with a soft cloth she kept in her desk.\n\nBut two thoughts kept coming back to her.\n\nThe school had a feeder on the south side of the building. She had seen Otis there before, very early in the morning, holding a small jar of something.\n\nAnd then there was the hedgerow that ran down the lane from her cottage. Her grandma had planted it long ago, and it bloomed later than anything else in Hollowsdale. It was still blooming now."
+      ],
+      "next": "choice-2b"
+    },
+    "choice-2b": {
+      "type": "choice",
+      "prompt": "Which lead will Hazel follow first?",
+      "options": [
+        {
+          "id": "choice-2b-otis",
+          "label": "Find Otis at the feeder",
+          "text": "I will go and find Otis at the school feeder. I have seen him there before, and I want to know what is in the jar he carries. Otis is quiet, and he is careful, and the things he does without saying anything about them might be the kind of things Mrs. Featherwhistle was talking about.",
+          "next": "inv-otis"
+        },
+        {
+          "id": "choice-2b-grandma",
+          "label": "Walk home along the hedgerow",
+          "text": "I will walk home along the hedgerow after school. The hedgerow runs all the way down the valley. It blooms later than anything else in town. My grandma told me about it once, but I did not really listen. I want to find out what she knows. I want to ask her.",
+          "next": "inv-grandma"
+        }
+      ]
+    },
+    "inv-cobble": {
+      "type": "read",
+      "label": "The Late Crabapple",
+      "pages": [
+        "School ended. Pip slid into the seat next to Hazel and whispered, \"I will wait. I have your acorn.\" Then he watched her go.\n\nThe bell over Mr. Cobble's door made its small, friendly noise. Inside, the bakery smelled of yeast and butter and something a little smoky. Mr. Cobble was at the back, sliding a long flat tray of rolls into the cooling rack.",
+        "He saw her and smiled his slow smile. \"Hazel. Have you come to buy a bun?\"\n\n\"I have come to look at your tree, if I may.\"\n\nMr. Cobble paused, holding a wooden paddle in one floury paw. He set it down carefully. \"The crabapple. Come on through.\"\n\nHe led her through a narrow door into a small back garden. It was about the size of a kitchen rug, and walled in by old red brick.",
+        "The tree was in the middle of the garden. It was old and slightly crooked, with a scar on the trunk where a branch had been pruned off long ago. Tiny pale blossoms still clung to the upper branches, even though it was late October. A few small lopsided fruits lay on the ground.\n\nThe tree was buzzing very faintly.\n\nIt took Hazel a moment to understand why.\n\nThen she saw him.",
+        "The hummingbird was at the highest blossoms, hovering, drinking. The autumn light caught his throat and turned it briefly into a small red coal. He darted to another blossom, and then to another.\n\nMr. Cobble stood beside her, also very still. His floury paws hung at his sides. He had not known the bird would be there. She could tell by his face.\n\n\"He has been here all week,\" Mr. Cobble said quietly. \"I thought he was a moth.\"",
+        "\"I bought this bakery a long time ago,\" Mr. Cobble said. \"The tree was here when I came. The lady who sold me the bakery said it was here when she came too. The tree blooms late, and it keeps the back garden warm in autumn because the bees stay long. So she let it be. And I let it be.\"\n\nHe looked at Hazel.\n\n\"Whoever planted that tree planted it a long time before any of us were here. We do not know who they were.\"",
+        "\"They wanted shade, maybe, or pretty apples in the spring. They could not have planned for a bird from across the world to eat from it on an October afternoon. But here he is, doing it.\"\n\nHe nodded toward the bird.\n\n\"He will eat his fill before dark. And then he can do whatever he needs to do.\"\n\nThe hummingbird darted to another blossom. He was, Hazel could see, eating very seriously."
+      ],
+      "next": "choice-3-cobble"
+    },
+    "choice-3-cobble": {
+      "type": "choice",
+      "prompt": "What does Hazel say to Mr. Cobble before she goes?",
+      "options": [
+        {
+          "id": "choice-3-cobble-tell",
+          "label": "Tell him the whole story",
+          "text": "I want to tell Mr. Cobble what the bird is. He should know. He has been keeping a tree alive that someone he never met planted, and now that tree has fed a Ruby-throated Hummingbird who is a thousand miles late. He should be told the whole story. People should know when their work matters.",
+          "next": "res-cobble"
+        },
+        {
+          "id": "choice-3-cobble-quiet",
+          "label": "Just thank him for the tree",
+          "text": "I want to leave the back garden quiet, the way I found it. Mr. Cobble does not need to know everything. He has been doing his quiet work for a long time without an audience. I will thank him for letting the tree be, and I will keep the rest of it for me and my notebook.",
+          "next": "res-cobble"
+        }
+      ]
+    },
+    "res-cobble": {
+      "type": "read",
+      "label": "The Alcove",
+      "pages": [
+        "Mr. Cobble walked her back to the front of the bakery. He gave her a small warm bun for the walk. He held the door open as she stepped out into the late afternoon.\n\nThe street was quiet. The light was the color of a candle.\n\nShe walked back to the school. Mrs. Featherwhistle was waiting at the south wall of the library, where the small alcove was.",
+        "\"He has been at the bakery,\" Hazel said. \"There is a crabapple tree behind Mr. Cobble's. Someone planted it a long time ago. It is still feeding the bird.\"\n\nMrs. Featherwhistle blinked, slowly. \"A late-blooming crabapple. I should have thought of it.\"\n\nShe had laid out a small lined cloth in the alcove. There was a sprig of fir for shelter, and a tiny shallow dish of warm sugar water beside it.\n\nThe hummingbird came at dusk.",
+        "He drank carefully, twice. He moved his wings in a slow, shimmering arc. Then he tucked himself onto the smallest branch of the fir, drew his wings in close, and went very still.\n\nMrs. Featherwhistle nodded, as if to say, that is what they do.\n\n\"He will be safe tonight,\" she said. \"And in the morning, he will be gone.\"\n\nHazel watched him for a long time before she went."
+      ],
+      "next": "end-cobble"
+    },
+    "end-cobble": {
+      "type": "read",
+      "label": "Ending: Trees You Did Not Plant",
+      "isEnding": true,
+      "endingTitle": "Hazel and Mr. Cobble",
+      "pages": [
+        "Pip was waiting on the school steps with the acorn he had been saving since the bridge that morning. He slid it from one paw to the other and held out half.\n\n\"Figured it out?\"\n\n\"Figured it out.\"\n\nPip nodded as if he had never doubted. \"You pay attention to the things people do without telling anyone they did them,\" he said. \"That is the kind of friend you are.\"\n\nHe gave her the half-acorn. They ate it together, slowly.",
+        "The walk home was long and warm. The shadows of the maples stretched across the lane. Milo was at the kitchen window when she got home, holding his stuffed bunny up to look out at the garden.\n\n\"Hazo!\" he called. \"Bird!\"\n\n\"Yes, Milo,\" Hazel said. \"There was a bird today.\"\n\nShe told her mommy and her grandma about the day. She told them about Mr. Cobble's tree, and the planter no one knew, and the bird who was eating his fill.",
+        "Her grandma listened all the way through. Then she put down her teacup.\n\n\"There is a beautiful idea in the old books,\" she said. \"It says that you will eat the fruit of trees you did not plant, and you will drink from wells you did not dig. Most of what we have was put here for us by people who could not have known us, and would not have lived to meet us, and gave us their work anyway.\"\n\nShe smiled at Hazel.\n\n\"You found one of them today.\"",
+        "Hazel could not sleep until very late. She woke up while the sky was still dark, dressed quietly, and walked down to the bridge by Mr. Cobble's bakery.\n\nShe stood on the bridge as the sky turned grey, then pale blue, then almost gold.\n\nA small green bird with a throat like a coal lifted from the alcove on the south wall of the library, climbed into the cool air, paused above the crabapple tree for one last moment, and was gone.\n\nShe watched the sky for a long time after."
+      ],
+      "next": null
+    },
+    "inv-wilbur": {
+      "type": "read",
+      "label": "The Schoolyard Fountain",
+      "pages": [
+        "School ended. Pip slid into the seat next to Hazel and whispered, \"I will wait. I have your acorn.\" Then he watched her go.\n\nHazel walked to the schoolyard fountain. It sat in the middle of the playground, low and round, with a slow, steady spout. A few children were still nearby, but they were drifting home in twos and threes.\n\nShe did not see Wilbur at first. Then she did.",
+        "He was on the far side of the fountain, kneeling, with a small steel kettle in one paw and a cloth in the other. He was pouring a thin stream of warm water along the inside rim of the fountain, very carefully, where a thin scrim of ice had begun to form in the morning shade.\n\nHe looked up when she came around.\n\n\"Oh. Hazel. Hello.\"\n\n\"What are you doing, Wilbur?\"\n\n\"I am keeping it from freezing,\" he said.",
+        "He sat back on his heels. He had a small mouse-sized smudge of soot on his cheek from the school kitchen.\n\n\"It freezes a little every morning now,\" he said. \"Just at the rim. The water in the middle is fine because it is moving. But the rim freezes, and birds cannot drink from the middle. They land on the rim. So I bring warm water from the kitchen and I melt it before the bell rings.\"\n\nHe said it the way someone says, I tied my shoes today.",
+        "\"How long have you been doing this?\" Hazel asked.\n\nWilbur thought.\n\n\"Since the first cold morning. About two weeks. I did it once because I saw a chickadee try to land and skid. And then I did it the next day because I thought I should. And then I did it the day after.\"\n\nHe set the kettle down.\n\n\"It does not take very long. Nobody has noticed.\"",
+        "While they were standing there, a small green flicker dropped down from the maple at the edge of the yard. The hummingbird hovered above the fountain for a moment. Then he landed on the warm stone rim Wilbur had cleared, dipped his long beak into the water, and drank.\n\nWilbur went very still.\n\n\"That is not a chickadee,\" he whispered.\n\n\"No,\" Hazel whispered. \"He is from a long way away. He needs water as much as he needs food. He has been drinking here all week.\"",
+        "The hummingbird drank twice more. Then he was up and gone again, a small green flicker over the school roof.\n\nWilbur watched him go.\n\n\"I just thought somebody should make sure the fountain did not freeze,\" he said.\n\n\"You did,\" Hazel said. \"Every morning. You were the somebody.\"\n\nWilbur looked at the kettle in his paw.\n\n\"Oh,\" he said. He sounded surprised. He sounded like a mouse who had not thought of himself that way before."
+      ],
+      "next": "choice-3-wilbur"
+    },
+    "choice-3-wilbur": {
+      "type": "choice",
+      "prompt": "How will Hazel thank Wilbur?",
+      "options": [
+        {
+          "id": "choice-3-wilbur-class",
+          "label": "Tell the class tomorrow",
+          "text": "I will tell the whole class in the morning. Wilbur has been keeping the fountain open every day, and nobody has noticed, and I think they should. He should be thanked out loud, in front of everyone. The kind of work he does is the kind of work that holds the school together, and he should know we know.",
+          "next": "res-wilbur"
+        },
+        {
+          "id": "choice-3-wilbur-note",
+          "label": "Leave a note in his cubby",
+          "text": "I will write Wilbur a small note tonight and slip it into his cubby in the morning. He is a quiet mouse, and I do not think he would like to be thanked out loud. A note is a thing he can keep. A note will tell him that someone saw, without making him stand up in front of anybody.",
+          "next": "res-wilbur"
+        }
+      ]
+    },
+    "res-wilbur": {
+      "type": "read",
+      "label": "The Alcove",
+      "pages": [
+        "Wilbur put his kettle away. Hazel walked back to the south wall of the library, where Mrs. Featherwhistle was waiting.\n\n\"He has been drinking at the schoolyard fountain,\" Hazel said. \"Wilbur has been keeping the rim from freezing every morning. The bird has had water all week.\"\n\nMrs. Featherwhistle nodded slowly.\n\n\"Wilbur,\" she said. \"Of course.\"\n\nShe had laid out a small lined cloth in the alcove, with a sprig of fir for shelter and a tiny shallow dish of warm sugar water beside it.",
+        "The hummingbird came at dusk.\n\nHe drank carefully, twice. He moved his wings in a slow, shimmering arc. Then he tucked himself onto the smallest branch of the fir, drew his wings in close, and went very still.\n\nMrs. Featherwhistle nodded, as if to say, that is what they do.\n\n\"He will be safe tonight,\" she said. \"And in the morning, he will be gone.\"",
+        "Hazel watched him for a long time before she went.\n\nShe thought about how a bird the size of a coin had drunk from a fountain that should have been frozen, on a morning Wilbur did not have to think about, and how the bird had not known whose work it was. The bird had only known the rim was warm enough to land on.\n\nThat was, she thought, how most kindness worked."
+      ],
+      "next": "end-wilbur"
+    },
+    "end-wilbur": {
+      "type": "read",
+      "label": "Ending: The Small Faithful Things",
+      "isEnding": true,
+      "endingTitle": "Hazel and Wilbur",
+      "pages": [
+        "Pip was waiting on the school steps with the acorn he had been saving since the bridge that morning. He slid it from one paw to the other and held out half.\n\n\"Figured it out?\"\n\n\"Figured it out.\"\n\nPip nodded as if he had never doubted. \"You see the people other people walk right past,\" he said. \"That is the kind of friend you are.\"\n\nHe gave her the half-acorn. They ate it together, slowly.",
+        "The walk home was long and warm. Milo was at the kitchen window when she got home, holding his stuffed bunny up to look out at the garden.\n\n\"Hazo!\" he called. \"Bird!\"\n\n\"Yes, Milo,\" Hazel said. \"There was a bird today.\"\n\nShe told her mommy and her grandma about the day. She told them about the schoolyard fountain, and a mouse with a kettle, and a bird the size of a coin who had drunk from a rim that should have been frozen.",
+        "Her grandma listened all the way through. Then she put down her teacup.\n\n\"There is a beautiful idea in the old books,\" she said. \"It says that whoever can be trusted with very small things can be trusted with very large ones. The people who hold the world together are mostly the people doing small faithful things every morning, before anyone has thought to thank them. If you can find them, you have found the strongest stitches in the cloth.\"\n\nShe smiled at Hazel.\n\n\"You found one of them today.\"",
+        "Hazel could not sleep until very late. She woke up while the sky was still dark, dressed quietly, and walked down to the schoolyard.\n\nShe stood by the fountain as the sky turned grey, then pale blue, then almost gold.\n\nA small green bird with a throat like a coal lifted from the alcove on the south wall of the library, climbed into the cool air, paused over the fountain for one last moment, and was gone.\n\nShe watched the sky for a long time after."
+      ],
+      "next": null
+    },
+    "inv-otis": {
+      "type": "read",
+      "label": "The South-Side Feeder",
+      "pages": [
+        "School ended. Pip slid into the seat next to Hazel and whispered, \"I will wait. I have your acorn.\" Then he watched her go.\n\nHazel walked around to the south side of the school building, where there was a small feeder hanging from an iron hook beside a young birch tree. Otis was already there. He had a small glass jar in one paw and a wooden spoon in the other.\n\nHe looked up. His spines pulled in a little when he saw her.\n\n\"Oh. Hazel.\"",
+        "\"I was hoping I would find you here, Otis.\"\n\nShe came closer. The jar he was holding had a clear, slightly sticky liquid in it. He was tipping it carefully into the feeder, one slow stream.\n\n\"What is it?\" Hazel asked.\n\n\"Sugar water,\" Otis said. \"One part sugar to four parts water. You boil it first and then you let it cool. You do not use honey and you do not use food coloring. My auntie taught me.\"\n\n\"Your auntie.\"",
+        "Otis nodded. He set the jar down on the ground.\n\n\"She lives a long way from here. Across the sea, almost. I see her once a year, maybe, when she comes to visit. I have known her my whole life, but I do not know her the way I know my mum, because she is not next to me. She is somewhere else. Most of the time.\"\n\nHe looked at the feeder.\n\n\"When I was very little, she sat me on her porch and showed me how to make sugar water for the hummingbirds in her yard. I was four years old. I remember it more than I remember most things.\"",
+        "\"Why do you make it here?\" Hazel asked, very gently.\n\nOtis took a long time before he answered.\n\n\"I do not know if there are any hummingbirds in Hollowsdale. I have never seen one. I started doing it because she taught me, and the recipe is in my hands now, and I did not want to forget it. Sometimes, when I am pouring the sugar water, I think about her doing the same thing in her yard, on the same morning, in a place I have only seen pictures of. And I feel less far away from her.\"",
+        "While they were standing there, a small green flicker dropped down from the birch tree. The hummingbird hovered above the feeder for a moment. Then he landed and dipped his long beak into the small flower-shaped opening, and drank.\n\nOtis went very, very still.\n\nHazel put a paw lightly on his shoulder.\n\n\"Otis,\" she whispered. \"That is a hummingbird. That is what your auntie's recipe is for.\"\n\nOtis stared at the bird. He did not blink. The bird drank for a long time.",
+        "When the hummingbird finally lifted away into the birch tree, Otis was quiet for a moment. Then he picked up his jar.\n\n\"I have been doing it for almost a year,\" he said softly. \"I never knew if anyone was drinking it. I just kept doing it because she taught me.\"\n\nHe looked at Hazel.\n\n\"He came because of her,\" he said. \"Even though she is across the sea.\"\n\n\"Yes,\" Hazel said. \"He came because of her. And because you remembered.\""
+      ],
+      "next": "choice-3-otis"
+    },
+    "choice-3-otis": {
+      "type": "choice",
+      "prompt": "What does Hazel say to Otis next?",
+      "options": [
+        {
+          "id": "choice-3-otis-ask",
+          "label": "Ask him to tell more",
+          "text": "I want to ask Otis to tell me more about his auntie. I want to know her name, and what her porch looks like, and whether the hummingbirds in her yard come right up to her hand. He has been carrying her in a jar of sugar water for a whole year. I would like to know who she is.",
+          "next": "res-otis"
+        },
+        {
+          "id": "choice-3-otis-wait",
+          "label": "Let him share when he is ready",
+          "text": "I want to let Otis hold this on his own for a little. He has just learned that his auntie's recipe brought a bird here, and he is quiet, and he needs a moment with it. I will not ask him questions today. I will just stand with him while he watches the birch tree. When he is ready, he will tell me about her.",
+          "next": "res-otis"
+        }
+      ]
+    },
+    "res-otis": {
+      "type": "read",
+      "label": "The Alcove",
+      "pages": [
+        "Otis screwed the lid back on his jar and tucked it under his arm. He walked the long way around the school with Hazel, slow and thinking, until they reached the south wall of the library, where Mrs. Featherwhistle was waiting.\n\n\"He has been drinking from the south-side feeder,\" Hazel said. \"Otis has been making sugar water all autumn. He learned from his auntie.\"\n\nMrs. Featherwhistle looked at Otis. Then she looked at the feeder, very far away, and then back at him.\n\n\"Thank you, Otis,\" she said simply.",
+        "She had laid out a small lined cloth in the alcove, with a sprig of fir for shelter and a tiny shallow dish of warm sugar water beside it. The dish, Hazel realized, was the same recipe Otis had just been pouring.\n\nThe hummingbird came at dusk.\n\nHe drank carefully, twice. He moved his wings in a slow, shimmering arc. Then he tucked himself onto the smallest branch of the fir, drew his wings in close, and went very still.",
+        "\"He will be safe tonight,\" Mrs. Featherwhistle said. \"And in the morning, he will be gone.\"\n\nOtis stayed for a long time. He did not speak. Hazel did not speak either. The light went soft and the alcove smelled faintly of fir and sugar.\n\nWhen Otis finally left, he walked home with his jar tucked under his arm, the way someone carries a thing that matters."
+      ],
+      "next": "end-otis"
+    },
+    "end-otis": {
+      "type": "read",
+      "label": "Ending: A Lesson From Far Away",
+      "isEnding": true,
+      "endingTitle": "Hazel and Otis",
+      "pages": [
+        "Pip was waiting on the school steps with the acorn he had been saving since the bridge that morning. He slid it from one paw to the other and held out half.\n\n\"Figured it out?\"\n\n\"Figured it out.\"\n\nPip nodded as if he had never doubted. \"You make people feel less alone,\" he said. \"That is the kind of friend you are.\"\n\nHe gave her the half-acorn. They ate it together, slowly.",
+        "The walk home was long and warm. Milo was at the kitchen window when she got home, holding his stuffed bunny up to look out at the garden.\n\n\"Hazo!\" he called. \"Bird!\"\n\n\"Yes, Milo,\" Hazel said. \"There was a bird today.\"\n\nShe told her mommy and her grandma about the day. She told them about Otis at the feeder, and an auntie across the sea, and a recipe a four-year-old hedgehog had learned on a porch a long way from here.",
+        "Her grandma listened all the way through. Then she put down her teacup.\n\n\"There is a beautiful idea in the old books,\" she said. \"It says that what we receive from the people who have taught us, we carry with us our whole lives, and we hand on without knowing we are handing it on. A lesson is not a thing that stays in the place where it was given. It travels. It travels in our hands. Sometimes it travels far enough to feed a bird who is also a long way from home.\"",
+        "That night Hazel did not go down to the bakery or the schoolyard. She set her alarm and woke up while the sky was still dark, and she stood at her own bedroom window with the curtain pulled back.\n\nHer window faced east. The light came in slow and a little gold.\n\nA small green bird she could only just see lifted from the school in the distance, climbed into the cool air, and was gone south.\n\nShe watched the sky for a long time after, and she thought about Otis on a porch she had never seen."
+      ],
+      "next": null
+    },
+    "inv-grandma": {
+      "type": "read",
+      "label": "The Hedgerow",
+      "pages": [
+        "School ended. Pip slid into the seat next to Hazel and whispered, \"I will wait. I have your acorn.\" Then he watched her go.\n\nHazel walked the long way home, along the hedgerow that ran down the east side of the lane and out through the valley. It was a hedgerow she had walked past a thousand times without ever really looking at it. She looked at it carefully now.",
+        "The hedgerow was alive with small late flowers. Pale pink ones, and pale yellow ones, and a deep blue one that grew in clusters and smelled faintly of honey. There were still bees on some of them, slow with the cold, doing one last round.\n\nIt was the only thing in Hollowsdale, Hazel realized, that was still blooming this hard.\n\nIt went on, and on, and on, all the way down the lane to her cottage.",
+        "When she got home, her grandma was in the front garden. She was kneeling at the very beginning of the hedgerow, where it met the gate, with a small pair of pruning shears in one paw. She was trimming a stem with great care.\n\nHazel stood at the gate.\n\n\"Grandma.\"\n\n\"My Hazel.\"\n\n\"Did you plant the hedgerow?\"\n\nHer grandma sat back on her heels. She looked at the long line of late flowers running down the lane.\n\n\"A long time ago. Yes.\"",
+        "Hazel sat on the path beside her.\n\n\"Why?\"\n\nHer grandma was quiet for a moment, the way she sometimes was when she was deciding which of the true answers to give.\n\n\"Because of a hummingbird,\" she said. \"I saw one when I was twenty years old, in a garden far from here. He was the most beautiful thing I had ever seen. I learned everything I could about him. I learned that the late ones, the ones who leave too late, sometimes do not make it home, because there is nothing left to eat in the valleys.\"",
+        "\"So I came back to Hollowsdale, and I planted the kind of flowers that bloom late. Pink ones, and yellow ones, and the blue ones that smell of honey. I planted them all the way down the lane, because the valley runs south, and a bird flying south might find them. I have been adding to the hedgerow my whole life.\"\n\nShe looked at Hazel.\n\n\"I have been waiting for a Ruby-throated Hummingbird to find this hedgerow for sixty years.\"",
+        "Hazel said nothing for a long moment.\n\nThen she told her grandma about the morning, and the apple branch, and Mrs. Featherwhistle's quiet voice, and the bird who was a thousand miles late.\n\nHer grandma's paws went very still in her lap.\n\n\"He found it,\" she said.\n\nShe said it almost too softly to hear.\n\n\"He found it.\""
+      ],
+      "next": "choice-3-grandma"
+    },
+    "choice-3-grandma": {
+      "type": "choice",
+      "prompt": "What does Hazel do next?",
+      "options": [
+        {
+          "id": "choice-3-grandma-tell",
+          "label": "Tell Grandma the rest of the day",
+          "text": "I want to tell my grandma the whole story now. She does not know about Mrs. Featherwhistle, or the alcove on the south wall of the library, or the small dish of sugar water waiting there. She does not know other people in town have been holding the bird here too. I want her to know she has not been waiting alone.",
+          "next": "res-grandma"
+        },
+        {
+          "id": "choice-3-grandma-quiet",
+          "label": "Stay quiet and just sit with her",
+          "text": "I do not want to say anything yet. My grandma has been waiting sixty years for this, and right now is her moment. I will sit with her on the path and just watch the hedgerow. The whole story can wait until tomorrow. Some things should not be talked over while they are still happening.",
+          "next": "res-grandma"
+        }
+      ]
+    },
+    "res-grandma": {
+      "type": "read",
+      "label": "The Hedgerow At Dusk",
+      "pages": [
+        "The afternoon went quiet around them. The bees got slower. The blue flowers smelled stronger as the air cooled. Hazel's grandma did not move from the path.\n\nThe hummingbird came at the edge of dusk.\n\nHe did not come out of the school. He came down the valley, low and easy, the way something comes home, and he settled at the very first cluster of blue flowers at the cottage gate, exactly where Hazel's grandma had been pruning.",
+        "He drank for a long time.\n\nHe moved from flower to flower along the hedgerow, pausing, lifting, pausing, drinking, the way a small thing does when it has finally found exactly the right place. The deep blue flowers that smelled of honey were his favorite. He came back to them three times.\n\nWhen the light went truly dim, he flew up into the densest part of the hedgerow, just inside the cottage gate, and he went still on a small interior branch.",
+        "He drew his wings in close. He shrank into himself the way Mrs. Featherwhistle had said hummingbirds do at night.\n\nHazel and her grandma sat on the path. Neither of them spoke. The cottage was warm behind them. A single window glowed yellow, and Milo's small voice drifted out, very far away, telling his stuffed bunny something important.\n\n\"He will be gone in the morning,\" her grandma said softly.\n\n\"I know.\""
+      ],
+      "next": "end-grandma"
+    },
+    "end-grandma": {
+      "type": "read",
+      "label": "Ending: The Hands That Came Before",
+      "isEnding": true,
+      "endingTitle": "Hazel and Grandma",
+      "pages": [
+        "Pip was waiting on the lane the next morning with the acorn he had been saving since the bridge. He slid it from one paw to the other and held out half.\n\n\"Figured it out?\"\n\n\"Figured it out.\"\n\nPip nodded as if he had never doubted. \"You listen to the people who came before you,\" he said. \"You take them seriously. That is the kind of friend you are.\"\n\nHe gave her the half-acorn. They ate it together, slowly, on the lane outside the cottage.",
+        "That night, before bed, Hazel sat at the kitchen table with her grandma, and her grandma made them both a cup of warm milk. The kitchen was quiet. Milo had gone to sleep already, with his bunny tucked under one arm.\n\nHazel told her grandma the whole day again. She told her about the apple branch, and Mrs. Featherwhistle, and the assignment, and the way the hedgerow had looked when she finally noticed it.\n\nHer grandma listened all the way through.",
+        "Then she put down her teacup.\n\n\"There is a beautiful idea in the old books,\" she said. \"It says, honor your father and your mother, and the days you have on the earth will be long. I do not think it is only about parents. I think it is about everyone who came before you. Their hands shaped the world you are walking through. Most of the time, you cannot see what they did. Sometimes, if you are lucky, a small bird shows you.\"\n\nShe reached across the table and took Hazel's paw.\n\n\"You are lucky today, my Hazel.\"",
+        "That morning, while the sky was still dark, Hazel and her grandma sat at the cottage window with the kettle warm between them.\n\nThe sky turned grey, then pale blue, then almost gold.\n\nA small green bird with a throat like a coal lifted from the deep blue flowers at the gate, climbed into the cool air, paused above the hedgerow for one last moment, and was gone.\n\nHer grandma did not say anything. She held Hazel's paw for a long time.\n\nThe hedgerow swayed gently in the morning wind."
+      ],
+      "next": null
+    }
+  }
+}
