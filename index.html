@@ -371,6 +371,114 @@
     font-size: 14px;
   }
 
+  /* When all endings are found, hide the small green checkmark in favor of the seal */
+  .book.fully-completed::after {
+    display: none;
+  }
+
+  /* Wax seal in the top corner when every ending of a book has been found */
+  .book-seal {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 44px;
+    height: 44px;
+    background: radial-gradient(circle at 35% 30%, #FCD34D 0%, var(--gold) 55%, #B45309 100%);
+    color: #7C2D12;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 700;
+    font-family: 'Caveat', cursive;
+    box-shadow:
+      0 2px 6px rgba(180, 83, 9, 0.5),
+      inset 0 -2px 4px rgba(124, 45, 18, 0.3),
+      inset 0 2px 4px rgba(255, 255, 255, 0.4);
+    transform: rotate(-12deg);
+    z-index: 2;
+    animation: seal-press 0.6s ease-out;
+  }
+
+  @keyframes seal-press {
+    0% { transform: rotate(-12deg) scale(2.5); opacity: 0; }
+    60% { transform: rotate(-12deg) scale(0.85); opacity: 1; }
+    100% { transform: rotate(-12deg) scale(1); opacity: 1; }
+  }
+
+  /* Sticker strip along the bottom of the book cover */
+  .book-stickers {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin: 4px 0 6px;
+    min-height: 22px;
+    flex-wrap: wrap;
+  }
+
+  .book-sticker {
+    font-size: 18px;
+    line-height: 1;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
+    animation: sticker-pop 0.4s ease-out;
+  }
+
+  @keyframes sticker-pop {
+    0% { transform: scale(0); opacity: 0; }
+    70% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  /* Sticker picker on the celebration screen */
+  .sticker-picker {
+    margin-top: 24px;
+    text-align: center;
+    animation: fadeUp 0.6s ease-out;
+  }
+
+  .sticker-picker-prompt {
+    font-family: 'Caveat', cursive;
+    font-size: 26px;
+    color: var(--purple-700);
+    margin-bottom: 16px;
+  }
+
+  .sticker-options {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .sticker-option {
+    width: 64px;
+    height: 64px;
+    border: 3px solid var(--pink-300);
+    background: var(--paper);
+    border-radius: 50%;
+    font-size: 32px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 3px 8px rgba(190, 24, 93, 0.15);
+    padding: 0;
+    line-height: 1;
+  }
+
+  .sticker-option:hover, .sticker-option:focus {
+    transform: scale(1.15) rotate(-4deg);
+    border-color: var(--pink-500);
+    box-shadow: 0 6px 14px rgba(190, 24, 93, 0.3);
+    outline: none;
+  }
+
+  .sticker-option:active {
+    transform: scale(0.95);
+  }
+
   /* Library shelf - storybooks */
   .library-shelf {
     margin-top: 40px;
@@ -1230,13 +1338,14 @@ const SAVE_KEY = 'hollowsdale_save_v1';
 const LIBRARY_KEY = 'hollowsdale_library_v1';
 const SETTINGS_KEY = 'hollowsdale_settings_v1';
 const STATS_KEY = 'hollowsdale_stats_v1';
+const STICKERS_KEY = 'hollowsdale_stickers_v1';
 
 const Storage = {
   testMode: false,
   testData: null,
 
   initTestData() {
-    Storage.testData = { saves: {}, library: [], stats: Storage.emptyStats() };
+    Storage.testData = { saves: {}, library: [], stats: Storage.emptyStats(), stickers: {} };
   },
 
   emptyStats() {
@@ -1321,9 +1430,41 @@ const Storage = {
   clearLibrary() {
     if (Storage.testMode) {
       Storage.testData.library = [];
+      Storage.testData.stickers = {};
       return;
     }
-    try { localStorage.setItem(LIBRARY_KEY, '[]'); } catch {}
+    try {
+      localStorage.setItem(LIBRARY_KEY, '[]');
+      localStorage.removeItem(STICKERS_KEY);
+    } catch {}
+  },
+  getStickers() {
+    if (Storage.testMode) {
+      return { ...Storage.testData.stickers };
+    }
+    try {
+      return JSON.parse(localStorage.getItem(STICKERS_KEY) || '{}');
+    } catch { return {}; }
+  },
+  hasSticker(storyId, endingId) {
+    const stickers = Storage.getStickers();
+    return Object.prototype.hasOwnProperty.call(stickers, storyId + '__' + endingId);
+  },
+  getSticker(storyId, endingId) {
+    const stickers = Storage.getStickers();
+    return stickers[storyId + '__' + endingId] || null;
+  },
+  setSticker(storyId, endingId, emoji) {
+    const key = storyId + '__' + endingId;
+    if (Storage.testMode) {
+      Storage.testData.stickers[key] = emoji;
+      return;
+    }
+    try {
+      const all = Storage.getStickers();
+      all[key] = emoji;
+      localStorage.setItem(STICKERS_KEY, JSON.stringify(all));
+    } catch {}
   },
   getStats() {
     if (Storage.testMode) {
@@ -1374,6 +1515,7 @@ const Storage = {
       localStorage.removeItem(LIBRARY_KEY);
       localStorage.removeItem(SETTINGS_KEY);
       localStorage.removeItem(STATS_KEY);
+      localStorage.removeItem(STICKERS_KEY);
     } catch {}
   },
   getSettings() {
@@ -1912,12 +2054,28 @@ const Render = {
         library.filter(b => b.storyId === story.id).map(b => b.endingId)
       );
       const isCompleted = completedEndings.size > 0;
+      const isFullyCompleted = completedEndings.size === story.endingPassageIds.length;
       const cta = continueAvailable ? 'Continue' : 'Open';
+
+      // Build the sticker strip in the order endings appear in the story.
+      // We only show stickers Lily has earned. No empty slots.
+      const earnedStickers = story.endingPassageIds
+        .filter(eid => Storage.hasSticker(story.id, eid))
+        .map(eid => `<span class="book-sticker">${Storage.getSticker(story.id, eid)}</span>`)
+        .join('');
+      const stickerStripHtml = earnedStickers
+        ? `<div class="book-stickers">${earnedStickers}</div>`
+        : '';
+
+      const sealHtml = isFullyCompleted ? `<div class="book-seal" title="All endings found">★</div>` : '';
+
       return `
-        <div class="book ${isCompleted ? 'completed' : ''}" onclick="Nav.openStoryById('${story.id}')">
+        <div class="book ${isCompleted ? 'completed' : ''} ${isFullyCompleted ? 'fully-completed' : ''}" onclick="Nav.openStoryById('${story.id}')">
+          ${sealHtml}
           <div class="book-number">Book No. ${story.bookNumber || (idx + 1)}</div>
           <div class="book-title">${escapeHtml(story.title)}</div>
           <div class="book-emoji">${story.coverEmoji || '📖'}</div>
+          ${stickerStripHtml}
           <div class="book-cta">${cta}</div>
         </div>
       `;
@@ -1957,7 +2115,7 @@ const Render = {
     if (library.length > 0) {
       const storybooks = library.map((b, i) => {
         const endingClass = Render.endingColorClass(b.endingId);
-        const emoji = Render.endingEmoji(b.endingId);
+        const emoji = Storage.getSticker(b.storyId, b.endingId) || Render.endingEmoji(b.endingId);
         return `
           <div class="storybook ${endingClass}" onclick="Library.openStorybook(${i})" title="${escapeHtml(b.endingTitle)}">
             <div class="storybook-num">No. ${i + 1}</div>
@@ -1992,6 +2150,33 @@ const Render = {
     if (title) {
       title.addEventListener('click', ParentConsole.handleTitleClick);
     }
+  },
+
+  // Per-ending sticker options. Keyed by storyId, then endingId.
+  // Each ending offers four themed stickers; the child picks one and it
+  // becomes that path's badge on the book cover and storybook spine.
+  stickerOptions(storyId, endingId) {
+    const map = {
+      'missing-card': {
+        'end-mae':    ['🐿️', '💌', '🌟', '🌷'],
+        'end-felix':  ['🦊', '👀', '🍂', '💛'],
+        'end-wilbur': ['🐭', '🤝', '✨', '🍀'],
+        'end-window': ['🌿', '🪟', '🔍', '🤫']
+      },
+      'hidden-garden': {
+        'end-cobble':         ['🥖', '🌱', '🌻', '🌼'],
+        'end-fifthgraders':   ['🌾', '🌷', '🌳', '🤫'],
+        'end-featherwhistle': ['🦉', '📖', '🌹', '✨'],
+        'end-felix':          ['🦊', '🌿', '🚪', '💚']
+      },
+      'tiny-traveler': {
+        'end-cobble':  ['🌳', '🍎', '🐝', '🌺'],
+        'end-wilbur':  ['💧', '🫖', '❄️', '🐭'],
+        'end-otis':    ['🦔', '☕', '🌍', '💛'],
+        'end-grandma': ['👵', '🌸', '🐦', '💐']
+      }
+    };
+    return (map[storyId] && map[storyId][endingId]) || ['⭐', '💛', '✨', '🌸'];
   },
 
   endingColorClass(endingId) {
@@ -2129,17 +2314,43 @@ const Render = {
   },
 
   endingCelebration(passage, storybookNumber) {
-    const lib = Storage.getLibrary();
-    const lastBook = lib[lib.length - 1];
-    const endingClass = state.currentPassageId.replace('end-', 'storybook-');
-    const emoji = ({
-      'end-mae': '🐿️',
-      'end-felix': '🦊',
-      'end-wilbur': '🐭',
-      'end-window': '🌿'
-    })[state.currentPassageId] || '📖';
+    const storyId = state.story.id;
+    const endingId = state.currentPassageId;
+    const endingClass = Render.endingColorClass(endingId);
+    const alreadyChosen = Storage.getSticker(storyId, endingId);
+
+    // The celebration emoji shown on the storybook in this screen:
+    // her chosen sticker if she has one, otherwise the legacy fallback.
+    const emoji = alreadyChosen || Render.endingEmoji(endingId);
 
     document.getElementById('left-controls').innerHTML = '';
+
+    // If she already has a sticker for this ending (e.g. she's replaying),
+    // skip the picker and go straight to the standard celebration.
+    if (alreadyChosen) {
+      Render.app.innerHTML = `
+        <div class="ending-celebration">
+          <h1 class="celebration-title">${escapeHtml(passage.endingTitle || 'The End')}</h1>
+          <p class="celebration-subtitle">A new storybook for the shelf!</p>
+          <div class="celebration-storybook ${endingClass}">
+            <div class="storybook-num">Storybook No. ${storybookNumber}</div>
+            <div class="storybook-title">${escapeHtml(passage.endingTitle || 'A Mystery Solved')}</div>
+            <div class="celebration-emoji">${emoji}</div>
+          </div>
+          <div class="celebration-buttons">
+            <button class="btn" onclick="Nav.showTitle()">Back to bookshelf</button>
+            <button class="btn secondary" onclick="Storage.clearSave(state.story.id); Nav.startStory(true)">Try a different path</button>
+          </div>
+        </div>
+      `;
+      return;
+    }
+
+    // First completion of this ending: show the sticker picker.
+    const options = Render.stickerOptions(storyId, endingId);
+    const optionButtons = options.map(s =>
+      `<button class="sticker-option" onclick="Render.chooseSticker('${storyId}', '${endingId}', ${storybookNumber}, ${JSON.stringify(s)})" aria-label="Choose ${s} sticker">${s}</button>`
+    ).join('');
 
     Render.app.innerHTML = `
       <div class="ending-celebration">
@@ -2148,14 +2359,25 @@ const Render = {
         <div class="celebration-storybook ${endingClass}">
           <div class="storybook-num">Storybook No. ${storybookNumber}</div>
           <div class="storybook-title">${escapeHtml(passage.endingTitle || 'A Mystery Solved')}</div>
-          <div class="celebration-emoji">${emoji}</div>
+          <div class="celebration-emoji">📖</div>
         </div>
-        <div class="celebration-buttons">
-          <button class="btn" onclick="Nav.showTitle()">Back to bookshelf</button>
-          <button class="btn secondary" onclick="Storage.clearSave(state.story.id); Nav.startStory(true)">Try a different path</button>
+        <div class="sticker-picker">
+          <p class="sticker-picker-prompt">Pick a sticker for your book cover</p>
+          <div class="sticker-options">${optionButtons}</div>
         </div>
       </div>
     `;
+  },
+
+  chooseSticker(storyId, endingId, storybookNumber, emoji) {
+    Storage.setSticker(storyId, endingId, emoji);
+    Audio.completionChime();
+    spawnConfetti();
+
+    // Re-render the celebration with the chosen sticker now in place.
+    // We rebuild from scratch to keep the code path the same as a replay.
+    const passage = state.story.passages[endingId];
+    Render.endingCelebration(passage, storybookNumber);
   }
 };
 
@@ -2397,7 +2619,6 @@ const ParentConsole = {
 const STORY_FILES = [
   'story-1-missing-card.json',
   'story-2-hidden-garden.json',
-  'story-3-tiny-traveler.json',
 ];
 
 async function init() {
