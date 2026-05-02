@@ -2,59 +2,65 @@
 
 A typing-driven choose-your-own-adventure storybook engine built for Lily.
 
-Phase 1 ships with one story: **The Mystery of the Missing Card**.
+Currently includes two stories:
+- **Book 1: The Mystery of the Missing Card** — Otis lost a card he made for Mrs. Featherwhistle
+- **Book 2: The Mystery of the Hidden Garden** — Hazel sees something through a knothole in the fence
 
 ---
 
 ## What's in this folder
 
 ```
-index.html                   The game engine (single file - HTML, CSS, JS all together)
-story-1-missing-card.json    The story content (separate so future stories can be added without touching the engine)
+index.html                    The game engine (single file)
+story-1-missing-card.json     Book 1 content
+story-2-hidden-garden.json    Book 2 content
 audio/
-  background-music.mp3       Looping background music
+  background-music.mp3        Looping background music
 ```
 
 ---
 
 ## How to deploy to GitHub Pages
 
-1. Create a new GitHub repo (private or public, doesn't matter - GH Pages works on either with the right plan).
-2. Upload these three things to the repo:
+1. Create a new GitHub repo (or update existing).
+2. Upload these items:
    - `index.html`
    - `story-1-missing-card.json`
+   - `story-2-hidden-garden.json`
    - `audio/background-music.mp3` (keep the `audio/` folder structure)
-3. In repo settings → Pages → set source to `main` branch, root folder.
-4. Wait ~1 minute for the deploy. The site will be live at `https://<your-username>.github.io/<repo-name>/`.
+3. Settings → Pages → source = `main` branch, root folder.
+4. Live at `https://<username>.github.io/<repo-name>/` after about a minute.
 
 ---
 
-## How to test locally before deploying
+## How to test locally
 
-The engine uses `fetch()` to load the story JSON, which means **opening `index.html` directly with a double-click won't work** (browsers block fetch from `file://` URLs).
+The engine uses `fetch()` to load story JSON, which means **opening `index.html` directly with a double-click won't work**.
 
-You need a local web server. Easiest options:
+Use a local web server:
 
-**Option 1 - Python (already installed on Mac/Linux):**
 ```bash
 cd /path/to/this/folder
 python3 -m http.server 8000
 ```
+
 Then visit `http://localhost:8000` in a browser.
-
-**Option 2 - VS Code Live Server extension** if you use VS Code.
-
-**Option 3 - Any static server you already have running.**
 
 ---
 
-## How to add a second story later
+## How to add a third story later
 
-1. Write a new JSON file using the same shape as `story-1-missing-card.json`.
+1. Write a new JSON file using the same shape as the existing story files.
 2. Drop it in the same folder as `index.html`.
-3. Update one line at the top of the engine's init function (search for `story-1-missing-card.json` in `index.html` - there's one place that loads it).
-
-Future me / future you may want to add a story picker, but Phase 1 is hardcoded to one story for simplicity.
+3. Open `index.html` and find the line near the bottom that looks like:
+   ```js
+   const STORY_FILES = [
+     'story-1-missing-card.json',
+     'story-2-hidden-garden.json',
+   ];
+   ```
+4. Add the new filename to the array.
+5. Save, commit, push. New book appears on the bookshelf automatically.
 
 ---
 

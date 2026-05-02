@@ -1200,6 +1200,7 @@
 const state = {
   _screen: 'loading',
   story: null,
+  stories: [],
   currentPassageId: null,
   currentPageIndex: 0,
   pathTaken: [],
@@ -1584,6 +1585,16 @@ const Nav = {
     document.getElementById('left-controls').innerHTML = '';
   },
 
+  openStoryById(storyId) {
+    const story = state.stories.find(s => s.id === storyId);
+    if (!story) {
+      console.warn('Story not found:', storyId);
+      return;
+    }
+    state.story = story;
+    Nav.startStory(false);
+  },
+
   startStory(fromBeginning = false) {
     const save = fromBeginning ? null : Storage.getSave(state.story.id);
     if (save && save.passageId && !Story.isEnding(save.passageId)) {
@@ -1890,24 +1901,63 @@ const Render = {
   },
 
   title() {
-    const save = Storage.getSave(state.story.id);
     const library = Storage.getLibrary();
-    const completedEndings = new Set(library.filter(b => b.storyId === state.story.id).map(b => b.endingId));
-    const totalEndings = state.story.endingPassageIds.length;
-    const allEndingsFound = completedEndings.size === totalEndings;
 
-    const continueAvailable = save && save.passageId && !Story.isEnding(save.passageId);
+    // Build the bookshelf — one card per loaded story
+    const booksHtml = state.stories.map((story, idx) => {
+      const save = Storage.getSave(story.id);
+      const continueAvailable = save && save.passageId &&
+        !story.endingPassageIds.includes(save.passageId);
+      const completedEndings = new Set(
+        library.filter(b => b.storyId === story.id).map(b => b.endingId)
+      );
+      const isCompleted = completedEndings.size > 0;
+      const cta = continueAvailable ? 'Continue' : 'Open';
+      return `
+        <div class="book ${isCompleted ? 'completed' : ''}" onclick="Nav.openStoryById('${story.id}')">
+          <div class="book-number">Book No. ${story.bookNumber || (idx + 1)}</div>
+          <div class="book-title">${escapeHtml(story.title)}</div>
+          <div class="book-emoji">${story.coverEmoji || '📖'}</div>
+          <div class="book-cta">${cta}</div>
+        </div>
+      `;
+    }).join('');
 
+    // Continue banner — only show if any story has a save in progress
+    const inProgressStories = state.stories.filter(s => {
+      const sv = Storage.getSave(s.id);
+      return sv && sv.passageId && !s.endingPassageIds.includes(sv.passageId);
+    });
+    const continueHtml = inProgressStories.length > 0 ? `
+      <div class="continue-banner">
+        <div class="continue-banner-text">${inProgressStories.length === 1 ? 'A story is in progress.' : 'Stories are in progress.'}</div>
+        <div class="continue-banner-actions">
+          ${inProgressStories.map(s => `
+            <button class="btn" onclick="Nav.openStoryById('${s.id}')">Continue ${escapeHtml(s.title.replace('The Mystery of the ', ''))}</button>
+          `).join('')}
+        </div>
+      </div>
+    ` : '';
+
+    // "All endings found" celebration if any story is fully completed
+    const fullyCompletedStories = state.stories.filter(s => {
+      const found = new Set(library.filter(b => b.storyId === s.id).map(b => b.endingId));
+      return found.size === s.endingPassageIds.length;
+    });
+    const allFoundHtml = fullyCompletedStories.length > 0 ? `
+      <div class="continue-banner" style="border-color: var(--gold); background: var(--gold-soft);">
+        <div class="continue-banner-text">⭐ ${fullyCompletedStories.length === 1
+          ? 'You found all four endings of a story!'
+          : `You found all four endings of ${fullyCompletedStories.length} stories!`} ⭐</div>
+      </div>
+    ` : '';
+
+    // Storybook collection — across all stories
     let libraryHtml = '';
     if (library.length > 0) {
       const storybooks = library.map((b, i) => {
-        const endingClass = b.endingId.replace('end-', 'storybook-');
-        const emoji = ({
-          'end-mae': '🐿️',
-          'end-felix': '🦊',
-          'end-wilbur': '🐭',
-          'end-window': '🌿'
-        })[b.endingId] || '📖';
+        const endingClass = Render.endingColorClass(b.endingId);
+        const emoji = Render.endingEmoji(b.endingId);
         return `
           <div class="storybook ${endingClass}" onclick="Library.openStorybook(${i})" title="${escapeHtml(b.endingTitle)}">
             <div class="storybook-num">No. ${i + 1}</div>
@@ -1924,33 +1974,12 @@ const Render = {
       `;
     }
 
-    const continueHtml = continueAvailable ? `
-      <div class="continue-banner">
-        <div class="continue-banner-text">A story is in progress.</div>
-        <div class="continue-banner-actions">
-          <button class="btn" onclick="Nav.startStory(false)">Continue</button>
-          <button class="btn secondary" onclick="if(confirm('Start over from the very beginning?')) { Storage.clearSave(state.story.id); Nav.startStory(true); }">Start over</button>
-        </div>
-      </div>
-    ` : '';
-
-    const allFoundHtml = allEndingsFound ? `
-      <div class="continue-banner" style="border-color: var(--gold); background: var(--gold-soft);">
-        <div class="continue-banner-text">⭐ You found all four endings! ⭐</div>
-      </div>
-    ` : '';
-
     Render.app.innerHTML = `
       <div class="title-screen">
         <h1 class="title-script" id="title-text"><span class="title-decor">🔍</span>Hollowsdale Stories</h1>
         <p class="title-sub">A Series of Tiny Mysteries</p>
         <div class="bookshelf">
-          <div class="book ${completedEndings.size > 0 ? 'completed' : ''}" onclick="Nav.startStory(false)">
-            <div class="book-number">Book No. ${state.story.bookNumber || 1}</div>
-            <div class="book-title">${escapeHtml(state.story.title)}</div>
-            <div class="book-emoji">${state.story.coverEmoji || '📖'}</div>
-            <div class="book-cta">${continueAvailable ? 'Continue' : 'Open'}</div>
-          </div>
+          ${booksHtml}
         </div>
         ${continueHtml}
         ${allFoundHtml}
@@ -1963,6 +1992,38 @@ const Render = {
     if (title) {
       title.addEventListener('click', ParentConsole.handleTitleClick);
     }
+  },
+
+  endingColorClass(endingId) {
+    // Map ending id to a color class for the storybook spine
+    // Cycle through 4 colors based on book + ending for consistent coloring
+    const map = {
+      // Book 1: Missing Card
+      'end-mae': 'storybook-mae',
+      'end-felix': 'storybook-felix',
+      'end-wilbur': 'storybook-wilbur',
+      'end-window': 'storybook-window',
+      // Book 2: Hidden Garden
+      'end-cobble': 'storybook-mae',         // pink
+      'end-fifthgraders': 'storybook-felix', // gold
+      'end-featherwhistle': 'storybook-window', // purple
+      // 'end-felix' overlaps Book 1; reuse Wilbur green for Book 2's Felix path
+    };
+    if (map[endingId]) return map[endingId];
+    return 'storybook-mae';
+  },
+
+  endingEmoji(endingId) {
+    const map = {
+      'end-mae': '🐿️',
+      'end-felix': '🦊',
+      'end-wilbur': '🐭',
+      'end-window': '🌿',
+      'end-cobble': '🍞',
+      'end-fifthgraders': '🌱',
+      'end-featherwhistle': '📖',
+    };
+    return map[endingId] || '📖';
   },
 
   read(passage) {
@@ -2104,6 +2165,14 @@ const Library = {
     const lib = Storage.getLibrary();
     const book = lib[index];
     if (!book) return;
+    // Switch to the story this storybook came from (book.storyId)
+    const sourceStory = state.stories.find(s => s.id === book.storyId);
+    if (!sourceStory) {
+      console.warn('Source story not found for storybook:', book.storyId);
+      return;
+    }
+    state.story = sourceStory;
+
     Library.currentBook = book;
     Library.currentPath = book.pathTaken.filter(id =>
       state.story.passages[id] && state.story.passages[id].type === 'read'
@@ -2284,13 +2353,13 @@ const ParentConsole = {
         </div>
         <div class="parent-section">
           <h3>Storybooks Completed</h3>
-          <p>${lib.length} total. Endings found: ${new Set(lib.map(b => b.endingId)).size} of ${state.story.endingPassageIds.length}.</p>
+          <p>${lib.length} total. Endings found: ${new Set(lib.map(b => b.endingId)).size} of ${state.stories.reduce((sum, s) => sum + s.endingPassageIds.length, 0)} across ${state.stories.length} ${state.stories.length === 1 ? 'book' : 'books'}.</p>
           <button class="btn secondary" onclick="if(confirm('Clear all completed storybooks? This cannot be undone.')) { Storage.clearLibrary(); ParentConsole.hide(); Nav.showTitle(); }">Clear storybook collection</button>
         </div>
         <div class="parent-section">
           <h3>Saved Progress</h3>
-          <p>${Storage.getSave(state.story.id) ? 'In-progress story is saved.' : 'No story in progress.'}</p>
-          <button class="btn secondary" onclick="Storage.clearSave(state.story.id); ParentConsole.hide(); Nav.showTitle();">Clear saved progress</button>
+          <p>${state.stories.filter(s => Storage.getSave(s.id)).length === 0 ? 'No stories in progress.' : `${state.stories.filter(s => Storage.getSave(s.id)).length} of ${state.stories.length} ${state.stories.length === 1 ? 'book has' : 'books have'} saved progress.`}</p>
+          <button class="btn secondary" onclick="state.stories.forEach(s => Storage.clearSave(s.id)); ParentConsole.hide(); Nav.showTitle();">Clear all saved progress</button>
         </div>
         <div class="parent-section">
           <h3>Reset Everything</h3>
@@ -2325,19 +2394,26 @@ const ParentConsole = {
 };
 
 // =================== INIT ===================
+const STORY_FILES = [
+  'story-1-missing-card.json',
+  'story-2-hidden-garden.json',
+];
+
 async function init() {
   Render.init();
   try {
-    state.story = await Story.load('story-1-missing-card.json');
+    const loaded = await Promise.all(STORY_FILES.map(f => Story.load(f)));
+    state.stories = loaded;
+    state.story = loaded[0]; // default to first; updated when user clicks a book
   } catch (e) {
     Render.app.innerHTML = `
       <div style="text-align: center; max-width: 480px;">
         <h1 class="title-script" style="font-size: 48px;">Oh dear.</h1>
         <p style="font-family: 'Quicksand', sans-serif; font-size: 18px; color: var(--ink); margin-top: 16px;">
-          Hazel can't find her story. The file <code>story-1-missing-card.json</code> couldn't be loaded.
+          Hazel can't find her stories. One of the story files couldn't be loaded.
         </p>
         <p style="font-family: 'Quicksand', sans-serif; font-size: 14px; color: var(--purple-700); margin-top: 12px; font-style: italic;">
-          Make sure index.html and the JSON file are in the same folder, and that you're opening this through a web server (not file://).
+          Make sure index.html and the JSON files are in the same folder, and that you're opening this through a web server (not file://).
         </p>
         <p style="font-family: 'Caveat', cursive; font-size: 18px; color: var(--purple-700); margin-top: 24px;">
           Error: ${escapeHtml(e.message || 'Unknown')}

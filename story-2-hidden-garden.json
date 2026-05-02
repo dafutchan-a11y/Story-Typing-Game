@@ -1,0 +1,382 @@
+{
+  "id": "hidden-garden",
+  "title": "The Mystery of the Hidden Garden",
+  "subtitle": "A Hollowsdale Story",
+  "bookNumber": 2,
+  "coverEmoji": "🌿",
+  "description": "Hazel sees something through a knothole in the fence.",
+  "startPassage": "intro",
+  "endingPassageIds": ["end-cobble", "end-fifthgraders", "end-featherwhistle", "end-felix"],
+  "passages": {
+    "intro": {
+      "type": "read",
+      "label": "Before The Story Begins",
+      "pages": [
+        "This is Hazel's second mystery.\n\nYou already know about Hazel. You know about her family in the cedar cottage at the edge of town, and her best friend Pip, and her teacher Mr. Brindle, and the silver magnifying glass that lives in her apron pocket.",
+        "This story is about something Hazel had never seen before, even though it had been there all along.\n\nIt is about the kind of work that no one watches and no one asks for credit for. And it is about a tiny wooden door at the base of an old oak tree.\n\nThis is the story of how Hazel found the hidden garden."
+      ],
+      "next": "prologue-1"
+    },
+    "prologue-1": {
+      "type": "read",
+      "label": "The Crow's Feather",
+      "pages": [
+        "Hazel woke up early.\n\nThe morning light came in golden and slow, the way it always did. Down in the kitchen, her mommy was making oatmeal, her daddy was already gone to work, and Milo was sitting in his high chair very seriously trying to make his stuffed bunny wear a sock.\n\n\"Hazo!\" Milo waved the sock at her.\n\n\"Hi, Milo.\"\n\n\"Bunny cold!\"\n\n\"I see,\" Hazel said, and she helped him pull the sock onto Bunny's foot. Milo beamed like he had just solved a great problem.",
+        "Her grandma was at the head of the table with the newspaper. When Hazel slid into her seat, her grandma lowered the paper.\n\n\"What are you noticing today, my Hazel?\"\n\nHazel thought for a moment. She had been turning something over since she opened her window.\n\n\"There was a feather on the windowsill this morning. A black one. From a crow.\"\n\n\"And?\"\n\n\"And the window was closed all night.\"",
+        "Her grandma raised one eyebrow, in the way she did when she was pleased.\n\n\"So how did the feather get there?\"\n\n\"That is the question,\" Hazel said.\n\n\"What do you think?\"\n\nHazel thought hard. \"I think the crow was on the sill. I think he left the feather. I think he wanted me to know he had been there.\"\n\nHer grandma smiled. \"And what does that tell you?\"",
+        "Hazel turned it over and over. \"That sometimes the people who do things, they want to leave a tiny clue. Just one. So you know they were there, even if you never see them.\"\n\nHer grandma nodded slowly. \"Remember that today.\"\n\nHazel looked up. Her grandma's eyes had that knowing softness they sometimes got when she was speaking about more than just one thing. But she did not explain. She lifted her newspaper again, and she did not say another word about it.",
+        "Hazel slipped her notebook and the magnifying glass into the deep pockets of her apron and walked out the front door.\n\nShe did not yet know that today she would meet a different kind of clue. A whole garden full of them."
+      ],
+      "next": "intro-choice"
+    },
+    "intro-choice": {
+      "type": "choice",
+      "prompt": "What does Hazel write in her notebook before she gets to school?",
+      "options": [
+        {
+          "id": "intro-a",
+          "label": "About the crow's feather",
+          "text": "There was a black crow feather on my windowsill this morning. The window was closed all night. The crow had been there but I never saw him. He left a feather so I would know. Grandma said to remember that today. I think today I am going to meet someone who left a tiny clue.",
+          "next": "walking"
+        },
+        {
+          "id": "intro-b",
+          "label": "About what Grandma said",
+          "text": "Grandma said that sometimes the people who do things want to leave a tiny clue. Just one. So you know they were there, even if you never see them. She said remember that today. I do not know what she meant yet. But I am going to keep my eyes open. The world is leaving me clues.",
+          "next": "walking"
+        }
+      ]
+    },
+    "walking": {
+      "type": "read",
+      "label": "Walking to School",
+      "pages": [
+        "The morning was cool. The maple leaves had turned the deep red-orange of a fox's tail. Mr. Cobble the badger was opening up his bakery as Hazel walked past, and the warm smell of fresh bread followed her down the cobblestone street.\n\nShe waved. He waved back with one floury paw.",
+        "At the bridge, Pip was waiting. He had two acorns this time, which he held up like a magician.\n\n\"One for now and one for recess,\" he announced.\n\n\"Pip, you are very prepared today.\"\n\n\"I am always prepared,\" Pip said. \"It is a thing about me.\"\n\nThey walked the rest of the way to school together, talking about nothing in particular, which was the best kind of talking."
+      ],
+      "next": "knothole"
+    },
+    "knothole": {
+      "type": "read",
+      "label": "The Knothole",
+      "pages": [
+        "The schoolyard was busy when they arrived. The first-graders were lining up to go inside, and Mr. Brindle was waving everyone toward the door with his usual cheerful patience.\n\nHazel was almost at the door when she stopped.\n\nThere was a sound.\n\nA small clinking sound. Metal on stone. Coming from somewhere behind her.",
+        "She turned around. The sound had come from the back corner of the schoolyard, where the old wooden fence ran along the edge of the property. The fence was tall and a little crooked, with knotholes here and there from where the wood had aged.\n\nThe clinking sound came again. Then it stopped.\n\nBehind her, the line of first-graders was disappearing through the door.\n\n\"Hazel?\" Pip called.\n\n\"Just a second,\" she said.",
+        "She walked over to the fence and crouched down. There was a knothole at her eye level, about the size of a peach. She pressed her face against the wood and looked through.\n\nWhat she saw stopped her breath.",
+        "There was a garden behind the fence.\n\nNot a wild patch of grass. Not the back lot where the school kept old desks and broken playground pieces. A real garden. There was a flat little clearing with stones laid out in a path. There were plants she did not recognize, with leaves shaped like tiny hearts and tall stalks topped with small white flowers. There was a wooden bench, weather-grey, just big enough for two.\n\nAnd against the trunk of an enormous old oak tree, there was a tiny wooden door.",
+        "The door was no taller than Hazel's knee. It had a little iron hinge and a little iron handle.\n\nA small green watering can sat beside the bench, still beaded with water, like someone had set it down only minutes ago.\n\nHazel stared.\n\n\"Hazel?\" Pip said again, much closer now.\n\nShe did not answer right away. She was looking at the watering can. She was looking at the bench. She was looking at the way the morning light fell through the leaves and made gold patches on the stone path.\n\nShe was looking at a garden no one had ever told her about.",
+        "\"There is a garden,\" she whispered. \"Behind the fence. Someone made a garden.\"\n\nPip pressed his face to the knothole next to hers. He stared for a long time.\n\n\"Whoa.\"\n\n\"Who is it for?\" Hazel whispered. \"Who tends it?\"\n\nThe bell rang."
+      ],
+      "next": "mystery-begins"
+    },
+    "mystery-begins": {
+      "type": "read",
+      "label": "A Mystery Begins",
+      "pages": [
+        "Mr. Brindle was waving them in. Hazel stood up slowly. She felt the way she had felt on the day Otis's card went missing. She felt the small, clear pull of a thing that needed noticing.\n\nA garden no one had told her about. A watering can still wet. Someone had been there minutes ago.",
+        "\"Pip,\" she said. \"I need to figure this out.\"\n\n\"Of course you do,\" Pip said. \"You always do.\"\n\n\"Will you wait?\"\n\n\"I will wait.\"\n\nHe held up the second acorn. \"I will save this one. We can split it later, when the case is closed.\"\n\n\"Thank you, Pip.\"\n\nShe walked into the school with her notebook full of the morning, and her magnifying glass in her pocket, and a question she could not put down.\n\nWho tended the hidden garden?"
+      ],
+      "next": "recess"
+    },
+    "recess": {
+      "type": "read",
+      "label": "Recess",
+      "pages": [
+        "The morning passed slowly. Mr. Brindle taught about adding two-digit numbers. Mrs. Featherwhistle came in with a basket of new picture books and read the class a story about a beaver who built a library. Wilbur the mouse cleaned up after spelling time. The maple leaves outside the window kept turning, and Hazel kept thinking about the garden.\n\nWhen the recess bell rang, she did not go outside with the other children.",
+        "She went to the reading nook behind the bookshelf, opened her notebook, and wrote the date at the top of a fresh page.\n\nThen she made a list of everything she knew.\n\nA garden behind the back fence. Stone path. Wooden bench. Tiny wooden door at the base of the oak tree.\n\nA watering can. Still wet. Someone was there this morning.\n\nI have walked past that fence every day for two years. I have never noticed.\n\nEither it is new, or someone is very good at keeping it secret.",
+        "She sat back. She tapped her pencil.\n\nShe had two ways to begin. She could go back to the fence right now, with the magnifying glass, and look for traces while they were still fresh. Or she could think first. Sometimes the best clues were the ones you already had without knowing it.\n\nShe had to choose."
+      ],
+      "next": "choice-1"
+    },
+    "choice-1": {
+      "type": "choice",
+      "prompt": "How does Hazel begin?",
+      "options": [
+        {
+          "id": "choice-1a",
+          "label": "Use the magnifying glass at the fence",
+          "text": "I will go straight back to the fence. The traces will be fading. If I want to see who tends the garden, I have to look now while the morning is still here. I can think later. Right now I have to act before the clues are gone. The glass works best when the morning is fresh.",
+          "next": "path-a"
+        },
+        {
+          "id": "choice-1b",
+          "label": "Think carefully first",
+          "text": "I will sit here and write down everything I have noticed about this morning. Sometimes the best clues are the ones you already saw without knowing it. The garden has been there a long time. Whoever tends it will tend it again. I do not have to rush. I want to be the kind of detective who thinks first.",
+          "next": "path-b"
+        }
+      ]
+    },
+    "path-a": {
+      "type": "read",
+      "label": "The Magnifying Glass at the Fence",
+      "pages": [
+        "Hazel slipped out a side door of the schoolyard and crouched at the knothole.\n\nShe pulled out her grandma's magnifying glass and held it up to the gap in the fence.\n\nThrough the lens, the garden glowed.\n\nFaint golden lines were everywhere. Near the watering can. Along the stone path. On the bench. They traced the morning's quiet work like ink that had not yet dried.",
+        "She crouched lower and looked closely.\n\nThe footprints near the watering can were large. Bigger than her own paws. Larger than Pip's. They had a slow, careful shape.\n\nShe moved her glass to the bench. Someone had been sitting there earlier. The traces were faint but clear.\n\nShe moved her glass along the stone path. There was a second set of marks here. Different from the footprints. Smaller. Lighter. Like something had been dragged carefully along the path. A rake? A small basket?",
+        "She sat back on her heels. The traces gave her two clues.\n\nHeavy careful footprints. That ruled out the smaller animals. Someone larger.\n\nDragged marks along the stone path. Someone carrying something. Tools, maybe.\n\nShe had to choose what to follow up on next, and she did not have all day. The traces were already starting to fade."
+      ],
+      "next": "choice-2a"
+    },
+    "path-b": {
+      "type": "read",
+      "label": "The Notebook",
+      "pages": [
+        "Hazel sat in the reading nook with her notebook open. She closed her eyes for a moment, like her grandma sometimes did.\n\nThink back. What have I seen this morning that I did not stop to notice?\n\nShe wrote down everything she could remember.",
+        "Mr. Cobble at his bakery, opening up. He waved with floury paws. He always opens early. Earlier than I am up, even.\n\nMrs. Featherwhistle in our classroom this morning, with a basket of picture books. She came in early, before the bell.\n\nI saw older kids walking past the school office before class. Two of them. They were carrying something between them. I did not look closely.\n\nFelix the fox was at the door of his second grade classroom when I walked past it. He was not looking inside. He was looking out the window toward the back of the school.",
+        "She read the list twice.\n\nShe tapped her pencil on the page.\n\nFour people had been doing something this morning that she had not paid attention to. Any one of them could be the gardener. She had time to chase one lead before she had to be back inside."
+      ],
+      "next": "choice-2b"
+    },
+    "choice-2a": {
+      "type": "choice",
+      "prompt": "Which trail does Hazel follow?",
+      "options": [
+        {
+          "id": "choice-2a-cobble",
+          "label": "Follow the heavy footprints",
+          "text": "I will follow the bigger footprints. They were careful and slow, like someone who has done this many times. I want to know where they came from and where they went. The footprints will tell me where the gardener entered and left. That is the most important clue I have right now.",
+          "next": "inv-cobble"
+        },
+        {
+          "id": "choice-2a-fifth",
+          "label": "Follow the dragged marks",
+          "text": "I will follow the marks where something was dragged along the path. Whatever was dragged was light, but the gardener was careful with it. That tells me they were carrying tools, or maybe a basket of something. I want to know what they were doing in the garden, not just who they are.",
+          "next": "inv-fifthgraders"
+        }
+      ]
+    },
+    "choice-2b": {
+      "type": "choice",
+      "prompt": "Who does Hazel go talk to?",
+      "options": [
+        {
+          "id": "choice-2b-feather",
+          "label": "Look into Mrs. Featherwhistle",
+          "text": "I will go to the library and find Mrs. Featherwhistle. She came to our classroom early today. She is always here before any of the other teachers. She has a key to every part of the school. If anyone could be tending a hidden garden in the morning, it could be her. I will go ask in the gentlest way I can.",
+          "next": "inv-featherwhistle"
+        },
+        {
+          "id": "choice-2b-felix",
+          "label": "Look into Felix",
+          "text": "I will find Felix. He was looking out the window toward the back of the school this morning, and he did not look like he was waiting for someone. He looked like he was checking on something. Felix is the kind of person who keeps quiet things to himself. I will go and ask him carefully.",
+          "next": "inv-felix"
+        }
+      ]
+    },
+    "inv-cobble": {
+      "type": "read",
+      "label": "Mr. Cobble's Bakery",
+      "pages": [
+        "The footprints led from the back gate of the schoolyard, around the corner, and down the alley that ran behind Cobble's Bakery.\n\nHazel followed them carefully. The morning sun was higher now, and the golden traces in her magnifying glass were getting thin. She had to hurry.\n\nThe footprints stopped at the back door of the bakery.\n\nShe tucked the glass away and knocked.",
+        "Mr. Cobble opened the door, blinking down at her. He was a big, gentle badger with flour up to his elbows.\n\n\"Hazel? Are you not supposed to be at school?\"\n\n\"Recess,\" she said. \"Mr. Cobble, can I ask you something strange?\"\n\nHe smiled the slow Mr. Cobble smile. \"Strange is the only kind of question worth asking.\"\n\nShe took a breath.\n\n\"Do you tend the garden behind the school?\"",
+        "For a long moment, Mr. Cobble said nothing. Then he stepped back and opened the door wider.\n\n\"Come inside for one minute. I want to show you something.\"\n\nShe followed him through the warm bakery, past the great stone oven, into the small back room where he kept his ingredients. On the long wooden shelf there were jars and bunches of dried herbs. Lavender. Rosemary. Tiny white flowers Hazel did not recognize. And, on a small plate, a sprig of green leaves shaped like tiny hearts.",
+        "\"I grew up on a farm,\" Mr. Cobble said quietly. \"Far from here. My mother had a garden. She put fresh herbs in everything she baked, and she said it was the herbs that made people come back. Not the bread. The herbs.\"\n\nHe held up the sprig with the heart-shaped leaves.\n\n\"I have been tending my herbs in the back of the school for twenty-three years now, since I first came to Hollowsdale. Mrs. Sproul was the headmistress then, and she gave me a corner of her garden for my plants. I tend them every morning before I open the bakery. I use the herbs in my breads. The white flowers go on the wedding loaves. The lavender goes in the honey buns.\"",
+        "He paused.\n\n\"There are other people who tend things back there too. I do not always know who. We do not get in each other's way. The garden is big enough to be quiet for all of us.\"\n\nHazel's eyes were very wide.\n\n\"Why does no one know?\"\n\nMr. Cobble laughed softly. \"Why would they? It is not a secret. It is just quiet. I do my work, and the garden does its work, and the bread does its work. Sometimes the best things are the ones nobody talks about.\""
+      ],
+      "next": "choice-3-cobble"
+    },
+    "choice-3-cobble": {
+      "type": "choice",
+      "prompt": "How does Hazel respond?",
+      "options": [
+        {
+          "id": "choice-3-cobble-x",
+          "label": "Ask if she can see the garden",
+          "text": "I want to see the garden up close, Mr. Cobble. Not through the knothole. I want to know the names of the plants. I want to know what the heart-shaped leaves are for. I do not want to write about it or tell anybody. I just want to know it. Will you show me sometime.",
+          "next": "res-cobble"
+        },
+        {
+          "id": "choice-3-cobble-y",
+          "label": "Promise to keep it quiet",
+          "text": "Mr. Cobble, I will not tell anyone. Not because it is a secret, but because you said it is something quiet. I will let it stay quiet. I will walk past the fence and know that you tend a garden there, and that will be enough for me. Thank you for telling me.",
+          "next": "res-cobble"
+        }
+      ]
+    },
+    "res-cobble": {
+      "type": "read",
+      "label": "The Small Wooden Door",
+      "pages": [
+        "Mr. Cobble walked her back to the schoolyard. At the back fence, he opened a small gate Hazel had never noticed before. It was almost hidden in the wood.\n\nThe garden was even more beautiful from the inside.\n\nHe pointed out each plant. Heart-leaf. Lavender. White feverwort. Rosemary. He showed her the small wooden door at the base of the oak tree, which was where he kept his clippers and his trowel and his old gardening apron.",
+        "\"Why a door?\" Hazel asked.\n\n\"Because every garden should have a small mystery in it,\" Mr. Cobble said. \"Something that is just for the imagination. The door does not lead anywhere. But it makes the garden feel like a place where stories could happen.\"\n\nHazel laughed quietly. She thought it might be the wisest thing she had ever heard.\n\nWhen she walked back through the gate, Mr. Cobble pressed something small into her paw. A little sprig of heart-leaf, tied with a thin piece of string.\n\n\"For your apron pocket,\" he said. \"Now you have a piece of the garden too.\""
+      ],
+      "next": "end-cobble"
+    },
+    "end-cobble": {
+      "type": "read",
+      "label": "Ending: The Quiet Work",
+      "pages": [
+        "The afternoon passed sweetly. Hazel did her schoolwork. She read a book about beavers. She did not tell anyone what she had seen. The sprig of heart-leaf in her pocket smelled faintly of fresh bread.\n\nAt the end of the day, Pip slid into the seat beside her.\n\n\"Did you figure it out?\"\n\n\"I figured it out.\"\n\n\"Was it good?\"\n\n\"It was good.\"",
+        "Pip nodded like he had never doubted. \"You see things other people walk past,\" he said. \"And then you let them stay quiet. That is the kind of friend you are.\"\n\nHe held out the second acorn. They split it in half and ate it together as the bell rang.",
+        "That night, when Hazel told her grandma about the day, she pulled out the sprig of heart-leaf and laid it carefully on the table between them.\n\nHer grandma touched it gently, and her eyes went soft.\n\n\"There is a beautiful idea in the old books,\" she said. \"It is called the right hand and the left hand. It says that when you do a good thing, you should do it so quietly that even your other hand does not know you did it.\"",
+        "Hazel thought about Mr. Cobble in his back garden, before the sun was up, planting things that no one would ever see him plant.\n\n\"Mr. Cobble's garden is like that.\"\n\n\"Yes,\" her grandma said. \"And so are most of the things that hold the world together. The quiet work that no one sees.\"\n\nHazel picked up the sprig and looked at it for a long time.\n\nSometimes the best mysteries did not need to be told."
+      ],
+      "isEnding": true,
+      "endingTitle": "Hazel and Mr. Cobble",
+      "next": null
+    },
+    "inv-fifthgraders": {
+      "type": "read",
+      "label": "Voices in the Gym",
+      "pages": [
+        "The dragged marks on the stone path led Hazel back through the garden gate, around the side of the old oak, and out a little break in the fence she had not seen at first. The marks continued down a narrow back path, along the side of the school, all the way to the door of the gym.\n\nThe gym door was propped open with a brick.\n\nHazel listened.",
+        "There were voices inside. Not the loud, echoing voices of children playing. Quieter voices. Working voices. The kind of voices people use when they are trying not to be heard.\n\nShe crept up to the door and peeked inside.\n\nThere were five fifth-graders. They were sitting on the bleachers with a long roll of butcher paper spread out across their laps. One of them was drawing on it with a thick green pencil. The drawing was a map. A map of a garden.\n\nBeside them on the floor was a small wooden wheelbarrow. And in the wheelbarrow were a watering can, a rake with the handle wrapped in cloth, and three little terracotta pots with tiny new plants in them.",
+        "The fifth-grader with the green pencil looked up.\n\n\"Oh.\"\n\nThe other four looked up too. Their faces went the kind of frozen that happens when a secret has just been seen.\n\nThe first one, a tall raccoon with thoughtful eyes, set down the pencil.\n\n\"How did you find us?\"\n\n\"I followed the marks,\" Hazel said. She held up her grandma's magnifying glass. \"From the garden.\"",
+        "The five fifth-graders looked at each other. Something passed between them without words.\n\nThe raccoon smiled, slowly.\n\n\"Come and sit down. I think you ought to know.\"\n\nHis name was Wren. The other four were Indigo (a possum), Felicity (a hedgehog older than Otis, with the same careful little spines), Briar (a hare), and Tobias (a small owl, not related to Mrs. Featherwhistle).",
+        "\"We started the garden last year,\" Wren said. \"Mrs. Sproul, who used to be the headmistress, planted some flowers behind the school a long time ago. She loved gardening more than almost anything. When Mrs. Sproul moved to live with her daughter, she could not take the garden with her, and it started to fade. We did not want it to fade. So we asked the new head if we could take care of it. She said yes, but only if we kept it quiet. She said gardens that are made for show stop being beautiful. So we kept it quiet.\"",
+        "\"You take care of it together?\" Hazel asked.\n\n\"Every morning before class,\" Felicity said. \"We trade off. Two of us each day. We bring tools in the wheelbarrow so no one wonders why we are walking around with rakes.\"\n\n\"Why don't you tell people?\"\n\nThe five fifth-graders all looked at Wren.",
+        "\"Because the garden is not a project,\" Wren said. \"It is not a thing we are doing for credit. It is a thing we are doing because we love it, and because Mrs. Sproul loved it before us. If the school knew, they would put a sign on it. There would be a class trip to it. There would be photographs in the newsletter. And it would stop being what it is.\"\n\nHazel thought about this for a long time.\n\n\"What is it?\"\n\n\"It is a way of keeping the garden alive for someone who cannot tend it anymore.\""
+      ],
+      "next": "choice-3-fifthgraders"
+    },
+    "choice-3-fifthgraders": {
+      "type": "choice",
+      "prompt": "How does Hazel respond?",
+      "options": [
+        {
+          "id": "choice-3-fifth-x",
+          "label": "Ask if she can help",
+          "text": "Can I help with the garden too. Not for credit. Not to be in your group. I just want to help. I am only in first grade but I am very careful and I notice things. I would not even tell my best friend Pip if you did not want me to. I just want to be part of the quiet work.",
+          "next": "res-fifthgraders"
+        },
+        {
+          "id": "choice-3-fifth-y",
+          "label": "Promise to protect their secret",
+          "text": "I will not tell anyone. Not even Pip. The garden is yours. You are doing a beautiful thing. I will walk past that fence every day and I will think of you, and I will not say a word. That is the promise I am making to you right now. Your secret is safe with me.",
+          "next": "res-fifthgraders"
+        }
+      ]
+    },
+    "res-fifthgraders": {
+      "type": "read",
+      "label": "Mrs. Sproul's Notebook",
+      "pages": [
+        "Wren and the others walked Hazel back to the garden gate. They showed her the tools. They showed her the little corner where they kept Mrs. Sproul's old gardening notebook, full of her careful drawings and the names of every plant.\n\n\"Mrs. Sproul could not write very well by the end,\" Felicity said. \"Her paws shook. But she still drew. Look at this lavender.\"\n\nThe drawing was wobbly, but the love in it was perfect.",
+        "\"She gave the notebook to me before she left,\" Wren said. \"She said I would know who else to give it to when the time came. So far, the time has not come. Maybe it will be you, one day.\"\n\nHazel ran her paw over the drawing, very lightly.\n\nShe felt very small. And very grown-up. Both at once."
+      ],
+      "next": "end-fifthgraders"
+    },
+    "end-fifthgraders": {
+      "type": "read",
+      "label": "Ending: A Quiet Promise",
+      "pages": [
+        "That afternoon, Hazel went back to her desk and did her math worksheet very carefully. She did not look at the fifth-graders when they passed in the hallway. She did not wave. She did not let her eyes catch theirs.\n\nBut Wren, walking past, gave a tiny nod.\n\nIt was a nod that said, welcome.\n\nIt made Hazel sit up a little straighter for the rest of the day.",
+        "At the end of school, Pip slid into the seat next to her with the second acorn from the morning.\n\n\"Did you figure it out?\"\n\n\"I figured it out.\"\n\n\"Are you allowed to tell me?\"\n\nShe thought for a moment.\n\n\"There are some things I am keeping quiet. Even from you. Is that okay?\"\n\nPip considered this seriously. \"If the thing you are keeping is a kind thing, then yes. That is okay.\"\n\n\"It is a kind thing.\"\n\n\"Then I trust you.\"\n\nHe split the acorn between them. They ate it as the last bell rang.",
+        "That night, Hazel told her grandma a careful version of the day. She did not say everything. She just said someone was tending a garden out of love, and not telling anybody about it.\n\nHer grandma listened all the way through.\n\n\"There is a beautiful idea in the old books,\" she said. \"It is called do not let your left hand know what your right hand is doing. It means that the kindest things are the ones we do quietly, with no one watching.\"",
+        "Hazel thought about Wren and Felicity and Briar and Indigo and Tobias, before sunrise, weeding a garden that nobody would ever thank them for.\n\n\"Yes,\" she said. \"That is exactly what they are doing.\"\n\nHer grandma reached across the table and took her paw.\n\n\"You are a keeper of quiet things, my Hazel. That is a rare and important kind of person to be.\""
+      ],
+      "isEnding": true,
+      "endingTitle": "Hazel and the Fifth-graders",
+      "next": null
+    },
+    "inv-featherwhistle": {
+      "type": "read",
+      "label": "Mrs. Featherwhistle's Library",
+      "pages": [
+        "Hazel walked to the library. The library was on the second floor, at the end of the long hall. Mrs. Featherwhistle's door was always open.\n\nShe was at her desk, gently turning the pages of an old book.\n\n\"Hazel,\" she said warmly. \"Come in.\"\n\nHazel sat in the small armchair beside the desk. She did not know how to begin.",
+        "\"Mrs. Featherwhistle,\" she said carefully. \"Were you behind the school this morning, very early, before the bell?\"\n\nMrs. Featherwhistle's eyes went very still. She set down her book.\n\n\"How did you know?\"\n\n\"I did not. I guessed. Because you were here before any of the other teachers. You came to our classroom early. And there is a garden behind the school that someone has been tending.\"\n\nMrs. Featherwhistle was quiet for a moment. Her feathers ruffled gently, the way they did when she was deciding what to share.\n\n\"Will you sit with me?\" she said. \"I will tell you about it.\"",
+        "Mrs. Featherwhistle reached behind her desk and pulled out a thick green book. Hazel knew the book. Mrs. Featherwhistle had read parts of it to the class last winter. It was about a girl who grew a garden inside a stone wall.\n\n\"Do you remember this one?\"\n\n\"Yes.\"\n\n\"There is a flower in this book,\" Mrs. Featherwhistle said. \"It blooms in white at twilight. Have you ever seen one?\"\n\n\"No.\"\n\n\"It is real. It exists. Most people just never get to see one.\"",
+        "She set the book down and opened it to a page in the middle. The drawing showed a small white flower like a star.\n\n\"There is one growing in the garden behind the school,\" she said. \"I planted it there.\"\n\nShe stood up and walked over to the long shelf along the back wall of the library. She pulled down five more books, one at a time, and set them in a stack on her desk.",
+        "\"This one,\" she said, picking up the first. \"There is a plant called heart-leaf in this story. The little hero of the book carries a sprig of it for courage.\"\n\nShe picked up the second. \"This one has lavender. The grandmother in this story tucks lavender into every letter she sends.\"\n\nThe third. \"This one has rosemary. The brother and sister find it growing wild on the day they finally come home.\"\n\nThe fourth. \"This one has tall white feverwort. It is the flower the king's youngest daughter loves best.\"\n\nThe fifth. \"This one has tiny yellow stars called common forget-me-not. They are how the little fox finds her way back.\"",
+        "She looked at Hazel.\n\n\"Every plant I have planted in that garden comes from a book. Every single one.\"\n\nHazel was very quiet.\n\n\"Why?\" she finally asked.\n\nMrs. Featherwhistle smiled.\n\n\"Because once a year, on the last day of school, I take one child into the garden. Just one. A child who has loved books with me that year. And I read them the story that the plant came from, sitting on the bench, with the real plant growing right beside us.\"",
+        "Her wing rested gently on the stack of books.\n\n\"I have been doing it for a long time. Most of the children who got to go are grown up now. Some of them still write to me about it. They remember it. They say it was one of the most magical days of their whole childhood.\"\n\n\"Who picks the child?\" Hazel whispered.\n\nMrs. Featherwhistle's eyes had a soft warmth in them.\n\n\"I do. I notice all year. I notice who pays attention when I read. I notice who comes back for more books. I notice who treats stories the way stories deserve to be treated.\"",
+        "Hazel did not breathe for a moment.\n\n\"Have you picked this year's child?\"\n\nMrs. Featherwhistle smiled.\n\n\"Not yet. But I am noticing.\""
+      ],
+      "next": "choice-3-featherwhistle"
+    },
+    "choice-3-featherwhistle": {
+      "type": "choice",
+      "prompt": "How does Hazel respond?",
+      "options": [
+        {
+          "id": "choice-3-feather-x",
+          "label": "Ask which book she would read first",
+          "text": "Mrs. Featherwhistle, which one of those books would you read in the garden first. I would love to know. Not because I want to be picked. Just because I want to know which story the garden begins with. I think a story that begins a garden is the most important story of all.",
+          "next": "res-featherwhistle"
+        },
+        {
+          "id": "choice-3-feather-y",
+          "label": "Promise to keep it quiet",
+          "text": "Mrs. Featherwhistle, I will not tell anyone about the garden, or the plants, or the books, or the last day of school. It is yours. It is for the children you choose. I do not want to spoil it for the next child. I will walk past the fence and know that something beautiful is waiting there.",
+          "next": "res-featherwhistle"
+        }
+      ]
+    },
+    "res-featherwhistle": {
+      "type": "read",
+      "label": "The Twilight Flowers",
+      "pages": [
+        "Mrs. Featherwhistle walked her back to the back fence at the end of the day. Together they slipped through the small hidden gate Hazel had not noticed before.\n\nThe garden was even more beautiful from the inside. The white flowers were still closed in the afternoon light, but Mrs. Featherwhistle pointed at them.\n\n\"Those are the twilight ones. They will not open until the day is almost over. He said that was when the world was most honest.\"",
+        "She walked Hazel slowly down the stone path, naming the plants from each book as they went. Heart-leaf for courage. Lavender for letters. Rosemary for coming home. Feverwort for the king's youngest daughter. Forget-me-not for finding the way.\n\nShe paused at the bench.\n\n\"Every spring,\" Mrs. Featherwhistle said, \"I plant something new. Whatever book has been the most loved that year. Whatever plant from it I can find. The garden grows the way the library grows. One story at a time.\"",
+        "Hazel sat on the bench beside her. The afternoon light was gold and slow. The leaves of the great oak rustled overhead.\n\nShe thought she might never have sat in a place so full of waiting."
+      ],
+      "next": "end-featherwhistle"
+    },
+    "end-featherwhistle": {
+      "type": "read",
+      "label": "Ending: Preparing a Place",
+      "pages": [
+        "The rest of the school day passed in a quieter way. Hazel did her schoolwork. She read a book in the reading corner, which had always been Mrs. Featherwhistle's place, and now felt a little more like a place she understood.\n\nWhen Mrs. Featherwhistle came in to collect a stack of returned books, their eyes met for just a moment, and Mrs. Featherwhistle gave the smallest nod.\n\nIt was a nod that meant, thank you.",
+        "At the end of the day, Pip slid into the seat next to her with the second acorn.\n\n\"Did you figure it out?\"\n\n\"I figured it out.\"\n\n\"Was it a good thing?\"\n\n\"It was the most beautiful thing I have ever found out about. With a little waiting in it.\"\n\nPip thought for a moment. \"Waiting can be very nice. Especially if you trust the person you are waiting on.\"\n\nHe split the acorn between them. They ate it together as the last bell rang.",
+        "That night, Hazel told her grandma about the books and the plants. About the white flowers that opened at twilight. About the way Mrs. Featherwhistle picks one child a year, and reads them the story their plant came from, sitting in the garden.\n\nHer grandma listened all the way through. Her eyes shone in the warm kitchen light.\n\n\"There is a beautiful idea in the old books,\" she said. \"It says that someone is preparing a place for the people they love. Not so they can show it off. Just so it is ready when the right person walks in.\"",
+        "Hazel thought about Mrs. Featherwhistle, before the sun was up, planting one more flower from one more story, getting the garden ready for a child she had not yet picked.\n\n\"Yes,\" she said. \"That is exactly what she is doing.\"\n\nHer grandma smiled. \"Some of the most beautiful things in the world are made ready in advance, by someone who loves us, before we even know to want them.\"",
+        "Hazel tucked her chin onto her paws and looked at the ceiling.\n\n\"Grandma?\"\n\n\"Yes.\"\n\n\"I think I want to be the kind of person who prepares places for other people.\"\n\nHer grandma reached across the table and took her paw.\n\n\"Then you will be.\""
+      ],
+      "isEnding": true,
+      "endingTitle": "Hazel and Mrs. Featherwhistle",
+      "next": null
+    },
+    "inv-felix": {
+      "type": "read",
+      "label": "Felix at the Window",
+      "pages": [
+        "Hazel found Felix in the second grade hallway, leaning against the wall by the window. He was looking out toward the back of the school.\n\n\"Felix.\"\n\nHe turned. He looked surprised to see her, but not unhappy.\n\n\"Hazel. Hi. Aren't you supposed to be at recess?\"\n\n\"Aren't you?\"",
+        "Felix laughed, but it was a small laugh.\n\n\"I am taking my recess in here,\" he said. \"I am thinking about something.\"\n\n\"I know,\" Hazel said. \"I was thinking about something too.\"\n\nShe stood next to him. The window faced the back schoolyard, and from this angle you could just see the top of the old oak tree over the fence.\n\n\"Felix. Were you out behind the school this morning, very early?\"",
+        "For a moment, Felix said nothing. Then he sighed in a way that was a little tired and a little relieved at the same time.\n\n\"Hazel, you really do notice everything.\"\n\n\"It is a thing about me.\"\n\nHe smiled. \"Yes. I went out before school. I have been going out every morning for about a month.\"\n\n\"Why?\"",
+        "He looked back out the window. The oak tree's red-orange leaves moved gently in the wind.\n\n\"It is my sister's garden,\" he said. \"Was. She graduated from Hollowsdale Primary last year and moved up to the middle school. Before she left, she made me promise. She made the garden when she was in fifth grade, and she did not want it to die just because she was not there anymore. So I promised her I would tend it until she could come back and visit. I tend it every morning. I sweep the path. I water the plants. I pick the weeds. I do not tell anybody, because she did not want a fuss.\"",
+        "Hazel was quiet for a moment. She remembered standing at the bridge that morning with Pip and his two acorns, ready and prepared. She thought about what it meant to keep a promise nobody else knew you had made.\n\n\"Does she know you do it every day?\"\n\nFelix shook his head.\n\n\"I told her I would. I have not told her that I have. I do not want her to feel guilty that I am giving up my mornings. I think when she comes back to visit, in the spring, she will see how beautiful it is, and she will know.\"",
+        "Hazel looked at Felix sideways.\n\n\"That is a very good kind of promise to keep.\"\n\nFelix shrugged the easy older-kid shrug. But Hazel could see he was a little pleased."
+      ],
+      "next": "choice-3-felix"
+    },
+    "choice-3-felix": {
+      "type": "choice",
+      "prompt": "How does Hazel respond?",
+      "options": [
+        {
+          "id": "choice-3-felix-x",
+          "label": "Offer to help him tend it",
+          "text": "Felix, can I help you sometimes. I would not get in the way. I could just watch the first few times and learn. I notice small things and I am very careful. You are doing this every single morning by yourself and that is a lot. I would like to be the one other person who knows about this with you.",
+          "next": "res-felix"
+        },
+        {
+          "id": "choice-3-felix-y",
+          "label": "Promise to keep his secret",
+          "text": "Felix, I will not tell anyone. Not Pip. Not Otis. Not even my grandma all the way. I will keep your sister's garden quiet because that is what she asked for and that is what you promised her. A promise a brother makes to his sister is a serious thing. I will help you keep it.",
+          "next": "res-felix"
+        }
+      ]
+    },
+    "res-felix": {
+      "type": "read",
+      "label": "His Sister's Door",
+      "pages": [
+        "After school, Felix took Hazel through the small hidden gate she had not noticed before, and showed her the garden up close.\n\nHe pointed out his sister's favorite plants. The lavender she had planted in her first year of fifth grade. The tall stalks with the white flowers, which his sister had named after their grandmother. The stone bench where she had liked to sit and read.\n\nHe pointed to a small wooden door at the base of the oak tree.",
+        "\"My sister built that door. She said every garden should have one.\"\n\n\"Why?\"\n\n\"She said gardens are places where stories happen. The door does not lead to anywhere. It is just for the imagination.\"\n\nHazel laughed quietly.\n\n\"I think your sister would have been a very good Hazel.\"\n\nFelix smiled. \"She is. She would have liked you.\""
+      ],
+      "next": "end-felix"
+    },
+    "end-felix": {
+      "type": "read",
+      "label": "Ending: A Faithful Promise",
+      "pages": [
+        "The rest of the day passed gently. Hazel did her math. She read about a beaver building a library. She did not look at Felix when he passed in the hallway, because that is what you do for a quiet promise.\n\nBut once, when their eyes accidentally met, he gave the smallest nod.\n\nIt was a nod that meant, thank you.",
+        "At the end of the day, Pip slid into the seat next to her.\n\n\"Did you figure it out?\"\n\n\"I figured it out.\"\n\n\"Are you keeping a secret?\"\n\n\"A small one. A kind one.\"\n\nPip nodded slowly. \"I trust you.\"\n\nHe split the acorn between them. They ate it together as the bell rang.",
+        "That night, Hazel told her grandma a careful version of the day. She did not say Felix's name. She did not say the garden was for a sister. She just said someone was keeping a quiet promise to someone they loved every day.\n\nHer grandma listened until the end.\n\n\"There is a beautiful idea in the old books,\" she said. \"It says that love bears all things. It believes all things. It hopes all things. It endures all things. It means that the truest love is the kind that keeps showing up, even when no one is watching. Even when no one knows. The faithful kind.\"",
+        "Hazel thought about Felix sweeping the stone path before sunrise.\n\n\"Yes,\" she said. \"That is exactly what he is doing.\"\n\nHer grandma squeezed her paw.\n\n\"Some of the best people you will meet in your whole life will be people who are quietly faithful. Look out for them. They are everywhere. Most of the time, you will not notice.\"\n\n\"I will try to notice,\" Hazel said.\n\n\"I know you will.\""
+      ],
+      "isEnding": true,
+      "endingTitle": "Hazel and Felix",
+      "next": null
+    }
+  }
+}
